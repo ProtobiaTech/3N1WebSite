@@ -1,0 +1,24 @@
+/**
+ * scss style
+ *
+ * 加载器，用于加载所有需要scss文件，以便复用在theme中
+ */
+
+
+//
+// Module scss file
+// ------------------------------
+@import "modules/layout.scss";                              // 布局样式
+
+
+//
+// Components scss file
+// ------------------------------
+
+
+//
+// Module scss file
+// ------------------------------
+@import "modules/admin.scss";
+
+

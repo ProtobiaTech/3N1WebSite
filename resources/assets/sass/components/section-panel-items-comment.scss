@@ -1,0 +1,53 @@
+/**
+ * scss style
+ *
+ * 
+ */
+
+//
+// 
+// ------------------------------
+#section-items-comment {
+    .panel-body {
+        padding-top: 2px;
+        padding-bottom: 2px;
+
+        .item-comment {
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            .avatar {
+                padding-right: 10px;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 4px;
+                    background-color: #ddd;
+                }
+            }
+
+            .body {
+                padding-left: 58px;
+                padding-top: 3px;
+
+                .info {
+                    color: #999;
+
+                    .separator {
+                        padding: 0 5px;
+                    }
+                }
+
+                .content {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+}

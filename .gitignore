@@ -1,0 +1,10 @@
+/vendor
+/node_modules
+/public/bowerAssets
+Homestead.yaml
+.env
+
+tests/_output/*
+
+public/assets/style/*
+public/images

@@ -1,0 +1,95 @@
+/**
+ * less style
+ *
+ * 页面
+ */
+
+//
+// 话题模块
+// ------------------------------
+#section-items-topic {
+    .panel-heading {
+        .filter {
+            margin-left: 2px;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 25px;
+            height: 25px;
+
+            a {
+                margin: 0 2px;
+                font-size: 10px;
+            }
+
+            .selected {
+                color: #999;
+                text-decoration: none;
+                cursor: default;
+            }
+        }
+    }
+
+    .panel-body {
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        .item-topic {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+
+            // 头像
+            .avatar {
+                padding-right: 10px;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 4px;
+                    background-color: #ddd;
+                }
+            }
+
+            //
+            .topic-text {
+                .title {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    padding-top: 3px;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+
+                .info {
+                    color: #999;
+                    .nodeName {
+                        border-radius: 2px;
+                        padding: 0 6px;
+                        margin-right: 5px;
+                        display: inline-block;
+                        background-color: #eee;
+                    }
+                    .separator {
+                        padding: 0 5px;
+                    }
+                }
+            }
+
+            //
+            .badge-number {
+                margin-top: 14px;
+            }
+
+            &:nth-last-child(2),
+            &:nth-last-child(1) {
+                border-bottom-color: transparent;
+            }
+
+            &.col-sm-12:nth-last-child(2) {
+                border-bottom: 1px solid #ddd;
+            }
+
+        }
+    }
+}

@@ -1,0 +1,70 @@
+#cy-me {
+    /**
+     * Notice Panel
+     */
+    .panel-notice {
+        .header {
+            .caption {
+                font-size: 22px;
+            }
+        }
+
+        .items-notice {
+            padding-top: 5px;
+
+            .item-notice {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+
+
+    /**
+     * User Panel
+     */
+    .panel-userProfile {
+        .pic {
+            position: relative;
+            margin-bottom: 4px;
+
+
+            img {
+                max-width: 181px;
+                width: 100%;
+
+                &:hover {
+                    & + .btn-float {
+                        display: block;
+                    }
+                }
+            }
+            .btn-float {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: none;
+                width: 181px;
+                background-color: rgba(60, 60, 60, 0.6);
+                font-size: 16px;
+                line-height: 2em;
+                color: #ddd;
+                text-decoration: none;
+
+                @media (min-width: 992px) {
+                    left: 25px;
+                }
+
+                &:hover {
+                    display: block;
+                    color: #eee;
+                }
+            }
+        }
+    }
+}

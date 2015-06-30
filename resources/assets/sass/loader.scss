@@ -1,0 +1,32 @@
+/**
+ * scss style
+ *
+ * 加载器，用于加载所有需要scss文件，以便复用在theme中
+ */
+
+
+//
+// Module scss file
+// ------------------------------
+@import "modules/layout.scss";                              // 布局样式
+
+
+//
+// Components scss file
+// ------------------------------
+@import "components/section-panel-items-nodeCategory.scss"; // 节点分类模块
+@import "components/section-panel-items-topic.scss";        // 话题模块
+@import "components/section-panel-topic.scss";              // 话题面板
+@import "components/section-panel-items-comment.scss";                  // 热门节点区域
+@import "components/section-hotNode.scss";                  // 热门节点区域
+@import "components/bs-panel.scss";                         // Panel 样式
+
+
+//
+// Module scss file
+// ------------------------------
+@import "modules/me.scss";
+@import "modules/admin.scss";
+@import "modules/reset.scss";                               // 重置样式
+
+

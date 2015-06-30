@@ -1,0 +1,24 @@
+#cy-dashboard {
+    #header {
+        margin-top: 20px;
+        margin-bottom: 25px;
+
+        h1 {
+            margin: 0;
+            display: inline-block;
+
+            & > a {
+                text-decoration: none;
+                color: #444;
+
+            }
+
+            small {
+                a {
+                    color: #666;
+                }
+                font-size: 16px;
+            }
+        }
+    }
+}

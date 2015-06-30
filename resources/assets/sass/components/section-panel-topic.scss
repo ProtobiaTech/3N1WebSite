@@ -1,0 +1,38 @@
+/**
+ * less style
+ *
+ * 页面
+ */
+
+//
+// 
+// ------------------------------
+.section-panel-topic {
+    .topic-header {
+        .avatar {
+            padding-right: 10px;
+            img {
+                border-radius: 4px;
+                height: 48px;
+                width: 48px;
+                background-color: #ddd;
+            }
+        }
+
+        .info {
+            font-size: 14px;
+            color: #999;
+
+            .nodeName {
+                border-radius: 2px;
+                padding: 0 6px;
+                display: inline-block;
+                background-color: #eee;
+            }
+            .separator {
+                padding: 0 5px;
+            }
+        }
+
+    }
+}

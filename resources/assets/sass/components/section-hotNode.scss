@@ -1,0 +1,43 @@
+/**
+ * less style
+ *
+ * 页面
+ */
+
+//
+// 
+// ------------------------------
+.section-hotNode {
+    margin-bottom: 5px;
+
+    .label {
+        margin-bottom: 5px;
+        padding: 0;
+        display: inline-block;
+        background-color: #ddd;
+
+        a {
+            display: inline-block;
+            padding: 2px 20px;
+            color: #fff;
+            height: 25px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        &:hover {
+            a {
+                text-decoration: none;
+            }
+            background-color: #d2d2d2;
+        }
+
+        &.selected {
+            a {
+                text-decoration: none;
+                cursor: default;
+            }
+            background-color: #bfbfbf;
+        }
+    }
+}

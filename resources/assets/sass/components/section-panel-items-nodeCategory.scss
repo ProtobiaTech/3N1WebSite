@@ -1,0 +1,37 @@
+/**
+ * less style
+ *
+ * 页面
+ */
+
+//
+// 节点分类模块
+// ------------------------------
+#section-items-nodeCategory {
+    .item-nodeCategory {
+        margin-bottom: 10px;
+
+        .name {
+            a {
+                font-size: 16px;
+                color: #555;
+
+                &:hover {
+                    text-decoration: none;
+                    color: #444;
+                }
+            }
+        }
+
+        .items-node {
+            a {
+                margin: 0 20px;
+                white-space: nowrap;
+            }
+        }
+
+        &:last-of-typ {
+            margin-bottom: 0;
+        }
+    }
+}

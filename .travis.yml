@@ -1,0 +1,11 @@
+language: php
+php:
+  - 5.6
+before_script:
+  - mysql -e 'create database `d4l_newcommunity`;'
+  - composer install -n
+  - cp .env.testing .env
+  - php artisan migrate --seed -n
+  - ./vendor/bin/codecept build
+script: 
+  - ./vendor/bin/codecept run
