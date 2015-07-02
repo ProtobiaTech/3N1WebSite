@@ -144,6 +144,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         *
+         */
+        'Barryvdh\Debugbar\ServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
     ],
 
     /*
@@ -192,6 +198,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
+        'Flash'     => 'Laracasts\Flash\Flash',
+        'Form'      => 'Illuminate\Html\FormFacade',
+        'HTML'      => 'Illuminate\Html\HtmlFacade',
     ],
 
 ];

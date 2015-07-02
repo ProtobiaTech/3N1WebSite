@@ -1,0 +1,240 @@
+/**
+ * less style
+ *
+ * Less架构的主文件
+ */
+/**
+ * less style
+ *
+ * 变量文件
+ */
+/**
+ * less style
+ *
+ * 加载器，用于加载所有需要less文件，以便复用在theme中
+ */
+/**
+ * less style
+ *
+ * Layout 布局样式
+ */
+body {
+  background-color: #eeeeee;
+  font-weight: 300;
+}
+footer {
+  margin-top: 10px;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+#section-items-nodeCategory .item-nodeCategory {
+  margin-bottom: 10px;
+}
+#section-items-nodeCategory .item-nodeCategory .name a {
+  font-size: 16px;
+  color: #555;
+}
+#section-items-nodeCategory .item-nodeCategory .name a:hover {
+  text-decoration: none;
+  color: #444;
+}
+#section-items-nodeCategory .item-nodeCategory .items-node a {
+  margin: 0 20px;
+}
+#section-items-nodeCategory .item-nodeCategory:last-of-typ {
+  margin-bottom: 0;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+#section-items-topic .panel-heading .filter {
+  margin-left: 2px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 25px;
+  height: 25px;
+}
+#section-items-topic .panel-heading .filter a {
+  margin: 0 2px;
+  font-size: 10px;
+}
+#section-items-topic .panel-heading .filter .selected {
+  color: #999;
+  text-decoration: none;
+  cursor: default;
+}
+#section-items-topic .panel-body {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#section-items-topic .panel-body .item-topic {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+#section-items-topic .panel-body .item-topic .avatar {
+  padding-right: 10px;
+}
+#section-items-topic .panel-body .item-topic .avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+#section-items-topic .panel-body .item-topic .topic-text .title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 3px;
+  font-size: 16px;
+  line-height: 24px;
+}
+#section-items-topic .panel-body .item-topic .topic-text .info {
+  color: #999;
+}
+#section-items-topic .panel-body .item-topic .topic-text .info .nodeName {
+  border-radius: 2px;
+  padding: 0 6px;
+  margin-right: 5px;
+  display: inline-block;
+  background-color: #eee;
+}
+#section-items-topic .panel-body .item-topic .topic-text .info .separator {
+  padding: 0 5px;
+}
+#section-items-topic .panel-body .item-topic .badge-number {
+  margin-top: 14px;
+}
+#section-items-topic .panel-body .item-topic:nth-last-child(1),
+#section-items-topic .panel-body .item-topic:nth-last-child(2) {
+  border-bottom-color: transparent;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+.section-panel-topic .topic-header .avatar {
+  padding-right: 10px;
+}
+.section-panel-topic .topic-header .avatar img {
+  border-radius: 4px;
+  height: 48px;
+  width: 48px;
+  background-color: #ddd;
+}
+.section-panel-topic .topic-header .info {
+  font-size: 14px;
+  color: #999;
+}
+.section-panel-topic .topic-header .info .nodeName {
+  border-radius: 2px;
+  padding: 0 6px;
+  display: inline-block;
+  background-color: #eee;
+}
+.section-panel-topic .topic-header .info .separator {
+  padding: 0 5px;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+.section-items-reply .panel-body {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.section-items-reply .panel-body .item-reply {
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+.section-items-reply .panel-body .item-reply:last-of-type {
+  border-bottom: none;
+}
+.section-items-reply .panel-body .item-reply .avatar {
+  padding-right: 10px;
+}
+.section-items-reply .panel-body .item-reply .avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+.section-items-reply .panel-body .item-reply .body {
+  padding-left: 58px;
+  padding-top: 3px;
+}
+.section-items-reply .panel-body .item-reply .body .info {
+  color: #999;
+}
+.section-items-reply .panel-body .item-reply .body .info .nodeName {
+  border-radius: 2px;
+  padding: 0 6px;
+  margin-right: 5px;
+  display: inline-block;
+  background-color: #eee;
+}
+.section-items-reply .panel-body .item-reply .body .info .separator {
+  padding: 0 5px;
+}
+.section-items-reply .panel-body .item-reply .body .content {
+  margin-top: 5px;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+.section-hotNode {
+  margin-bottom: 5px;
+}
+.section-hotNode .label {
+  margin-bottom: 5px;
+  padding: 0;
+  display: inline-block;
+  background-color: #ddd;
+}
+.section-hotNode .label a {
+  display: inline-block;
+  padding: 2px 20px;
+  color: #fff;
+  height: 25px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.section-hotNode .label:hover {
+  background-color: #d2d2d2;
+}
+.section-hotNode .label:hover a {
+  text-decoration: none;
+}
+.section-hotNode .label.selected {
+  background-color: #bfbfbf;
+}
+.section-hotNode .label.selected a {
+  text-decoration: none;
+  cursor: default;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+.panel .panel-heading .shortcut {
+  font-size: 14px;
+  line-height: 25px;
+}
+/**
+ * less style
+ *
+ * 页面
+ */
+.panel .panel-heading {
+  font-size: 18px;
+}

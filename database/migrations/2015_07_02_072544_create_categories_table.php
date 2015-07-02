@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name')->index();
             $table->string('weight')->nullable()->index();
             $table->smallInteger('parent_id')->default(0)->index();
+            $table->smallInteger('type_id')->default(0)->index();
             $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();

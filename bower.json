@@ -1,0 +1,17 @@
+{
+  "name": "null",
+  "description": "",
+  "keywords": [
+  ],
+  "main": [
+  ],
+  "ignore": [
+  ],
+  "dependencies": {
+    "bootstrap": "~ 3",
+    "fontawesome": "~ 4",
+    "jquery-pjax": "latest",
+    "nprogress": "~ 0.2"
+
+  }
+}
