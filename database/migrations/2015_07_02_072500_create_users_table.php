@@ -14,12 +14,24 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->index();
+            $table->string('phone')->nullable();
+            $table->string('name')->nullable()->index();
             $table->string('password', 60);
-            $table->rememberToken();
+            $table->string('remember_token')->nullable();
+            $table->boolean('is_banned')->default(false)->index();
+            $table->string('avatar')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
+
+        // 管理员用户
+        App\User::create([
+            'id'    =>  1,
+            'email' =>  'admin@admin.local',
+            'name'  =>  'admin',
+            'password'  =>  bcrypt('admin'),
+        ]);
     }
 
     /**
