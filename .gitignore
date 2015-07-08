@@ -3,3 +3,5 @@
 /public/bowerAssets
 Homestead.yaml
 .env
+
+tests/_output/*
