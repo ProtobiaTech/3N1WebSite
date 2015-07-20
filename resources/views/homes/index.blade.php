@@ -5,7 +5,7 @@
 <div class="container">
     <div class="panel panel-default" id="section-items-topic">
         <div class="panel-heading">
-            Excellent Topics
+            {{ i18n('app.Excellent Topics') }}
             <div class="pull-right shortcut">
                 <a href="{{ route('topic.index') }}">{{ i18n('app.More') }}</a>
             </div>

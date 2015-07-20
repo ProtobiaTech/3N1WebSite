@@ -35,5 +35,6 @@ return [
     'My Reply'         =>      '我的回复',
     'PublishedDay'         =>      ':day天前发布',
 
+    'Where is null'     =>   '无数据',
 
 ];
