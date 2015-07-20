@@ -16,7 +16,7 @@
 
             <div class="panel panel-default" id="section-items-topic">
                 <div class="panel-heading">
-                    {{ i18n('app.Topics') }}
+                    <a href="{{ url('/topic') }}">{{ i18n('app.Topics') }}</a>
 
                     <!-- Filter -->
                     <div class="filter">

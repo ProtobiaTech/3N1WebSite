@@ -36,24 +36,24 @@
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">{{ i18n('app.Home') }}</a></li>
                 <li class="{{ Request::is('topic*') ? 'active' : '' }}"><a href="{{ url('/topic') }}">{{ i18n('app.Topics') }}</a></li>
-                <li><a href="{{ url('/page/about') }}">{{ i18n('app.About') }}</a></li>
+                <!-- <li class=""><a href="{{ url('/page/about') }}">{{ i18n('app.About') }}</a></li> -->
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-rocket"></i> {{ i18n('app.Launch') }}</a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/topic/create') }}"><i class="fa fa-plus"></i> 发布主题</a></li>
+                        <li><a href="{{ url('/topic/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ i18n('app.Create Topic') }}</a></li>
                     </ul>
                 </li>
                 @if (Auth::guest())
-                    <li class="{{ Request::is('auth/login') ? 'active' : '' }}"><a href="{{ url('/auth/login') }}">Login</a></li>
-                    <li class="{{ Request::is('auth/register') ? 'active' : '' }}"><a href="{{ url('/auth/register') }}">Register</a></li>
+                    <li class="{{ Request::is('auth/login') ? 'active' : '' }}"><a href="{{ url('/auth/login') }}">{{ i18n('app.Login') }}</a></li>
+                    <li class="{{ Request::is('auth/register') ? 'active' : '' }}"><a href="{{ url('/auth/register') }}">{{ i18n('app.Register') }}</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                            <li><a href="{{ url('/auth/logout') }}">{{ i18n('app.Logout') }}</a></li>
                         </ul>
                     </li>
                 @endif

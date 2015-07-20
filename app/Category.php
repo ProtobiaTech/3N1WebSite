@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     /**
+     * @var array Mass assignment
+     */
+    protected $fillable = ['name', 'parent_id', 'description', 'type_id'];
+
+    /**
      * Topic of type_id column
      *
      * @var int

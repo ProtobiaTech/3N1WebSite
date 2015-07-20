@@ -17,7 +17,7 @@
                         <a href="#">{{ $topic->author->name }}</a>
                         <span class="nodeName">{{ $topic->category->name }}</span>
                         <span class="separator">|</span>
-                        <span>Published 11 {{ i18n('app.Day') }} before</span>
+                        <span>{{ i18n('app.PublishedDay', ['day' => 11]) }}</span>
                         <span class="separator">|</span>
                         <span>11 {{ i18n('app.Reply') }}</span>
                     </div>
@@ -28,13 +28,13 @@
 
                     <hr>
                     <div class="" style="margin-top:-10px">
-                        <span>Share</span> &nbsp;
+                        <span>{{ i18n('app.Share') }}</span> &nbsp;
                         <a><i class="fa fa-twitter"></i></a>
                         <a><i class="fa fa-facebook"></i></a>
                         <a><i class="fa fa-weibo"></i></a>
 
                         <div class="pull-right">
-                            <a href="#anchor-reply"><i class="fa fa-reply"></i> Reply</a>
+                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ i18n('app.Reply') }}</a>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="panel panel-default">
-                <div id="anchor-reply" class="panel-heading">{{ i18n('app.Reply') }}</div>
+                <div id="anchor-reply" class="panel-heading">{{ i18n('app.My Reply') }}</div>
                 <div class="panel-body">
                     @if (Auth::guest())
                         <div>
