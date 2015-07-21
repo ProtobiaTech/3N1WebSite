@@ -7,7 +7,9 @@
     <title>Community</title>
 
     <link href="{{ asset('/bowerAssets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/style/style_old.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/style/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('bowerAssets/jquery/dist/jquery.min.js') }}"></script>
 
     <!-- Fonts -->
 
@@ -53,6 +55,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/me') }}">{{ trans('app.User Center') }}</a></li>
                             <li><a href="{{ url('/auth/logout') }}">{{ i18n('app.Logout') }}</a></li>
                         </ul>
                     </li>
@@ -83,7 +86,6 @@
 </footer>
 
 <!-- Scripts -->
-<script src="{{ asset('bowerAssets/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('bowerAssets/jquery-pjax/jquery.pjax.js') }}"></script>
 <script src="{{ asset('bowerAssets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('bowerAssets/nprogress/nprogress.js') }}"></script>

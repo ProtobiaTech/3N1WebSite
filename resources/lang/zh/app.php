@@ -17,6 +17,7 @@ return [
     'Register'                =>          '注册',
     'Launch'                =>          '快捷操作',
     'Create Topic'                =>          '发布话题',
+    'User Center'                =>          '用户中心',
 
 
     // Topic

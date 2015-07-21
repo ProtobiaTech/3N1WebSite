@@ -5,3 +5,5 @@ Homestead.yaml
 .env
 
 tests/_output/*
+
+public/assets/style/*

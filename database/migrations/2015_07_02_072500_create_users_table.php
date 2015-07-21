@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('remember_token')->nullable();
             $table->boolean('is_banned')->default(false)->index();
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('/assets/images/default-avatar.jpg');
             $table->softDeletes();
             $table->timestamps();
         });

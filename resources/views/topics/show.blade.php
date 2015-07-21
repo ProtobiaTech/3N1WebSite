@@ -8,7 +8,7 @@
             <div class="panel panel-default section-panel-topic">
                 <div class="panel-heading topic-header">
                     <div class="avatar pull-left">
-                        <img>
+                        <img src="{{ $topic->author->avatar }}">
                     </div>
                     <span class="title">
                         {{ $topic->title }}
@@ -50,7 +50,7 @@
                     @foreach ($topic->comments as $comment)
                         <div class="item-reply">
                             <div class="avatar pull-left">
-                                <img>
+                                <img src="{{ $comment->author->avatar }}">
                             </div>
                             <div class="body">
                                 <div class="info">

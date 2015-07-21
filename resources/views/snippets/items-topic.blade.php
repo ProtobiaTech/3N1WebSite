@@ -4,7 +4,7 @@
             <div class="{{ $colType }} item-topic">
                 <!-- Avatar -->
                 <div class="avatar pull-left">
-                    <a> <img src="{{ $topic->avatar }}"> </a>
+                    <a> <img src="{{ $topic->author->avatar }}"> </a>
                 </div>
                 <!-- Reply count -->
                 <div class="badge-number pull-right">
