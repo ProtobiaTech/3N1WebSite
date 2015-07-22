@@ -21,12 +21,12 @@
                         </span>
                         <a>{{ $topic->author->name }}</a>
                         <span class="separator">|</span>
-                        <a>{{ $topic->lastCommentUser->name }}</a> {{ i18n('app.reply') }}
+                        <a>{{ $topic->lastCommentUser->name }}</a> {{ trans('app.reply') }}
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
 @else
-    <div>{{ i18n('app.Where is null') }}</div>
+    <div>{{ trans('app.Where is null') }}</div>
 @endif

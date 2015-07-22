@@ -1,7 +1,7 @@
 <!-- Category  -->
 <div class="container">
     <div class="panel panel-default" id="section-items-nodeCategory">
-        <div class="panel-heading">{{ i18n('app.Node List') }}</div>
+        <div class="panel-heading">{{ trans('app.Node List') }}</div>
         <div class="panel-body">
             <!-- Node category -->
             <?php $nodeCategorys = with(new \App\Category)->getTopic4TopCategorys(); ?>
@@ -22,14 +22,14 @@
                                         <a href="{{ route('topic.index', ['node' => $node->id]) }}">{{ $node->name }}</a>
                                     @endforeach
                                 @else
-                                    <a>{{ i18n('app.Null') }}</a>
+                                    <a>{{ trans('app.Null') }}</a>
                                 @endif
                             </div>
                         </div>
                     </div>
                 @endforeach
             @else
-                <div>{{ i18n('app.Where is null') }}</div>
+                <div>{{ trans('app.Where is null') }}</div>
             @endif
         </div>
     </div>

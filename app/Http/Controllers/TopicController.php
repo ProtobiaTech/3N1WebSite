@@ -65,7 +65,7 @@ class TopicController extends Controller
 
         if ($this->Topic->save()) {
             Flash::success('created new topic');
-            return Redirect::to('/topic');
+            return Redirect::to('/topic/' . $this->Topic->id);
         } else {
             return Redirect::back();
         }

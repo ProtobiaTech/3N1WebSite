@@ -17,24 +17,24 @@
                         <a href="#">{{ $topic->author->name }}</a>
                         <span class="nodeName">{{ $topic->category->name }}</span>
                         <span class="separator">|</span>
-                        <span>{{ i18n('app.PublishedDay', ['day' => 11]) }}</span>
+                        <span>{{ trans('app.PublishedDay', ['day' => 11]) }}</span>
                         <span class="separator">|</span>
-                        <span>11 {{ i18n('app.Reply') }}</span>
+                        <span>11 {{ trans('app.Reply') }}</span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                    {{ $topic->body }}
+                    {!! nl2br($topic->body) !!}
 
                     <hr>
                     <div class="" style="margin-top:-10px">
-                        <span>{{ i18n('app.Share') }}</span> &nbsp;
+                        <span>{{ trans('app.Share') }}</span> &nbsp;
                         <a><i class="fa fa-twitter"></i></a>
                         <a><i class="fa fa-facebook"></i></a>
                         <a><i class="fa fa-weibo"></i></a>
 
                         <div class="pull-right">
-                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ i18n('app.Reply') }}</a>
+                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('app.Reply') }}</a>
                         </div>
                     </div>
                 </div>
@@ -42,10 +42,10 @@
 
             <!--  -->
             <div class="panel panel-default section-items-reply">
-                <div class="panel-heading">{{ i18n('app.replys') }}</div>
+                <div class="panel-heading">{{ trans('app.replys') }}</div>
                 <div class="panel-body">
                     @if (!$topic->comments->count())
-                        <span>{{ i18n('app.no replys') }}</span>
+                        <span>{{ trans('app.no replys') }}</span>
                     @endif
                     @foreach ($topic->comments as $comment)
                         <div class="item-reply">
@@ -59,7 +59,7 @@
                                     <span>{{ date('Y-m-d', $comment->create_at) }}</span>
                                 </div>
                                 <div class="content">
-                                    {{ $comment->body }}
+                                    {!! nl2br($comment->body) !!}
                                 </div>
                             </div>
                         </div>
@@ -68,12 +68,12 @@
             </div>
 
             <div class="panel panel-default">
-                <div id="anchor-reply" class="panel-heading">{{ i18n('app.My Reply') }}</div>
+                <div id="anchor-reply" class="panel-heading">{{ trans('app.My Reply') }}</div>
                 <div class="panel-body">
                     @if (Auth::guest())
                         <div>
-                            {{ i18n('app.Placse') }}
-                            <a href="{{ url('auth/login') }}">{{ i18n('app.Login') }}</a>
+                            {{ trans('app.Placse') }}
+                            <a href="{{ url('auth/login') }}">{{ trans('app.Login') }}</a>
                         </div>
                     @else
                         {!! Form::open(['url' => '/reply', 'class' => '']) !!}
@@ -83,7 +83,7 @@
                                 <p class="help-block help-block-error">{{ $errors->first('body') }}</p>
                             </div>
                             <div class="from-group text-right">
-                                {!! Form::submit(i18n('app.Submit'), ['class' => 'btn btn-default']) !!}
+                                {!! Form::submit(trans('app.Submit'), ['class' => 'btn btn-default']) !!}
                             </div>
                         {!! Form::close() !!}
                     @endif
@@ -92,12 +92,7 @@
          </div>
 
         <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">Community</div>
-                <div class="panel-body">
-                    hello dev4living/Community
-                </div>
-            </div>
+            @include('snippets.panel-topicSide')
         </div>
     </div>
 </div>

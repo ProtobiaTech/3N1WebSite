@@ -16,24 +16,24 @@
 
             <div class="panel panel-default" id="section-items-topic">
                 <div class="panel-heading">
-                    <a href="{{ url('/topic') }}">{{ i18n('app.Topics') }}</a>
+                    <a href="{{ url('/topic') }}">{{ trans('app.Topics') }}</a>
 
                     <!-- Filter -->
                     <div class="filter">
                         <a class="{{ @$_GET['filter'] === 'recent' ? 'selected' : '' }}" href="{{ route('topic.index', ['category' => isset($_GET['category']) ? $_GET['category'] : '', 'filter' => 'recent']) }}">
-                            {{ i18n('app.Recent') }}
+                            {{ trans('app.Recent') }}
                         </a>
                         <a class="{{ @$_GET['filter'] === 'vote' ? 'selected' : '' }}" href="{{ route('topic.index', ['category' => isset($_GET['category']) ? $_GET['category'] : '', 'filter' => 'vote']) }}">
-                            {{ i18n('app.Vote') }}
+                            {{ trans('app.Vote') }}
                         </a>
                         <a class="{{ @$_GET['filter'] === 'noreply' ? 'selected' : '' }}" href="{{ route('topic.index', ['category' => isset($_GET['category']) ? $_GET['category'] : '', 'filter' => 'noreply']) }}">
-                            {{ i18n('app.NoReply') }}
+                            {{ trans('app.NoReply') }}
                         </a>
                     </div>
 
                     <!-- Shortcut -->
                     <div class="pull-right shortcut">
-                        <a href="{{ route('topic.create') }}">{{ i18n('app.Create Topic') }}</a>
+                        <a href="{{ route('topic.create') }}">{{ trans('app.Create Topic') }}</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -46,12 +46,7 @@
             <div style="height:35px">
             </div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Community</div>
-                <div class="panel-body">
-                    hello dev4living/Community
-                </div>
-            </div>
+            @include('snippets.panel-topicSide')
         </div>
     </div>
 </div>
