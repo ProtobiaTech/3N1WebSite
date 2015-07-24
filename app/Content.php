@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Comment;
+use App\Comment, App\Category;
 
 class Content extends D4lModel
 {
@@ -34,6 +34,30 @@ class Content extends D4lModel
      * @var int
      */
     const TYPE_ARTICLE = 3;
+
+    /**
+     * Query Topics
+     */
+    public function scopeTopics($query)
+    {
+        return $query->where('type_id', '=', Category::TYPE_TOPIC);
+    }
+
+    /**
+     * Query Article
+     */
+    public function scopeArticles($query)
+    {
+        return $query->where('type_id', '=', Category::TYPE_ARTICLE);
+    }
+
+    /**
+     * Query Blog
+     */
+    public function scopeBlogs($query)
+    {
+        return $query->where('type_id', '=', Category::TYPE_BLOG);
+    }
 
     /**
      * The related User model

@@ -40,8 +40,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">{{ trans('app.Home') }}</a></li>
+                <li class="{{ Request::is('article*') ? 'active' : '' }}"><a href="{{ url('/article') }}">{{ trans('app.Article') }}</a></li>
                 <li class="{{ Request::is('topic*') ? 'active' : '' }}"><a href="{{ url('/topic') }}">{{ trans('app.Topics') }}</a></li>
+                <li class="{{ Request::is('blog*') ? 'active' : '' }}"><a href="{{ url('/blog') }}">{{ trans('app.Blog') }}</a></li>
                 <!-- <li class=""><a href="{{ url('/page/about') }}">{{ trans('app.About') }}</a></li> -->
             </ul>
 

@@ -18,7 +18,7 @@ class Topic extends Content
      */
     public function getTopic($limit = 15)
     {
-        return $this->applyFilter()->selectCategory()->paginate($limit);
+        return $this->applyFilter()->selectCategory()->topics()->paginate($limit);
     }
 
     /**

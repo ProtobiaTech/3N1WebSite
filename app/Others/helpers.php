@@ -22,7 +22,7 @@ function i18n($text, $params = [])
  */
 function timeAgo($time)
 {
-    $now = new DateTime('NOW');
+    $now = new DateTime();
     $time = new DateTime($time);
     $diff = $now->diff($time);
     if ($diff->y) {
@@ -38,4 +38,13 @@ function timeAgo($time)
     } else {
         return trans('app.nowTime');
     }
+}
+
+/**
+ *
+ */
+function getYMD4datetime($time)
+{
+    $time = new DateTime($time);
+    return $time->format('Y-m-d');
 }

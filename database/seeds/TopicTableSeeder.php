@@ -18,10 +18,11 @@ class TopicTableSeeder extends Seeder {
         $nodes = Category::where('type_id', '=', Category::TYPE_TOPIC)->lists('id')->toArray();
 
         $faker = Faker\Factory::create();
-        foreach (range(1, 8) as $index) {
+
+        foreach (range(1, 18) as $index) {
             Content::create([
-                'title'     =>  $faker->sentence(),
-                'body'      =>  $faker->text(),
+                'title'     =>  'topic ' . $faker->sentence(),
+                'body'      =>  implode('<br>', $faker->paragraphs(8)),
                 'user_id'   =>  $faker->randomElement($users),
                 'type_id'   =>  Content::TYPE_TOPIC,
                 'category_id'           =>  $faker->randomElement($nodes),

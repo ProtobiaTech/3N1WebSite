@@ -23,7 +23,7 @@ class HomeController extends Controller {
     public function index()
     {
         // Data excellent topic @todo
-        $assign['topics'] = Content::limit(12)->get();
+        $assign['topics'] = Content::limit(12)->topics()->get();
         return view('homes.index', $assign);
     }
 

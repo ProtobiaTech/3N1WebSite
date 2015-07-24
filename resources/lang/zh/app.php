@@ -2,10 +2,12 @@
 
 return [
     // Nav
-    'Community' => '社区',
-    'Home'      => '首页',
-    'Topic'     => '话题',
-    'Topics'    => '话题',
+    'Community' =>  '社区',
+    'Home'      =>  '首页',
+    'Topic'     =>  '话题',
+    'Article'   =>  '资讯',
+    'Blog'      =>  '博客',
+    'Topics'    =>  '话题',
 
 
     // Launch

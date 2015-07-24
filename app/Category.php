@@ -19,6 +19,20 @@ class Category extends Model
     const TYPE_TOPIC = 1;
 
     /**
+     * Blog of type_id column
+     *
+     * @var int
+     */
+    const TYPE_BLOG = 2;
+
+    /**
+     * Article of type_id column
+     *
+     * @var int
+     */
+    const TYPE_ARTICLE = 3;
+
+    /**
      * The related child Category models
      *
      * @return array|null
