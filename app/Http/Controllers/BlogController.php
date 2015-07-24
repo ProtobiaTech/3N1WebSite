@@ -7,8 +7,27 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Blog;
+
 class BlogController extends Controller
 {
+    /**
+     * The Content instance
+     *
+     * @var \App\Content
+     */
+    public $Blog;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Blog $Blog)
+    {
+        $this->Blog = $Blog;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +35,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $assign['blogs'] = $this->Blog->blogs()->paginate(6);
+        return view('blog.index', $assign);
     }
 
     /**
@@ -47,7 +67,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $assign['blog'] = $this->Blog->findOrFail($id);
+        return view('blog.show', $assign);
     }
 
     /**

@@ -12,7 +12,6 @@ class ArticleTableSeeder extends Seeder
      */
     public function run()
     {
-        //
         $users = User::lists('id')->toArray();
         $categorys = Category::where('type_id', '=', Category::TYPE_ARTICLE)->lists('id')->toArray();
 
