@@ -8,7 +8,7 @@
                 </div>
                 <!-- Reply count -->
                 <div class="badge-number pull-right">
-                    <span class="badge">{{ $topic->reply_count }}</span>
+                    <span class="badge">{{ $topic->comment_count }}{{ trans('topic.reply') }}</span>
                 </div>
                 <!-- Topics body -->
                 <div class="topic-text">
@@ -21,7 +21,12 @@
                         </span>
                         <a>{{ $topic->author->name }}</a>
                         <span class="separator">|</span>
-                        <a>{{ $topic->lastCommentUser->name }}</a> {{ trans('topic.reply') }}
+                        @if ($topic->comment_count)
+                            <a>{{ $topic->getLastCommentUser()->author->name }}</a>
+                            {{ timeAgo($topic->updated_at) }}{{ trans('topic.reply') }}
+                        @else
+                            {{ trans('topic.No reply') }}
+                        @endif
                     </div>
                 </div>
             </div>

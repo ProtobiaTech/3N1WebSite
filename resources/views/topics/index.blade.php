@@ -25,13 +25,13 @@
                     <!-- Filter -->
                     <div class="filter">
                         <a class="{{ @$_GET['filter'] === 'recent' ? 'selected' : '' }}" href="{{ route('topic.index', ['category' => isset($_GET['category']) ? $_GET['category'] : '', 'filter' => 'recent']) }}">
-                            {{ trans('app.Recent') }}
+                            {{ trans('topic.Recent') }}
                         </a>
                         <a class="{{ @$_GET['filter'] === 'vote' ? 'selected' : '' }}" href="{{ route('topic.index', ['category' => isset($_GET['category']) ? $_GET['category'] : '', 'filter' => 'vote']) }}">
-                            {{ trans('app.Vote') }}
+                            {{ trans('topic.Vote') }}
                         </a>
                         <a class="{{ @$_GET['filter'] === 'noreply' ? 'selected' : '' }}" href="{{ route('topic.index', ['category' => isset($_GET['category']) ? $_GET['category'] : '', 'filter' => 'noreply']) }}">
-                            {{ trans('app.NoReply') }}
+                            {{ trans('topic.NoReply') }}
                         </a>
                     </div>
 

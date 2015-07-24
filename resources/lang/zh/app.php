@@ -26,4 +26,11 @@ return [
     'Please'            =>  '请',
     'Share'             =>  '分享',
 
+    'year ago'          =>  ':num年前',
+    'month ago'         =>  ':num月前',
+    'day ago'           =>  ':num天前',
+    'hour ago'          =>  ':num小时前',
+    'minute ago'        =>  ':num分钟前',
+    'nowTime'           =>  '刚刚',
+
 ];

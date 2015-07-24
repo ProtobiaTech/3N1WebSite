@@ -41,4 +41,12 @@ class Comment extends D4lModel
 
     }
 
+    /**
+     * The related Content model
+     */
+    public function entity()
+    {
+         return $this->belongsTo('App\Content', 'entity_id');
+    }
+
 }

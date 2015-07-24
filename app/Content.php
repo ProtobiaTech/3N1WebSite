@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Comment;
 
-class Content extends Model
+class Content extends D4lModel
 {
     /**
      * The table name
@@ -45,16 +46,6 @@ class Content extends Model
     }
 
     /**
-     * The related last comment User model
-     *
-     * @return \App\User
-     */
-    public function lastCommentUser()
-    {
-        return $this->belongsTo('App\User', 'user_id');
-    }
-
-    /**
      * The related Category model
      *
      * @return \App\Category
@@ -74,4 +65,26 @@ class Content extends Model
         return $this->hasMany('App\Comment', 'entity_id');
     }
 
+    /**
+     * Get last comment User model
+     *
+     * @return \App\User
+     */
+    public function getLastCommentUser()
+    {
+        return Comment::where('entity_id', '=', $this->id)->orderBy('created_at', 'desc')->first();
+    }
+
+    /**
+     * Content entity, add 1 number of comments
+     */
+    public function commentCountAddOne()
+    {
+        $this->comment_count = $this->comment_count + 1;
+        if ($this->save()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -21,9 +21,9 @@
                         <a href="#">{{ $topic->author->name }}</a>
                         <span class="nodeName">{{ $topic->category->name }}</span>
                         <span class="separator">|</span>
-                        <span>{{ trans('topic.PublishedDay', ['day' => 11]) }}</span>
+                        <span>{{ timeAgo($topic->updated_at) }}</span>
                         <span class="separator">|</span>
-                        <span>11 {{ trans('topic.Reply') }}</span>
+                        <span>{{ trans('topic.ReplyCount', ['count' => $topic->comment_count]) }}</span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -48,7 +48,7 @@
             <div class="panel panel-default section-items-reply">
                 <div class="panel-heading">{{ trans('topic.replys') }}</div>
                 <div class="panel-body">
-                    @if (!$topic->comments->count())
+                    @if (!$topic->comment_count)
                         <span>{{ trans('topic.no replys') }}</span>
                     @endif
                     @foreach ($topic->comments as $comment)

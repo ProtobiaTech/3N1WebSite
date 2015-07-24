@@ -56,7 +56,7 @@ class ReplyController extends Controller
         $this->Comment->entity_id   =   $request->input('topic_id');
 
         if ($this->Comment->save()) {
-            // @todo topic reply_count add 1
+            $this->Comment->entity->commentCountAddOne();
             Flash::success('reply success');
             return redirect()->to('/topic/' . $this->Comment->entity_id);
         } else {
