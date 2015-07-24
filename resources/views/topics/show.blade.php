@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ trans('topic.Topic') }}: {{ $topic->title }} - @parent
+@endsection
+
 @section('content')
 <!-- Topic -->
 <div class="container">
@@ -17,9 +21,9 @@
                         <a href="#">{{ $topic->author->name }}</a>
                         <span class="nodeName">{{ $topic->category->name }}</span>
                         <span class="separator">|</span>
-                        <span>{{ trans('app.PublishedDay', ['day' => 11]) }}</span>
+                        <span>{{ trans('topic.PublishedDay', ['day' => 11]) }}</span>
                         <span class="separator">|</span>
-                        <span>11 {{ trans('app.Reply') }}</span>
+                        <span>11 {{ trans('topic.Reply') }}</span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -34,7 +38,7 @@
                         <a><i class="fa fa-weibo"></i></a>
 
                         <div class="pull-right">
-                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('app.Reply') }}</a>
+                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('topic.Reply') }}</a>
                         </div>
                     </div>
                 </div>
@@ -42,10 +46,10 @@
 
             <!--  -->
             <div class="panel panel-default section-items-reply">
-                <div class="panel-heading">{{ trans('app.replys') }}</div>
+                <div class="panel-heading">{{ trans('topic.replys') }}</div>
                 <div class="panel-body">
                     @if (!$topic->comments->count())
-                        <span>{{ trans('app.no replys') }}</span>
+                        <span>{{ trans('topic.no replys') }}</span>
                     @endif
                     @foreach ($topic->comments as $comment)
                         <div class="item-reply">
@@ -68,12 +72,11 @@
             </div>
 
             <div class="panel panel-default">
-                <div id="anchor-reply" class="panel-heading">{{ trans('app.My Reply') }}</div>
+                <div id="anchor-reply" class="panel-heading">{{ trans('topic.My Reply') }}</div>
                 <div class="panel-body">
                     @if (Auth::guest())
                         <div>
-                            {{ trans('app.Placse') }}
-                            <a href="{{ url('auth/login') }}">{{ trans('app.Login') }}</a>
+                            {{ trans('app.Please') }}<a href="{{ url('auth/login') }}">{{ trans('app.Login') }}</a>
                         </div>
                     @else
                         {!! Form::open(['url' => '/reply', 'class' => '']) !!}

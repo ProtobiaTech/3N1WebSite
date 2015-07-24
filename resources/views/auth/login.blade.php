@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ trans('user.Login') }} - @parent
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="row">

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ trans('topic.Topic') }} - @parent
+@endsection
+
 @section('content')
 <!-- Topic -->
 <div class="container">

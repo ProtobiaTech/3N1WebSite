@@ -3,7 +3,7 @@
 return [
     // Register and login form
     'Register' => '注册',
-    'Login' => '注册',
+    'Login' => '登入',
     'Name'      =>      '昵称',
     'E-Mail'    =>  '邮箱',
     'Password'    =>  '密码',

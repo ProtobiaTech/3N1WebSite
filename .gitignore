@@ -7,3 +7,4 @@ Homestead.yaml
 tests/_output/*
 
 public/assets/style/*
+public/images

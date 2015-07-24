@@ -5,9 +5,9 @@
 <div class="container">
     <div class="panel panel-default" id="section-items-topic">
         <div class="panel-heading">
-            {{ trans('app.Excellent Topics') }}
+            {{ trans('topic.Excellent Topics') }}
             <div class="pull-right shortcut">
-                <a href="{{ route('topic.index') }}">{{ trans('app.More') }}</a>
+                <a href="{{ route('topic.index') }}">{{ trans('topic.More') }}</a>
             </div>
         </div>
         <div class="panel-body">

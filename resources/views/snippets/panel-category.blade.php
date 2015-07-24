@@ -1,7 +1,7 @@
 <!-- Category  -->
 <div class="container">
     <div class="panel panel-default" id="section-items-nodeCategory">
-        <div class="panel-heading">{{ trans('app.Node List') }}</div>
+        <div class="panel-heading">{{ trans('topic.Node List') }}</div>
         <div class="panel-body">
             <!-- Node category -->
             <?php $nodeCategorys = with(new \App\Category)->getTopic4TopCategorys(); ?>
@@ -29,7 +29,7 @@
                     </div>
                 @endforeach
             @else
-                <div>{{ trans('app.Where is null') }}</div>
+                <div>{{ trans('app.No data') }}</div>
             @endif
         </div>
     </div>
