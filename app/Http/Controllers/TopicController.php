@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use Auth, Input, Redirect, Flash;
 use App\User, App\Topic, App\Category;
 
@@ -22,7 +24,7 @@ class TopicController extends Controller
     public function __construct(Topic $Topic)
     {
         $this->middleware('auth', ['only' => ['create', 'store']]);
-        $this->Topic = $Topic;
+        $this->Topic = $Topic->topics();
     }
 
     /**
@@ -32,7 +34,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $assign['topics'] = $this->Topic->getTopic(15);
+        $assign['topics'] = Topic::getTopic(15);
         // categorys
         $assign['nodeCategorys'] = Category::where('parent_id', '=', '0')->get();
         return view('topics/index', $assign);
@@ -91,7 +93,9 @@ class TopicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $assign['topic'] = $this->Topic->findOrFail($id);
+        $assign['nodeCategorys'] = with(new Category)->getTopic4TopCategorys();
+        return view('topics.edit', $assign);
     }
 
     /**
@@ -100,9 +104,21 @@ class TopicController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $Topic = $this->Topic->find($id);
+        $Topic->title       =   $request->input('title');
+        $Topic->category_id =   $request->input('node_id');
+        $Topic->body        =   $request->input('body');
+
+        if ($Topic->save()) {
+            Flash::success('success');
+            return redirect()->route('topic.show', ['id' => $id]);
+        } else {
+            Flash::error('error');
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -113,7 +129,14 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Topic = $this->Topic->find($id);
+        if ($Topic->delete()) {
+            Flash::success('success');
+            return redirect()->route('topic.index');
+        } else {
+            Flash::error('error');
+            return redirect()->back();
+        }
     }
 
 }

@@ -11,6 +11,16 @@
         <div class="col-sm-8">
             <div class="panel panel-default section-panel-topic">
                 <div class="panel-heading topic-header">
+                    @if (Auth::check() && Auth::user()->hasRole('admin'))
+                    <div class="btn-group pull-right">
+                        <a href="{{ route('topic.edit', ['id' => $topic->id]) }}" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:if (confirm('{{ trans('app.Are you sure?') }}')) { $('#form-topic-destroy').submit(); }" class="btn btn-default btn-sm"><i class="fa fa-trash"></i></a>
+                    </div>
+                    {!! Form::open(['url' => route('topic.destroy', ['id' => $topic->id]), 'id' => 'form-topic-destroy', 'class' => 'hidden', 'method' => 'delete']) !!}
+                        <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-trash"></i></button>
+                    {!! Form::close() !!}
+                    @endif
+
                     <div class="avatar pull-left">
                         <img src="{{ $topic->author->avatar }}">
                     </div>

@@ -11,12 +11,14 @@ return [
 
 
     // Launch
-    'Logout'       => '登出',
-    'Login'        => '登入',
-    'Register'     => '注册',
-    'Launch'       => '快捷操作',
-    'Create Topic' => '发布话题',
-    'User Center'  => '用户中心',
+    'Logout'                        =>      '登出',
+    'Login'                         =>      '登入',
+    'Register'                      =>      '注册',
+    'Launch'                        =>      '快捷操作',
+    'Create Topic'                  =>      '发布话题',
+    'Create Blog'                   =>      '发布博文',
+    'Create Article'                =>      '发布文章',
+    'User Center'                   =>      '用户中心',
 
 
 

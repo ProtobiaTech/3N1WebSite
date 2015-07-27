@@ -43,12 +43,32 @@ class Category extends Model
     }
 
     /**
-     * catch all category
+     * Get top topic category
      *
      * @return
      */
     public function getTopic4TopCategorys()
     {
         return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_TOPIC)->get();
+    }
+
+    /**
+     * get top blog category
+     *
+     * @return
+     */
+    public function getBlog4TopCategorys()
+    {
+        return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_BLOG)->get();
+    }
+
+    /**
+     * get top article category
+     *
+     * @return
+     */
+    public function getArticle4TopCategorys()
+    {
+        return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_ARTICLE)->get();
     }
 }

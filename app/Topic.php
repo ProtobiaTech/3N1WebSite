@@ -16,9 +16,9 @@ class Topic extends Content
      *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function getTopic($limit = 15)
+    public static function getTopic($limit = 15)
     {
-        return $this->applyFilter()->selectCategory()->topics()->paginate($limit);
+        return (new Topic)->applyFilter()->selectCategory()->topics()->paginate($limit);
     }
 
     /**

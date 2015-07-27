@@ -11,17 +11,17 @@
         <div class="col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('app.Create Topic') }}
+                    {{ trans('topic.Edit Topic') }}
                     <div class="pull-right shortcut">
-                        <a href="">{{ trans('app.Back') }}</a>
+                        <a href="{{ route('topic.show', ['id' => $topic->id]) }}">{{ trans('app.Back') }}</a>
                     </div>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['url' => '/topic', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['url' => route('topic.update', ['id' => $topic->id]), 'class' => 'form-horizontal', 'method' => 'put']) !!}
                         <div class="form-group {{ $errors->first('title') ? 'has-error' : '' }}">
                             <label class="col-sm-2 control-label text-right">{{ trans('topic.Title') }}</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                                <input type="text" class="form-control" name="title" value="{{ $topic->title }}">
                                 <p class="help-block help-block-error">{{ $errors->first('title') }}</p>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                             <label class="col-sm-2 control-label text-right">{{ trans('topic.Node') }}</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="node_id">
-                                    <option disabled selected>{{ trans('app.please select') }}</option>
+                                    <option disabled>{{ trans('app.please select') }}</option>
                                     @foreach ($nodeCategorys as $nodeCategory)
                                         <optgroup label="{{ $nodeCategory->name }}">
                                             @if ($nodeCategory->childCategorys->count())
@@ -50,14 +50,14 @@
                         <div class="form-group {{ $errors->first('body') ? 'has-error' : '' }}">
                             <label class="col-sm-2 control-label text-right">{{ trans('topic.Body') }}</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
+                                <textarea class="form-control" name="body" rows="15">{{ str_replace('<br>', "\n", $topic->body) }}</textarea>
                                 <p class="help-block help-block-error">{{ $errors->first('body') }}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-9">
-                                {!! Form::submit(trans('topic.Create Topic'), ['class' => 'btn btn-default btn-block']) !!}
+                                {!! Form::submit(trans('topic.Update Topic'), ['class' => 'btn btn-default btn-block']) !!}
                             </div>
                         </div>
                     {!! Form::close() !!}

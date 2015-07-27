@@ -12,6 +12,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <span>{{ $blog->title }}</span>
+                    @if (Auth::check() && Auth::user()->hasRole('admin'))
+                    <div class="btn-group pull-right">
+                        <a href="{{ route('blog.edit', ['id' => $blog->id]) }}" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:if (confirm('{{ trans('app.Are you sure?') }}')) { $('#form-blog-destroy').submit(); }" class="btn btn-default btn-sm"><i class="fa fa-trash"></i></a>
+                    </div>
+                    {!! Form::open(['url' => route('blog.destroy', ['id' => $blog->id]), 'id' => 'form-blog-destroy', 'class' => 'hidden', 'method' => 'delete']) !!}
+                        <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-trash"></i></button>
+                    {!! Form::close() !!}
+                    @endif
                 </div>
                 <div class="panel-body">
                     {!! $blog->body !!}

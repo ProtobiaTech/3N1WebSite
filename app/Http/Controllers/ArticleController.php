@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Flash, Auth;
 use App\Article, App\Category, App\User;
 
 class ArticleController extends Controller
@@ -45,7 +46,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $assign['categorys'] = (new Category)->getArticle4TopCategorys();
+        return view('article.create', $assign);
     }
 
     /**
@@ -53,9 +55,21 @@ class ArticleController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $this->Article->title           =   $request->input('title');
+        $this->Article->category_id     =   $request->input('category_id');
+        $this->Article->body            =   $request->input('body');
+        $this->Article->type_id         =   Category::TYPE_BLOG;
+        $this->Article->user_id         =   Auth::user()->id;
+
+        if ($this->Article->save()) {
+            Flash::success('success');
+            return redirect()->route('article.show', ['id' => $this->Article->id]);
+        } else {
+            Flash::error('error');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -78,7 +92,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $assign['article'] = $this->Article->findOrFail($id);
+        $assign['categorys'] = (new Category)->getArticle4TopCategorys();
+        return view('article.edit', $assign);
     }
 
     /**
@@ -87,9 +103,22 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $Article = $this->Article->findOrFail($id);
+        $Article->title           =   $request->input('title');
+        $Article->category_id     =   $request->input('category_id');
+        $Article->body            =   $request->input('body');
+        $Article->type_id         =   Category::TYPE_BLOG;
+        $Article->user_id         =   Auth::user()->id;
+
+        if ($Article->save()) {
+            Flash::success('success');
+            return redirect()->route('article.show', ['id' => $this->Article->id]);
+        } else {
+            Flash::error('error');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -100,6 +129,13 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Article = $this->Article->findOrFail($id);
+        if ($Article->delete()) {
+            Flash::success('success');
+            return redirect()->route('article.index');
+        } else {
+            Flash::error('error');
+            return redirect()->back();
+        }
     }
 }

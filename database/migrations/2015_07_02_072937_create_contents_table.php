@@ -29,7 +29,7 @@ class CreateContentsTable extends Migration
             $table->integer('favorite_count')->default(0)->index();
             $table->integer('vote_up_count')->default(0)->index();
             $table->integer('vote_down_count')->default(0)->index();
-            $table->integer('last_comment_user_id')->default(0)->index()->unsigned();
+            $table->integer('last_comment_user_id')->index()->unsigned()->nullable();
             $table->foreign('last_comment_user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();

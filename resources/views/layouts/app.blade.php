@@ -50,7 +50,13 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-rocket"></i> {{ trans('app.Launch') }}</a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/topic/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
+                        @if (Auth::check() && Auth::user()->hasRole('admin'))
+                            <li><a href="{{ url('/topic/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
+                            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                                <li><a href="{{ url('/blog/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
+                                <li><a href="{{ url('/article/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                            @endif
+                        @endif
                     </ul>
                 </li>
                 @if (Auth::guest())
@@ -60,6 +66,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                                <li><a href="{{ url('/admin') }}">{{ trans('app.Dashboard') }}</a></li>
+                            @endif
                             <li><a href="{{ url('/me') }}">{{ trans('app.User Center') }}</a></li>
                             <li><a href="{{ url('/auth/logout') }}">{{ trans('app.Logout') }}</a></li>
                         </ul>

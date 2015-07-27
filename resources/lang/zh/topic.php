@@ -7,6 +7,8 @@ return [
     'Node'              =>  '节点',
     'Body'              =>  '内容',
     'Create Topic'      =>  '发布新话题',
+    'Edit Topic'        =>  '编辑话题',
+    'Update Topic'      =>  '更新话题',
 
 
 
