@@ -18,7 +18,7 @@ class BlogTableSeeder extends Seeder
         $faker = Faker\Factory::create();
         foreach (range(1, 28) as $index) {
             Content::create([
-                'title'     =>  'article ' . $faker->sentence(),
+                'title'     =>  'blog ' . $faker->sentence(),
                 'body'      =>  implode('<br>', $faker->paragraphs(16)),
                 'user_id'   =>  $faker->randomElement($users),
                 'type_id'   =>  Content::TYPE_BLOG,

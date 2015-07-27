@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', 'HomeController@index');
+
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::resource('topic', 'Admin\TopicController');
+    Route::resource('article', 'Admin\ArticleController');
+    Route::resource('blog', 'Admin\BlogController');
+});
 
 
 Route::controllers([
@@ -22,6 +29,6 @@ Route::controllers([
 ]);
 
 Route::resource('topic', 'TopicController');
-Route::resource('reply', 'ReplyController');
 Route::resource('article', 'ArticleController');
 Route::resource('blog', 'BlogController');
+Route::resource('reply', 'ReplyController');
