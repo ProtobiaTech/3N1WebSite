@@ -15,7 +15,8 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', 'HomeController@index');
 
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
+    Route::get('/', ['as' => 'adminHome', 'uses' => 'Admin\HomeController@index']);
     Route::resource('topic', 'Admin\TopicController');
     Route::resource('article', 'Admin\ArticleController');
     Route::resource('blog', 'Admin\BlogController');

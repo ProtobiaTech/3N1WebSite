@@ -44,7 +44,7 @@
     @include('flash::message')
 </div>
 
-
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
@@ -60,6 +60,7 @@
         </div>
     </div>
 </div>
+@show
 
 
 <!-- Footer -->

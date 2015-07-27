@@ -150,6 +150,7 @@ return [
         'Barryvdh\Debugbar\ServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
     ],
 
     /*
@@ -202,6 +203,7 @@ return [
         'Flash'     => 'Laracasts\Flash\Flash',
         'Form'      => 'Illuminate\Html\FormFacade',
         'HTML'      => 'Illuminate\Html\HtmlFacade',
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
     ],
 
 ];
