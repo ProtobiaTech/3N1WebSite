@@ -40,14 +40,7 @@
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{ trans('article.Article') }}
-                </div>
-                <div class="panel-body">
-                    {{ trans('article.Enjoy Reading') }}
-                </div>
-            </div>
+            @include('snippets.panel-side')
         </div>
     </div>
 </div>

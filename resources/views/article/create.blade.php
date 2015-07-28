@@ -13,7 +13,7 @@
                 <div class="panel-heading">
                     {{ trans('article.Create Article') }}
                     <div class="pull-right shortcut">
-                        <a href="">{{ trans('app.Back') }}</a>
+                        <a href="{{ route('article.index') }}">{{ trans('app.Back') }}</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -59,7 +59,7 @@
          </div>
 
         <div class="col-sm-4">
-            @include('snippets.panel-topicSide')
+            @include('snippets.panel-side')
         </div>
     </div>
 </div>

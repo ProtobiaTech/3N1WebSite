@@ -4,6 +4,7 @@ return [
     'Topic'             =>  '话题',
     'Topics'            =>  '话题',
     'Title'             =>  '标题',
+    'Hot Topic'         =>  '热点话题',
     'Node'              =>  '节点',
     'Body'              =>  '内容',
     'Create Topic'      =>  '发布新话题',

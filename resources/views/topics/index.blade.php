@@ -50,7 +50,7 @@
             <div style="height:35px">
             </div>
 
-            @include('snippets.panel-topicSide')
+            @include('snippets.panel-side')
         </div>
     </div>
 </div>

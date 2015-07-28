@@ -82,6 +82,11 @@ class TopicController extends Controller
     public function show($id)
     {
         $assign['topic'] = $this->Topic->findOrFail($id);
+        // view_count +1
+        $assign['topic']->timestamps = false;
+        $assign['topic']->view_count = $assign['topic']->view_count + 1;
+        $assign['topic']->save();
+
         return view('topics/show', $assign);
     }
 

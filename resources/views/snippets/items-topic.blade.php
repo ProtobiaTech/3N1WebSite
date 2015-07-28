@@ -8,7 +8,7 @@
                 </div>
                 <!-- Reply count -->
                 <div class="badge-number pull-right">
-                    <span class="badge">{{ $topic->comment_count }}{{ trans('topic.reply') }}</span>
+                    <span class="badge"><i class="fa fa-comments"></i>&nbsp;&nbsp;{{ $topic->comment_count }}</span>
                 </div>
                 <!-- Topics body -->
                 <div class="topic-text">

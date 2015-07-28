@@ -22,6 +22,18 @@ class Topic extends Content
     }
 
     /**
+     * Get hot content
+     *
+     * @param int $Limit Per page limit
+     *
+     * @return null | array
+     */
+    public function getHotContents($limit = 10)
+    {
+        return $this->topics()->orderBy('id')->limit($limit)->get();
+    }
+
+    /**
      *
      */
     public function applyFilter()

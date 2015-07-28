@@ -60,7 +60,7 @@ class ArticleController extends Controller
         $this->Article->title           =   $request->input('title');
         $this->Article->category_id     =   $request->input('category_id');
         $this->Article->body            =   $request->input('body');
-        $this->Article->type_id         =   Category::TYPE_BLOG;
+        $this->Article->type_id         =   Category::TYPE_ARTICLE;
         $this->Article->user_id         =   Auth::user()->id;
 
         if ($this->Article->save()) {
@@ -81,6 +81,11 @@ class ArticleController extends Controller
     public function show($id)
     {
         $assign['article'] = $this->Article->findOrFail($id);
+        // view_count +1
+        $assign['article']->timestamps = false;
+        $assign['article']->view_count = $assign['article']->view_count + 1;
+        $assign['article']->save();
+
         return view('article.show', $assign);
     }
 
@@ -109,7 +114,7 @@ class ArticleController extends Controller
         $Article->title           =   $request->input('title');
         $Article->category_id     =   $request->input('category_id');
         $Article->body            =   $request->input('body');
-        $Article->type_id         =   Category::TYPE_BLOG;
+        $Article->type_id         =   Category::TYPE_ARTICLE;
         $Article->user_id         =   Auth::user()->id;
 
         if ($Article->save()) {

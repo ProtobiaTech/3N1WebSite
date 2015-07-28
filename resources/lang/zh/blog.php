@@ -3,6 +3,7 @@
 return [
     'blog'              =>      '博客',
     'Blog'              =>      '博客',
+    'Hot Blog'          =>      '热点博文',
     'Create Blog'       =>      '发布新博文',
     'Edit Blog'         =>      '编辑博文',
     'Update Blog'       =>      '更新博文',

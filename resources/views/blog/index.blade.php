@@ -22,14 +22,8 @@
             <?php echo $blogs->render(); ?>
         </div>
         <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{ trans('blog.Blog') }}
-                </div>
-                <div class="panel-body">
-                    <img style="width:100%; height:162px; background-color:#eee;">
-                </div>
-            </div>
+            @include('snippets.panel-side')
+            @include('snippets.panel-categorySide4Blog')
         </div>
     </div>
 </div>

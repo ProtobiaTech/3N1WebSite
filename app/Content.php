@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Comment, App\Category;
 
-class Content extends D4lModel
+abstract class Content extends D4lModel
 {
     /**
      * The table name
@@ -88,6 +88,11 @@ class Content extends D4lModel
     {
         return $this->hasMany('App\Comment', 'entity_id');
     }
+
+    /**
+     * Get hot content
+     */
+    abstract public function getHotContents();
 
     /**
      * Get last comment User model

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Auth, Flash;
+use Auth, Flash, Input;
 
 use App\Blog, App\Category;
 
@@ -43,7 +43,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $assign['blogs'] = $this->Blog->blogs()->paginate(6);
+        if (Input::has('category_id')) {
+            $assign['blogs'] = $this->Blog->blogs()->where('category_id', '=', Input::get('category_id'))->paginate(6);
+        } else {
+            $assign['blogs'] = $this->Blog->blogs()->paginate(6);
+        }
         return view('blog.index', $assign);
     }
 
@@ -89,6 +93,11 @@ class BlogController extends Controller
     public function show($id)
     {
         $assign['blog'] = $this->Blog->findOrFail($id);
+        // view_count +1
+        $assign['blog']->timestamps = false;
+        $assign['blog']->view_count = $assign['blog']->view_count + 1;
+        $assign['blog']->save();
+
         return view('blog.show', $assign);
     }
 

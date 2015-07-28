@@ -59,7 +59,7 @@
          </div>
 
         <div class="col-sm-4">
-            @include('snippets.panel-topicSide')
+            @include('snippets.panel-side')
         </div>
     </div>
 </div>
