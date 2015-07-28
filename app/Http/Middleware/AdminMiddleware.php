@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Closure, Auth;
+use Closure, Auth, Flash;
 
 class AdminMiddleware
 {
@@ -15,10 +15,15 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guest() && Auth::user()->hasRole('admin')) {
-            return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->hasRole('admin')) {
+                return $next($request);
+            } else {
+                Flash::error(trans('app.Authority to operate'));
+                return redirect()->back();
+            }
         } else {
-            return redirect()->route('home');
+            return redirect()->to('/auth/login');
         }
     }
 }

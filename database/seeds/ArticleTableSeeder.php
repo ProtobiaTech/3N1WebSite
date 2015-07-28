@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User, App\Category, App\Content;
+use App\User, App\Category, App\Article;
 
 class ArticleTableSeeder extends Seeder
 {
@@ -17,11 +17,11 @@ class ArticleTableSeeder extends Seeder
 
         $faker = Faker\Factory::create();
         foreach (range(1, 28) as $index) {
-            Content::create([
+            Article::create([
                 'title'     =>  'article ' . $faker->sentence(),
                 'body'      =>  implode('<br>', $faker->paragraphs(16)),
                 'user_id'   =>  $faker->randomElement($users),
-                'type_id'   =>  Content::TYPE_ARTICLE,
+                'type_id'   =>  Article::TYPE_ARTICLE,
                 'category_id'           =>  $faker->randomElement($categorys),
                 'last_comment_user_id'  =>  $faker->randomElement($users),
             ]);

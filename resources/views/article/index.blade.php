@@ -13,8 +13,11 @@
                 <div class="panel-heading">
                     {{ trans('article.Hot Article') }}
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="height:192px">
                     <ul class="list-unstyled">
+                        @if (!$articles->count())
+                            <li>{{ trans('app.No data') }}</li>
+                        @endif
                         @foreach ($articles as $key => $article)
                         <?php if ($key == 8) {
                             break;
@@ -47,14 +50,19 @@
     </div>
 
     <div class="row">
-        @for ($i=1; $i<5; $i++)
+        @foreach ($categorys as $key => $category)
+        <?php if ($key == 4) break; ?>
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('article.Article') }}
+                    {{ $category->name }}
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="height:192px;">
                     <ul class="list-unstyled">
+                        @if (!$articles->count())
+                            <li>{{ trans('app.No data') }}</li>
+                        @endif
+                        <?php $articles = $category->getHotContents(); ?>
                         @foreach ($articles as $key => $article)
                         <?php if ($key == 8) {
                             break;
@@ -70,7 +78,7 @@
                 </div>
             </div>
         </div>
-        @endfor
+        @endforeach
     </div>
 </div>
 @endsection

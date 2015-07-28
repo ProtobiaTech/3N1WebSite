@@ -22,6 +22,8 @@ return [
 
 
     // App
+    'All'               =>  '全部',
+    'Null'              =>  '空',
     'Submit'            =>  '提交',
     'Back'              =>  '后退',
     'please select'     =>  '请选择',
@@ -37,6 +39,8 @@ return [
     'minute ago'        =>  ':num分钟前',
     'nowTime'           =>  '刚刚',
 
+
+    'Authority to operate'      =>  '没有操作权限',
 
     '3N1WebSite'        =>  '3N1WebSite',
     'Quickly build a bbs/blog/cms web site'       =>          '快速搭建一个 论坛/博客/内容管理 网站'

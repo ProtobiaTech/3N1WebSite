@@ -9,6 +9,9 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
+            @if (!$blogs->count())
+            <div>{{ trans('app.No data') }}</div>
+            @endif
             @foreach ($blogs as $key => $blog)
             <div class="panel panel-default">
                 <div class="panel-body">

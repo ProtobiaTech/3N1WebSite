@@ -70,7 +70,7 @@
                                 <div class="info">
                                     <a>{{ $comment->author->name }}</a>
                                     <span class="separator">|</span>
-                                    <span>{{ date('Y-m-d', $comment->create_at) }}</span>
+                                    <span>{{ $comment->created_at }}</span>
                                 </div>
                                 <div class="content">
                                     {!! nl2br($comment->body) !!}
@@ -105,13 +105,10 @@
          </div>
 
         <div class="col-sm-4">
+            <a href="{{ URL::previous() }}" class="btn btn-default btn-block" style="margin-bottom:10px;"><i class="fa fa-arrow-left"></i> {{ trans('app.Back') }}</a>
             @include('snippets.panel-side')
+            @include('snippets.panel-categorySide4Topic')
         </div>
     </div>
 </div>
-
-
-<!-- Category  -->
-@include('snippets.panel-category')
-
 @endsection

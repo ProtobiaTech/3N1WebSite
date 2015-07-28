@@ -25,6 +25,7 @@ class ArticleController extends Controller
      */
     public function __construct(Article $Article)
     {
+        $this->middleware('admin', ['except' => ['index', 'show']]);
         $this->Article = $Article;
     }
 
@@ -36,6 +37,7 @@ class ArticleController extends Controller
     public function index()
     {
         $assign['articles'] = $this->Article->articles()->get();
+        $assign['categorys'] = (new Category)->getArticle4TopCategorys();
         return view('article.index', $assign);
     }
 

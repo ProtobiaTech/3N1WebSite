@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Comment, App\Category;
 
-abstract class Content extends D4lModel
+class Content extends D4lModel
 {
     /**
      * The table name
@@ -34,6 +34,14 @@ abstract class Content extends D4lModel
      * @var int
      */
     const TYPE_ARTICLE = 3;
+
+    /**
+     * Date transform
+     */
+    public function getDates()
+    {
+        return ['created_at', 'updated_at'];
+    }
 
     /**
      * Query Topics
@@ -92,7 +100,10 @@ abstract class Content extends D4lModel
     /**
      * Get hot content
      */
-    abstract public function getHotContents();
+    public function getHotContents()
+    {
+        //
+    }
 
     /**
      * Get last comment User model

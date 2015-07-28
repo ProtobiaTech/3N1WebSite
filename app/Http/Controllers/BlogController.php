@@ -32,6 +32,7 @@ class BlogController extends Controller
      */
     public function __construct(Blog $Blog)
     {
+        $this->middleware('admin', ['except' => ['index', 'show']]);
         $this->Blog = $Blog;
         $this->Blogs = $Blog->blogs();
     }

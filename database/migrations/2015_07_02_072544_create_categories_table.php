@@ -3,6 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Category;
+
 class CreateCategoriesTable extends Migration
 {
     /**
@@ -22,6 +24,30 @@ class CreateCategoriesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        Category::create([
+            'name'      =>  'uncategory',
+            'parent_id' =>  0,
+            'type_id'   =>  Category::TYPE_ARTICLE,
+        ]);
+
+        Category::create([
+            'name'      =>  'uncategory',
+            'parent_id' =>  0,
+            'type_id'   =>  Category::TYPE_BLOG,
+        ]);
+
+        $topicCategory = Category::create([
+            'name'      =>  'uncategory',
+            'parent_id' =>  0,
+            'type_id'   =>  Category::TYPE_TOPIC,
+        ]);
+        Category::create([
+            'name'      =>  'uncategory',
+            'parent_id' =>  $topicCategory->id,
+            'type_id'   =>  Category::TYPE_TOPIC,
+        ]);
+
     }
 
     /**

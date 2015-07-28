@@ -100,7 +100,7 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $Blog = $this->Blog->find($id);
+        $Blog = $this->Blog->findOrFail($id);
         if ($Blog->delete($id)) {
             Flash::success('success');
             return redirect()->back();

@@ -17,7 +17,7 @@
                     </div>
                     <div class="info">
                         <span class="nodeName">
-                            <a href="{{ route('topic.index', ['node' => $topic->node_id]) }}">{{ $topic->category->name }}</a>
+                            <a href="{{ route('topic.index', ['category_id' => $topic->category_id]) }}">{{ $topic->category->name }}</a>
                         </span>
                         <a>{{ $topic->author->name }}</a>
                         <span class="separator">|</span>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-use App\User, App\Category, App\Content;
+use App\User, App\Category, App\Topic;
 
 class TopicTableSeeder extends Seeder {
 
@@ -20,11 +20,11 @@ class TopicTableSeeder extends Seeder {
         $faker = Faker\Factory::create();
 
         foreach (range(1, 18) as $index) {
-            Content::create([
+            Topic::create([
                 'title'     =>  'topic ' . $faker->sentence(),
                 'body'      =>  implode('<br>', $faker->paragraphs(8)),
                 'user_id'   =>  $faker->randomElement($users),
-                'type_id'   =>  Content::TYPE_TOPIC,
+                'type_id'   =>  Topic::TYPE_TOPIC,
                 'category_id'           =>  $faker->randomElement($nodes),
                 'last_comment_user_id'  =>  $faker->randomElement($users),
             ]);

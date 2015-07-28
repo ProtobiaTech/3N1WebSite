@@ -18,6 +18,7 @@ class Article extends Content
      */
     public function getHotContents($limit = 10)
     {
-        return $this->articles()->orderBy('id')->limit($limit)->get();
+        return $this->articles()->limit($limit)
+            ->orderBy('comment_count', 'desc')->orderBy('view_count', 'desc')->get();
     }
 }

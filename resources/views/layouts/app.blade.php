@@ -48,7 +48,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-rocket"></i> {{ trans('app.Launch') }}</a>
                     <ul class="dropdown-menu" role="menu">
-                        @if (Auth::check() && Auth::user()->hasRole('admin'))
+                        @if (Auth::check())
                             <li><a href="{{ url('/topic/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
                                 <li><a href="{{ url('/blog/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>

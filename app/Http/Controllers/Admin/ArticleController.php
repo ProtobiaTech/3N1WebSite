@@ -100,7 +100,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $Article = $this->Article->find($id);
+        $Article = $this->Article->findOrFail($id);
         if ($Article->delete()) {
             Flash::success('success');
             return redirect()->back();

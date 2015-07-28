@@ -71,4 +71,13 @@ class Category extends Model
     {
         return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_ARTICLE)->get();
     }
+
+    /**
+     *
+     */
+    public function getHotContents($limit = 10)
+    {
+        return Content::where('category_id', '=', $this->id)->limit($limit)
+            ->orderBy('comment_count', 'desc')->orderBy('view_count', 'desc')->get();
+    }
 }

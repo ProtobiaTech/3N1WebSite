@@ -60,9 +60,9 @@ class Topic extends Content
      */
     public function scopeSelectCategory()
     {
-        if (Input::has('category')) {
-            $categoryId = Category::find(Input::get('category'))->childCategorys->modelKeys();
-            return $this->where('category_id', '=', Input::get('category'))->orWhereIn('category_id', $categoryId);
+        if (Input::has('category_id')) {
+            $categoryId = Category::find(Input::get('category_id'))->childCategorys->modelKeys();
+            return $this->where('category_id', '=', Input::get('category_id'))->orWhereIn('category_id', $categoryId);
         } else {
             return $this;
         }

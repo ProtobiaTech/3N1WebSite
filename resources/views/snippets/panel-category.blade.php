@@ -10,7 +10,7 @@
                     <div class="row item-nodeCategory">
                         <div class="col-xs-2 text-right">
                             <div class="name">
-                                <a href="{{ route('topic.index', ['node' => $nodeCategory->id]) }}">{{ $nodeCategory->name }}</a>
+                                <a href="{{ route('topic.index', ['category_id' => $nodeCategory->id]) }}">{{ $nodeCategory->name }}</a>
                             </div>
                         </div>
                         <div class="col-xs-10">
@@ -19,7 +19,7 @@
                                 <?php $nodes = $nodeCategory->childCategorys; ?>
                                 @if ($nodes->count())
                                     @foreach ($nodes as $node)
-                                        <a href="{{ route('topic.index', ['node' => $node->id]) }}">{{ $node->name }}</a>
+                                        <a href="{{ route('topic.index', ['category_id' => $node->id]) }}">{{ $node->name }}</a>
                                     @endforeach
                                 @else
                                     <a>{{ trans('app.Null') }}</a>

@@ -23,8 +23,9 @@ class TopicController extends Controller
      */
     public function __construct(Topic $Topic)
     {
-        $this->middleware('auth', ['only' => ['create', 'store']]);
-        $this->Topic = $Topic->topics();
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->Topic = $Topic;
+        $this->Topics = $Topic->topics();
     }
 
     /**
@@ -35,8 +36,7 @@ class TopicController extends Controller
     public function index()
     {
         $assign['topics'] = Topic::getTopic(15);
-        // categorys
-        $assign['nodeCategorys'] = Category::where('parent_id', '=', '0')->get();
+        $assign['categorys'] = (new Category)->getTopic4TopCategorys();
         return view('topics/index', $assign);
     }
 
@@ -111,7 +111,7 @@ class TopicController extends Controller
      */
     public function update($id, Request $request)
     {
-        $Topic = $this->Topic->find($id);
+        $Topic = $this->Topic->findOrFail($id);
         $Topic->title       =   $request->input('title');
         $Topic->category_id =   $request->input('node_id');
         $Topic->body        =   $request->input('body');
@@ -134,7 +134,7 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
-        $Topic = $this->Topic->find($id);
+        $Topic = $this->Topic->findOrFail($id);
         if ($Topic->delete()) {
             Flash::success('success');
             return redirect()->route('topic.index');

@@ -100,7 +100,7 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
-        $Topic = $this->Topic->find($id);
+        $Topic = $this->Topic->findOrFail($id);
         if ($Topic->delete()) {
             Flash::success('success');
             return redirect()->back();

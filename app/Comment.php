@@ -14,6 +14,14 @@ class Comment extends D4lModel
     protected $table = 'comments';
 
     /**
+     * Date transform
+     */
+    public function getDates()
+    {
+        return ['created_at', 'updated_at'];
+    }
+
+    /**
      * Topic of type_id collumn
      *
      * @var int
