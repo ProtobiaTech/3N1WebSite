@@ -22,13 +22,6 @@ class Comment extends D4lModel
     }
 
     /**
-     * Topic of type_id collumn
-     *
-     * @var int
-     */
-    const TYPE_TOPIC = 1;
-
-    /**
      * the Model rules
      */
     public $rules = [

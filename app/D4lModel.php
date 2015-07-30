@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Exception\HttpResponseException;
 use Validator;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 abstract class D4lModel extends Model
 {
+    use SoftDeletes;
+
     /**
      * The model rules
      *

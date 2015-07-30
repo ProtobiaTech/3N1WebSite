@@ -38,7 +38,12 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Comments -->
+            @include('snippets.section-comments', ['entity' => $article])
         </div>
+
         <div class="col-sm-4">
             @include('snippets.panel-side')
         </div>

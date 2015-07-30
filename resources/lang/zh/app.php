@@ -6,6 +6,7 @@ return [
     'Topic'     =>  '话题',
     'Article'   =>  '资讯',
     'Blog'      =>  '博客',
+    'Category'  =>  '分类',
 
 
     // Launch

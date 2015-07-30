@@ -10,7 +10,10 @@
     <div class="row">
         <div class="col-sm-8 section-topic">
             <!-- HotNode -->
-            <div class="section-hotNode">
+            <div class="section-hotNode" style="height:30px; overflow:hidden;">
+                @if (!$categorys->count())
+                    {{ trans('app.No data') }}
+                @endif
                 @foreach ($categorys as $category)
                     <span  class="{{ @$_GET['category_id'] == $category->id ? 'selected' : '' }} label label-default">
                         <a href="{{ route('topic.index', ['category_id' => $category->id, 'filter' => isset($_GET['filter']) ? $_GET['filter'] : '']) }}">{{ $category->name }}</a>

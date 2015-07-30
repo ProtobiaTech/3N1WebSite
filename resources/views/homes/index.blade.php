@@ -14,6 +14,9 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled">
+                        @if (!$articles->count())
+                            <li>{{ trans('app.No data') }}</li>
+                        @endif
                         @foreach ($articles as $article)
                             <li><a href="{{ route('article.show', ['id' => $article->id]) }}">{{ $article->title }}</a></li>
                         @endforeach
@@ -33,6 +36,9 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled">
+                        @if (!$blogs->count())
+                            <li>{{ trans('app.No data') }}</li>
+                        @endif
                         @foreach ($blogs as $blog)
                             <li><a href="{{ route('blog.show', ['id' => $blog->id]) }}">{{ $blog->title }}</a></li>
                         @endforeach

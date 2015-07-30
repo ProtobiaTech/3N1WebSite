@@ -80,8 +80,13 @@
 </nav>
 
 <!-- Flash notice -->
-<div class="container">
+<div id="flash" class="container">
     @include('flash::message')
+    <script>
+    setTimeout(function() {
+        $('#flash .alert').fadeOut();
+    }, 4000);
+    </script>
 </div>
 
 
@@ -93,7 +98,7 @@
     <div class="container">
         <div class="pull-right">
             &copy;2015
-            <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="http://community.dev4living.com" target="_blank">Community</a>
+            <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="https://github.com/dev4living/3N1WebSite" target="_blank">3N1WebSite</a>
         </div>
         <i class="fa fa-lightbulb-o"></i> Think difference, and do it.
     </div>

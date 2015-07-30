@@ -116,11 +116,14 @@ class Content extends D4lModel
     }
 
     /**
-     * Content entity, add 1 number of comments
+     * Content comment handle
+     *
+     * @param int $userId Last comment user id
      */
-    public function commentCountAddOne()
+    public function createCommentHandle($lastCommentUserId)
     {
         $this->comment_count = $this->comment_count + 1;
+        $this->last_comment_user_id = $lastCommentUserId;
         if ($this->save()) {
             return true;
         } else {
