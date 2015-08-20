@@ -56,4 +56,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::resource('topic', 'Admin\TopicController');
     Route::resource('article', 'Admin\ArticleController');
     Route::resource('blog', 'Admin\BlogController');
+
+    Route::resource('system', 'Admin\SystemController');
 });

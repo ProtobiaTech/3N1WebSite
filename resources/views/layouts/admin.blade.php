@@ -29,6 +29,7 @@
         <small><a href="{{ route('home') }}">{{ trans('app.Frontend') }}</a></small>
     </h1>
     <ul class="nav nav-pills pull-right">
+        <li class="{{ Request::is('admin/system*') ? 'active' : '' }}"><a href="{{ route('admin.system.index') }}">{{ trans('app.System') }}</a></li>
         <li class="{{ Request::is('admin/category*') ? 'active' : '' }}"><a href="{{ route('admin.category.index') }}">{{ trans('app.Category') }}</a></li>
         <li class="{{ Request::is('admin/topic*') ? 'active' : '' }}"><a href="{{ route('admin.topic.index') }}">{{ trans('app.Topic') }}</a></li>
         <li class="{{ Request::is('admin/article*') ? 'active' : '' }}"><a href="{{ route('admin.article.index') }}">{{ trans('app.Article') }}</a></li>
