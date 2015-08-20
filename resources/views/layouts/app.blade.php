@@ -66,7 +66,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
-                                <li><a href="{{ url('/admin') }}">{{ trans('app.Dashboard') }}</a></li>
+                                <li><a href="{{ route('dashboard.index') }}">{{ trans('app.Dashboard') }}</a></li>
                             @endif
                             <li><a href="{{ route('uc.show', Auth::user()->id) }}">{{ trans('app.User Center') }}</a></li>
                             <li><a href="{{ url('/auth/logout') }}">{{ trans('app.Logout') }}</a></li>

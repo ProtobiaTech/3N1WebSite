@@ -25,15 +25,15 @@
 <!-- Header -->
 <nav id="header" class="container">
     <h1>
-        <a href=""><i class="fa fa-dashboard"></i> {{ trans('admin.Dashboard') }}</a>
+        <a href=""><i class="fa fa-dashboard"></i> {{ trans('app.Dashboard') }}</a>
         <small><a href="{{ route('home') }}">{{ trans('app.Frontend') }}</a></small>
     </h1>
     <ul class="nav nav-pills pull-right">
-        <li class="{{ Request::is('admin/system*') ? 'active' : '' }}"><a href="{{ route('admin.system.index') }}">{{ trans('app.System') }}</a></li>
-        <li class="{{ Request::is('admin/category*') ? 'active' : '' }}"><a href="{{ route('admin.category.index') }}">{{ trans('app.Category') }}</a></li>
-        <li class="{{ Request::is('admin/topic*') ? 'active' : '' }}"><a href="{{ route('admin.topic.index') }}">{{ trans('app.Topic') }}</a></li>
-        <li class="{{ Request::is('admin/article*') ? 'active' : '' }}"><a href="{{ route('admin.article.index') }}">{{ trans('app.Article') }}</a></li>
-        <li class="{{ Request::is('admin/blog*') ? 'active' : '' }}"><a href="{{ route('admin.blog.index') }}">{{ trans('app.Blog') }}</a></li>
+        <li class="{{ Request::is('dashboard/system*') ? 'active' : '' }}"><a href="{{ route('dashboard.system.index') }}">{{ trans('app.System') }}</a></li>
+        <li class="{{ Request::is('dashboard/category*') ? 'active' : '' }}"><a href="{{ route('dashboard.category.index') }}">{{ trans('app.Category') }}</a></li>
+        <li class="{{ Request::is('dashboard/topic*') ? 'active' : '' }}"><a href="{{ route('dashboard.topic.index') }}">{{ trans('app.Topic') }}</a></li>
+        <li class="{{ Request::is('dashboard/article*') ? 'active' : '' }}"><a href="{{ route('dashboard.article.index') }}">{{ trans('app.Article') }}</a></li>
+        <li class="{{ Request::is('dashboard/blog*') ? 'active' : '' }}"><a href="{{ route('dashboard.blog.index') }}">{{ trans('app.Blog') }}</a></li>
     </ul>
 </nav>
 

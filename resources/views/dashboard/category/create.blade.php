@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('nav-option')
-    @include('admin.category.snippets.sidebar')
+    @include('dashboard.category.snippets.sidebar')
 @endsection
 
 
 @section('main-body')
 <div class="panel panel-default">
     <div class="panel-body">
-        {!! Form::open(['url' => route('admin.category.store'), 'class' => 'form-horizontal']) !!}
+        {!! Form::open(['url' => route('dashboard.category.store'), 'class' => 'form-horizontal']) !!}
             <div class="form-group">
                 <label class="col-sm-2 control-label text-right">{{ trans('category.Name') }}</label>
                 <div class="col-sm-9">
@@ -32,9 +32,6 @@
                 <div class="col-sm-9">
                     <select class="form-control" name="parent_id">
                         <option selected value="0">{{ trans('category.Root category') }}</option>
-                        @foreach ($categorys as $category)
-                            <option {{ old('parent_id') == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
                     </select>
                 </div>
             </div>

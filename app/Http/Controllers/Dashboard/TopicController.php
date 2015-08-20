@@ -1,32 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use Flash;
+use App\User, App\Topic, App\Category;
 
-use App\System;
-
-class SystemController extends Controller
+class TopicController extends Controller
 {
     /**
-     * The System instance
+     * The Content instance
      *
-     * @var \App\System
+     * @var \App\Content
      */
-    public $System;
+    public $Topic;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(System $System)
+    public function __construct(Topic $Topic)
     {
-        $this->System = $System;
+        $this->Topic = $Topic->topics();
     }
 
     /**
@@ -36,8 +35,8 @@ class SystemController extends Controller
      */
     public function index()
     {
-        $assign['system'] = $this->System->findOrFail(1);
-        return view('admin.system.index', $assign);
+        $assign['topics'] = $this->Topic->paginate(10);
+        return view('dashboard.topic.index', $assign);
     }
 
     /**
@@ -53,10 +52,9 @@ class SystemController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -80,28 +78,18 @@ class SystemController extends Controller
      */
     public function edit($id)
     {
-        $id = 1;
-        $assign['system'] = $this->System->findOrFail($id);
-        return view('admin.system.edit', $assign);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $System = $this->System->findOrFail($id);
-        if ($System->update($request->except(['_token', '_method']))) {
-            Flash::success(trans('app.Successful operation'));
-            return redirect()->route('admin.system.edit', $id);
-        } else {
-            Flash::error(trans('app.Operation failed'));
-            return redirect()->back();
-        }
+        //
     }
 
     /**
@@ -112,6 +100,5 @@ class SystemController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('nav-option')
-    @include('admin.system.snippets.sidebar')
+    @include('dashboard.system.snippets.sidebar')
 @endsection
 
 
@@ -9,7 +9,7 @@
 @section('main-body')
 <div class="panel panel-default">
     <div class="panel-body">
-        {!! Form::open(['url' => route('admin.system.update', 1), 'class' => 'form-horizontal', 'method' => 'put']) !!}
+        {!! Form::open(['url' => route('dashboard.system.update', 1), 'class' => 'form-horizontal', 'method' => 'put']) !!}
             <!-- Site name -->
             <div class="form-group">
                 <label class="col-sm-2 control-label text-right">{{ trans('system.Site name') }}</label>

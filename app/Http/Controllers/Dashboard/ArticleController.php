@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Flash;
-use App\User, App\Blog, App\Category;
+use App\User, App\Article, App\Category;
 
-class BlogController extends Controller
+class ArticleController extends Controller
 {
     /**
      * The Content instance
      *
      * @var \App\Content
      */
-    public $Blog;
+    public $Article;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(Blog $Blog)
+    public function __construct(Article $Article)
     {
-        $this->Blog = $Blog->blogs();
+        $this->Article = $Article->articles();
     }
 
     /**
@@ -35,8 +35,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $assign['blogs'] = $this->Blog->paginate(10);
-        return view('admin.blog.index', $assign);
+        $assign['articles'] = $this->Article->paginate(10);
+        return view('dashboard.article.index', $assign);
     }
 
     /**

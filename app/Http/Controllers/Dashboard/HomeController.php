@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 
@@ -22,7 +22,7 @@ class HomeController extends Controller
         $assign['blogCount']    =   (new Content)->blogs()->count();
         $assign['articleCount'] =   (new Content)->articles()->count();
         $assign['userCount']    =   (new User)->count();
-        return view('admin.home.dashboard', $assign);
+        return view('dashboard.home.dashboard', $assign);
     }
 
     /**

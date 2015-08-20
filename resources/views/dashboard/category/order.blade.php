@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('nav-option')
-    @include('admin.category.snippets.sidebar')
+    @include('dashboard.category.snippets.sidebar')
 @endsection
 
 
 @section('main-body')
 <p>{{ trans('app.Order') }}</p>
-{!! Form::open(['url' => route('admin.category.order-handle'), 'class' => 'form-horizontal']) !!}
+{!! Form::open(['url' => route('dashboard.category.order-handle'), 'class' => 'form-horizontal']) !!}
     <ul class="list-group">
         @foreach ($categorys as $category)
             <li class="list-group-item">

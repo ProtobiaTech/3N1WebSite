@@ -42,20 +42,20 @@ Route::resource('comment', 'CommentController');
 
 
 
-// Admin
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
-    Route::get('/', ['as' => 'adminHome', 'uses' => 'Admin\HomeController@index']);
+// Dashboard
+Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function() {
+    Route::get('/', ['as' => 'dashboard.index', 'uses' => 'Dashboard\HomeController@index']);
 
     // Category
     Route::group(['prefix' => 'category',], function() {
-        Route::get('order', ['as' => 'admin.category.order', 'uses' => 'Admin\CategoryController@order']);
-        Route::post('order-handle', ['as' => 'admin.category.order-handle', 'uses' => 'Admin\CategoryController@orderHandle']);
+        Route::get('order', ['as' => 'dashboard.category.order', 'uses' => 'Dashboard\CategoryController@order']);
+        Route::post('order-handle', ['as' => 'dashboard.category.order-handle', 'uses' => 'Dashboard\CategoryController@orderHandle']);
     });
-    Route::resource('category', 'Admin\CategoryController');
+    Route::resource('category', 'Dashboard\CategoryController');
 
-    Route::resource('topic', 'Admin\TopicController');
-    Route::resource('article', 'Admin\ArticleController');
-    Route::resource('blog', 'Admin\BlogController');
+    Route::resource('topic', 'Dashboard\TopicController');
+    Route::resource('article', 'Dashboard\ArticleController');
+    Route::resource('blog', 'Dashboard\BlogController');
 
-    Route::resource('system', 'Admin\SystemController');
+    Route::resource('system', 'Dashboard\SystemController');
 });
