@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('nav-option')
-    @include('admin.snippets.sidebar-category')
+    @include('admin.category.snippets.sidebar')
 @endsection
 
 
