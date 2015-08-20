@@ -33,6 +33,7 @@ return [
     'Delete'                =>      '删除',
     'Order'                 =>      '排序',
     'Overview'              =>      '概况',
+    'List'                  =>      '列表',
 
     'Are you sure?'         =>      '你确定要执行此操作？',
 
