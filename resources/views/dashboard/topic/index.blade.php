@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.dashboard')
 
 @section('nav-option')
 <li class="active"><a class="">{{ trans('admin.List') }}</a></li>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.dashboard')
 
 @section('nav-option')
     @include('dashboard.category.snippets.sidebar')
