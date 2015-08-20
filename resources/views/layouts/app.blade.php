@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" contents="dev4living.com">
+    <?php $systemDatas = \App\System::getSystemDatas();  ?>
+    <meta name="keywords" contents="{{ $systemDatas->site_keywords }}">
+    <meta name="description" contents="{{ $systemDatas->site_description }}">
     <title>
         @section('title')
-            3N1WebSite | Quickly build bbs/blog/cms
+            {{ $systemDatas->site_name }}
         @show
     </title>
 
@@ -32,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">3N1WebSite</a>
+            <a class="navbar-brand" href="{{ url('/') }}">{{ $systemDatas->site_name }}</a>
         </div>
 
         <div class="collapse navbar-collapse" id="topNav">
@@ -66,7 +70,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
-                                <li><a href="{{ url('/admin') }}">{{ trans('app.Dashboard') }}</a></li>
+                                <li><a href="{{ route('dashboard.index') }}">{{ trans('app.Dashboard') }}</a></li>
                             @endif
                             <li><a href="{{ route('uc.show', Auth::user()->id) }}">{{ trans('app.User Center') }}</a></li>
                             <li><a href="{{ url('/auth/logout') }}">{{ trans('app.Logout') }}</a></li>
@@ -99,9 +103,12 @@
             &copy;2015
             <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="https://github.com/dev4living/3N1WebSite" target="_blank">3N1WebSite</a>
         </div>
-        <i class="fa fa-lightbulb-o"></i> Think difference, and do it.
+        <i class="fa fa-lightbulb-o"></i> {{ $systemDatas->site_slogan }}
     </div>
 </footer>
+<div class="hidden">
+{{ $systemDatas->site_analytic }}
+</div>
 
 <!-- Scripts -->
 <script src="{{ asset('bowerAssets/jquery-pjax/jquery.pjax.js') }}"></script>

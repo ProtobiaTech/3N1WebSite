@@ -1,33 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Flash;
-use App\User, App\Topic, App\Category;
+use App\Topic, App\Blog, App\Article, App\Content, App\User;
 
-class TopicController extends Controller
+class HomeController extends Controller
 {
-    /**
-     * The Content instance
-     *
-     * @var \App\Content
-     */
-    public $Topic;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(Topic $Topic)
-    {
-        $this->Topic = $Topic->topics();
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -35,8 +18,11 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $assign['topics'] = $this->Topic->paginate(10);
-        return view('admin.topic.index', $assign);
+        $assign['topicCount']   =   (new Content)->topics()->count();
+        $assign['blogCount']    =   (new Content)->blogs()->count();
+        $assign['articleCount'] =   (new Content)->articles()->count();
+        $assign['userCount']    =   (new User)->count();
+        return view('dashboard.home.dashboard', $assign);
     }
 
     /**
@@ -52,9 +38,10 @@ class TopicController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param  Request  $request
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
     }
@@ -84,10 +71,11 @@ class TopicController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -100,5 +88,6 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
 }

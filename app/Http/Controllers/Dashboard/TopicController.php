@@ -1,14 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+use Flash;
+use App\User, App\Topic, App\Category;
+
+class TopicController extends Controller
 {
+    /**
+     * The Content instance
+     *
+     * @var \App\Content
+     */
+    public $Topic;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Topic $Topic)
+    {
+        $this->Topic = $Topic->topics();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +35,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home.dashboard');
+        $assign['topics'] = $this->Topic->paginate(10);
+        return view('dashboard.topic.index', $assign);
     }
 
     /**
@@ -32,10 +52,9 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -65,11 +84,10 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
     }
@@ -82,6 +100,5 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

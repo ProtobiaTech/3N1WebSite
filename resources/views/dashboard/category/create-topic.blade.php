@@ -1,14 +1,14 @@
-@extends('layouts.admin')
+@extends('layouts.dashboard')
 
 @section('nav-option')
-    @include('admin.snippets.sidebar-category')
+    @include('dashboard.category.snippets.sidebar')
 @endsection
 
 
 @section('main-body')
 <div class="panel panel-default">
     <div class="panel-body">
-        {!! Form::open(['url' => route('admin.category.store'), 'class' => 'form-horizontal']) !!}
+        {!! Form::open(['url' => route('dashboard.category.store'), 'class' => 'form-horizontal']) !!}
             <div class="form-group">
                 <label class="col-sm-2 control-label text-right">{{ trans('category.Name') }}</label>
                 <div class="col-sm-9">

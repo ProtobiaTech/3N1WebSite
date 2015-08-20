@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -36,12 +36,12 @@ class CategoryController extends Controller
     public function index()
     {
         if (!Input::has('typeId')) {
-            return redirect()->route('admin.category.index', ['typeId' => 1]);
+            return redirect()->route('dashboard.category.index', ['typeId' => 1]);
         }
         $typeId = Input::get('typeId');
 
         $assign['categorys'] = $this->Category->whereRaw('parent_id = 0 and type_id = ' . $typeId)->orderByRaw('weight asc, id asc')->get();
-        return view('admin.category.index', $assign);
+        return view('dashboard.category.index', $assign);
     }
 
     /**
@@ -68,9 +68,9 @@ class CategoryController extends Controller
 
         if ($typeId == Category::TYPE_TOPIC) {
             $assign['categorys'] = (new Category)->getTopic4TopCategorys();
-            return view('admin.category.create-topic', $assign);
+            return view('dashboard.category.create-topic', $assign);
         } else {
-            return view('admin.category.create', $assign);
+            return view('dashboard.category.create', $assign);
         }
     }
 
@@ -83,7 +83,7 @@ class CategoryController extends Controller
     {
         if ($Category = $this->Category->create($request->all())) {
             Flash::success(trans('app.Successful operation'));
-            return redirect()->route('admin.category.index', ['typeId' => $Category->type_id]);
+            return redirect()->route('dashboard.category.index', ['typeId' => $Category->type_id]);
         } else {
             Flash::error(trans('app.Operation failed'));
             return redirect()->back()->withInput($request->all());
@@ -160,7 +160,7 @@ class CategoryController extends Controller
             $assign['categorys'] = $this->Category->defaultOrder()->where('parent_id', '=', $Category->parent_id )->get();
         }
 
-        return view('admin.category.order', $assign);
+        return view('dashboard.category.order', $assign);
     }
 
     /**

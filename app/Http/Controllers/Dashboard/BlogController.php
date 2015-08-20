@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -36,7 +36,7 @@ class BlogController extends Controller
     public function index()
     {
         $assign['blogs'] = $this->Blog->paginate(10);
-        return view('admin.blog.index', $assign);
+        return view('dashboard.blog.index', $assign);
     }
 
     /**

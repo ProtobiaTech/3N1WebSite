@@ -41,6 +41,21 @@ function timeAgo($time)
 }
 
 /**
+ * Time difference calculating
+ *
+ * @param string Time
+ *
+ * @return integer
+ */
+function dayAgo($time)
+{
+    $now = new DateTime();
+    $time = new DateTime($time);
+    $diff = $now->diff($time);
+    return $diff->format('%a');
+}
+
+/**
  *
  */
 function getYMD4datetime($time)
