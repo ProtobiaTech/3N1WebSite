@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Topic, App\Blog, App\Article, App\Content, App\User;
+
 class HomeController extends Controller
 {
     /**
@@ -16,7 +18,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home.dashboard');
+        $assign['topicCount']   =   (new Content)->topics()->count();
+        $assign['blogCount']    =   (new Content)->blogs()->count();
+        $assign['articleCount'] =   (new Content)->articles()->count();
+        $assign['userCount']    =   (new User)->count();
+        return view('admin.home.dashboard', $assign);
     }
 
     /**

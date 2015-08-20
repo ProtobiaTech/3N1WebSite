@@ -26,7 +26,7 @@
 <nav id="header" class="container">
     <h1>
         <a href=""><i class="fa fa-dashboard"></i> {{ trans('admin.Dashboard') }}</a>
-        <small><a href="{{ route('home') }}">{{ trans('admin.Home') }}</a></small>
+        <small><a href="{{ route('home') }}">{{ trans('app.Frontend') }}</a></small>
     </h1>
     <ul class="nav nav-pills pull-right">
         <li class="{{ Request::is('admin/category*') ? 'active' : '' }}"><a href="{{ route('admin.category.index') }}">{{ trans('app.Category') }}</a></li>

@@ -6,6 +6,7 @@ return [
     'Topic'     =>  '话题',
     'Article'   =>  '文章',
     'Blog'      =>  '博客',
+    'User'      =>  '用户',
     'Category'  =>  '分类',
 
 
@@ -19,6 +20,7 @@ return [
     'Create Article'                =>      '发布文章',
     'User Center'                   =>      '用户中心',
     'Dashboard'                     =>      '仪表盘',
+    'Frontend'                      =>      '前台',
 
 
 
