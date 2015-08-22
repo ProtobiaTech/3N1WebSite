@@ -18,6 +18,14 @@
                 </div>
             </div>
 
+            <!-- Site slogan -->
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-right">{{ trans('system.Site slogan') }}</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="site_slogan" value="{{ $system->site_slogan }}">
+                </div>
+            </div>
+
             <!-- Site keywords -->
             <div class="form-group">
                 <label class="col-sm-2 control-label text-right">{{ trans('system.Site keywords') }}</label>
@@ -34,11 +42,11 @@
                 </div>
             </div>
 
-            <!-- Site analytics -->
+            <!-- Site analytic -->
             <div class="form-group">
-                <label class="col-sm-2 control-label text-right">{{ trans('system.Site analytics') }}</label>
+                <label class="col-sm-2 control-label text-right">{{ trans('system.Site analytic') }}</label>
                 <div class="col-sm-9">
-                    <textarea name="site_analytics" class="form-control">{{ $system->site_analytics }}</textarea>
+                    <textarea name="site_analytic" class="form-control">{{ $system->site_analytic }}</textarea>
                 </div>
             </div>
 

@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="author" contents="dev4living.com">
+    <?php $systemDatas = \App\System::getSystemDatas();  ?>
+    <meta name="keywords" contents="{{ $systemDatas->site_keywords }}">
+    <meta name="description" contents="{{ $systemDatas->site_description }}">
     <title>
         @section('title')
-            {{ \App\System::getSystemDatas()->site_name }} Dashboard
+            {{ $systemDatas->site_name }} Dashboard
         @show
     </title>
 
@@ -75,7 +76,7 @@
             &copy;2015
             <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="http://community.dev4living.com" target="_blank">Community</a>
         </div>
-        <i class="fa fa-lightbulb-o"></i> Think difference, and do it.
+        <i class="fa fa-lightbulb-o"></i> {{ $systemDatas->site_slogan }}
     </div>
 </footer>
 

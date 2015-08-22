@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="author" contents="dev4living.com">
-    <meta name="keywords" contents="{{ \App\System::getSystemDatas()->site_keywords }}">
-    <meta name="description" contents="{{ \App\System::getSystemDatas()->site_description }}">
+    <?php $systemDatas = \App\System::getSystemDatas();  ?>
+    <meta name="keywords" contents="{{ $systemDatas->site_keywords }}">
+    <meta name="description" contents="{{ $systemDatas->site_description }}">
     <title>
         @section('title')
-            {{ \App\System::getSystemDatas()->site_name }}
+            {{ $systemDatas->site_name }}
         @show
     </title>
 
@@ -35,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">{{ \App\System::getSystemDatas()->site_name }}</a>
+            <a class="navbar-brand" href="{{ url('/') }}">{{ $systemDatas->site_name }}</a>
         </div>
 
         <div class="collapse navbar-collapse" id="topNav">
@@ -102,9 +103,12 @@
             &copy;2015
             <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="https://github.com/dev4living/3N1WebSite" target="_blank">3N1WebSite</a>
         </div>
-        <i class="fa fa-lightbulb-o"></i> Think difference, and do it.
+        <i class="fa fa-lightbulb-o"></i> {{ $systemDatas->site_slogan }}
     </div>
 </footer>
+<div class="hidden">
+{{ $systemDatas->site_analytic }}
+</div>
 
 <!-- Scripts -->
 <script src="{{ asset('bowerAssets/jquery-pjax/jquery.pjax.js') }}"></script>
