@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" contents="dev4living.com">
+    <meta name="keywords" contents="{{ \App\System::getSystemDatas()->site_keywords }}">
+    <meta name="description" contents="{{ \App\System::getSystemDatas()->site_description }}">
     <title>
         @section('title')
-            3N1WebSite | Quickly build bbs/blog/cms
+            {{ \App\System::getSystemDatas()->site_name }}
         @show
     </title>
 
@@ -32,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">3N1WebSite</a>
+            <a class="navbar-brand" href="{{ url('/') }}">{{ \App\System::getSystemDatas()->site_name }}</a>
         </div>
 
         <div class="collapse navbar-collapse" id="topNav">
