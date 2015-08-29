@@ -17,6 +17,10 @@
             {!! Form::close() !!}
 
             <div class="pull-right" style="margin-right:5px;">
+                <a href="{{ route('dashboard.category.edit', ['id' => $category->id, 'typeId' => $category->type_id]) }}" class="btn btn-default btn-xs">{{ trans('app.Edit') }}</a>
+            </div>
+
+            <div class="pull-right" style="margin-right:5px;">
                 <a href="{{ route('dashboard.category.order', ['id' => $category->id, 'typeId' => $category->type_id]) }}" class="btn btn-default btn-xs">{{ trans('app.Order') }}</a>
             </div>
 
@@ -33,6 +37,10 @@
                 {!! Form::open(['url' => route('dashboard.category.destroy', ['id' => $childCategory->id]), 'id' => ('form-category-destroy-' . $childCategory->id), 'class' => 'hidden', 'method' => 'delete']) !!}
                     {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-xs btn-danger']) !!}
                 {!! Form::close() !!}
+
+                <div class="pull-right" style="margin-right:5px;">
+                    <a href="{{ route('dashboard.category.edit', ['id' => $childCategory->id, 'typeId' => $childCategory->type_id]) }}" class="btn btn-default btn-xs">{{ trans('app.Edit') }}</a>
+                </div>
 
                 <div class="pull-right" style="margin-right:5px;">
                     <a href="{{ route('dashboard.category.order', ['id' => $childCategory->id, 'typeId' => $childCategory->type_id]) }}" class="btn btn-default btn-xs">{{ trans('app.Order') }}</a>

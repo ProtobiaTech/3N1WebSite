@@ -67,7 +67,7 @@ class CategoryController extends Controller
         }
 
         if ($typeId == Category::TYPE_TOPIC) {
-            $assign['categorys'] = (new Category)->getTopic4TopCategorys();
+            $assign['categorys'] = $this->Category->getTopic4TopCategorys();
             return view('dashboard.category.create-topic', $assign);
         } else {
             return view('dashboard.category.create', $assign);
@@ -109,7 +109,22 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Category = $this->Category->findOrFail($id);
+        $assign['category'] = $Category;
+        $assign['types'][0]['id'] = $Category->id;
+        switch ($Category->type_id) {
+            case Category::TYPE_TOPIC:
+                $assign['types'][0]['name'] = trans('app.Topic');
+                break;
+            case Category::TYPE_BLOG:
+                $assign['types'][0]['name'] = trans('app.Blog');
+                break;
+            case Category::TYPE_ARTICLE:
+                $assign['types'][0]['name'] = trans('app.Article');
+                break;
+        }
+
+        return view('dashboard.category.edit', $assign);
     }
 
     /**
@@ -118,9 +133,19 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $Category = $this->Category->findOrFail($id);
+        $Category->name = $request->get('name');
+        $Category->description = $request->get('description');
+
+        if ($Category->save()) {
+            Flash::success(trans('app.Successful operation'));
+            return redirect()->route('dashboard.category.index', ['typeId' => $Category->type_id]);
+        } else {
+            Flash::error(trans('app.Operation failed'));
+            return redirect()->back()->withInput($request->all());
+        }
     }
 
     /**
