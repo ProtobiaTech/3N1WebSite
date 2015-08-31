@@ -24,7 +24,18 @@
                         </div>
 
                         <div class="body items-notice" style="height:300px">
-                            <div class="item-notice">{{ trans('app.No data') }}</div>
+                            @if ($notices->count())
+                                @foreach ($notices as $notice)
+                                    <div class="item-notice">
+                                        <a>{{ $notice->offerUser->name }}</a>
+                                        在
+                                        <a>{{ $notice->notice->title }}</a>
+                                        回复了你
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="item-notice">{{ trans('app.No data') }}</div>
+                            @endif
                         </div>
                     </div>
                 </div>

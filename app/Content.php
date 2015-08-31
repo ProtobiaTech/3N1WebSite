@@ -114,20 +114,4 @@ class Content extends D4lModel
     {
         return Comment::where('entity_id', '=', $this->id)->orderBy('created_at', 'desc')->first();
     }
-
-    /**
-     * Content comment handle
-     *
-     * @param int $userId Last comment user id
-     */
-    public function createCommentHandle($lastCommentUserId)
-    {
-        $this->comment_count = $this->comment_count + 1;
-        $this->last_comment_user_id = $lastCommentUserId;
-        if ($this->save()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

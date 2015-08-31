@@ -7,7 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Storage, Input, Auth;
-use App\User;
+use App\User, App\Notice;
 
 class UserCenterController extends Controller
 {
@@ -60,6 +60,7 @@ class UserCenterController extends Controller
     {
         $assign['user'] = User::findOrFail($id);
         if ($id == Auth::user()->id) {
+            $assign['notices'] = Auth::user()->myNotices;
             return view('uc.show-me', $assign);
         } else {
             return view('uc.show-user', $assign);

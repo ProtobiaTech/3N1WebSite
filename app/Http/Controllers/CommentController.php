@@ -58,7 +58,7 @@ class CommentController extends Controller
         $this->Comment->entity_id   =   $request->input('entity_id');
 
         if ($this->Comment->save()) {
-            $this->Comment->entity->createCommentHandle($this->Comment->user_id);
+            event(new \App\Events\ContentWasCommented($this->Comment, $Entity));
             Flash::success(trans('app.Successful operation'));
             return redirect()->back();
         } else {

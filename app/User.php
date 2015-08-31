@@ -34,4 +34,9 @@ class User extends D4lModel implements AuthenticatableContract, CanResetPassword
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function myNotices()
+    {
+         return $this->hasMany('App\Notice', 'user_id')->orderBy('created_at', 'desc');
+    }
 }
