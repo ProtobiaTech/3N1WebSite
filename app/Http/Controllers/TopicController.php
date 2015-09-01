@@ -24,6 +24,8 @@ class TopicController extends Controller
     public function __construct(Topic $Topic)
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('admin', ['only' => ['edit', 'update', 'destroy']]);
+
         $this->Topic = $Topic;
         $this->Topics = $Topic->topics();
     }

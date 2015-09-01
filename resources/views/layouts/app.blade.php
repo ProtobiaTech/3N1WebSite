@@ -55,6 +55,7 @@
                     <li>
                         <a href="{{ route('uc.show', Auth::user()->id) }}">
                             <i class="fa fa-bell"></i>
+                            <span class="visible-xs-inline">{{ trans('app.Notice') }}</span>
                             <span id="header-uncheck-notice-num" class="badge">{{ Auth::user()->uncheckNotices->count() }}</span>
                         </a>
                     </li>
@@ -62,10 +63,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <i class="fa fa-rocket"></i>
+                            <span class="visible-xs-inline">{{ trans('app.Launch') }}</span>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                            @if (Auth::check())
                                 <li><a href="{{ url('/topic/create') }}"><i class="fa fa-comments"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
                                 <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
                                 <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
@@ -74,6 +76,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-user visible-xs-inline"></i>&nbsp;
                             {{ Auth::user()->name }}
                             <span class="caret"></span>
                         </a>

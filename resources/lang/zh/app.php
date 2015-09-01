@@ -22,6 +22,7 @@ return [
     'User Center'                   =>      '用户中心',
     'Dashboard'                     =>      '仪表盘',
     'Frontend'                      =>      '前台',
+    'Notice'                        =>      '通知',
 
 
 
