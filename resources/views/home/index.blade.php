@@ -44,7 +44,7 @@
                         @endif
                         @foreach ($blogs as $blog)
                             <li>
-                                <span class="pull-right">{{ $article->created_at->format('m-d') }}</span>
+                                <span class="pull-right">{{ $blog->created_at->format('m-d') }}</span>
                                 <a href="{{ route('blog.show', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
                             </li>
                         @endforeach
