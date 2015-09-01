@@ -16,12 +16,50 @@ body {
 //
 // Header
 // ------------------------------
+#header {
+    .navbar-header {
+        .navbar-toggle {
+            margin-right: 5px;
+            font-size: 14px;
+            line-height: 14px;
+            color: #777;
+            &:first-of-type {
+                margin-right: 15px;
+            }
+        }
+
+        .link {
+            margin: 18px 8px 18px 0;
+            padding: 0 8px 0 0;
+            border-right: 1px solid #ddd;
+            font-size: 14px;
+            line-height: 14px;
+
+            a {
+                 width: 4em;
+                 overflow: hidden;
+                 white-space: nowrap;
+                 display: inline-block;
+            }
+
+            .badge {
+                padding: 2px 7px;
+                line-height: 10px;
+                font-size: 10px;
+            }
+        }
+
+        .navbar-brand {
+            padding-right: 2px;
+        }
+    }
+}
 
 
 
 //
 // Footer
 // ------------------------------
-footer {
-    margin-top: 10px;
+#footer {
+    margin-bottom: 6px;
 }

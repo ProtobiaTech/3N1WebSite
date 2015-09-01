@@ -62,7 +62,11 @@
                 }
 
                 .info {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                     color: #999;
+
                     .nodeName {
                         border-radius: 2px;
                         padding: 0 6px;
