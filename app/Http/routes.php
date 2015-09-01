@@ -35,6 +35,7 @@ Route::group(['prefix' => 'uc',], function() {
 
 // Resource
 Route::resource('uc', 'UserCenterController');
+Route::resource('notice', 'NoticeController');
 Route::resource('topic', 'TopicController');
 Route::resource('article', 'ArticleController');
 Route::resource('blog', 'BlogController');

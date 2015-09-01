@@ -4,11 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Notice extends Model
+class Notice extends D4lModel
 {
     const TYPE_COMMENT_TOPIC    = 1;
     const TYPE_COMMENT_BLOG     = 2;
     const TYPE_COMMENT_ARTICLE  = 3;
+
+
+    protected $guarded = ['id'];
 
     /**
      *

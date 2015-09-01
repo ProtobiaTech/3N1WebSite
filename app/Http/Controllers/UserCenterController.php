@@ -61,13 +61,13 @@ class UserCenterController extends Controller
         $assign['user'] = User::findOrFail($id);
         if ($id == Auth::user()->id) {
             // Notices
-            if ($request->get('notice') === 'uncheck') {
+            if (!$request->has('notice') || $request->get('notice') === 'uncheck') {
                 $assign['notices'] = Auth::user()->uncheckNotices;
                 $assign['noticeType'] = 'uncheck';
             } else if ($request->get('notice') === 'checked') {
                 $assign['notices'] = Auth::user()->checkedNotices;
                 $assign['noticeType'] = 'checked';
-            } else {
+            } else if ($request->get('notice') === 'all') {
                 $assign['notices'] = Auth::user()->allNotices;
                 $assign['noticeType'] = 'All';
             }

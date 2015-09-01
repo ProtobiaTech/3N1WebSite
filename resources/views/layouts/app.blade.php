@@ -48,32 +48,41 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-rocket"></i> {{ trans('app.Launch') }}</a>
-                    <ul class="dropdown-menu" role="menu">
-                        @if (Auth::check())
-                            <li><a href="{{ url('/topic/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
-                            @if (Auth::check() && Auth::user()->hasRole('admin'))
-                                <li><a href="{{ url('/blog/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
-                                <li><a href="{{ url('/article/create') }}"><i class="fa fa-plus"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
-                            @endif
-                        @else
-                            <li><a href="{{ url('/auth/login') }}"><i class="fa fa-user"></i> &nbsp;{{ trans('app.Login') }}</a></li>
-                        @endif
-                    </ul>
-                </li>
                 @if (Auth::guest())
                     <li class="{{ Request::is('auth/login') ? 'active' : '' }}"><a href="{{ url('/auth/login') }}">{{ trans('app.Login') }}</a></li>
                     <li class="{{ Request::is('auth/register') ? 'active' : '' }}"><a href="{{ url('/auth/register') }}">{{ trans('app.Register') }}</a></li>
                 @else
+                    <li>
+                        <a href="{{ route('uc.show', Auth::user()->id) }}">
+                            <i class="fa fa-bell"></i>
+                            <span id="header-uncheck-notice-num" class="badge">{{ Auth::user()->uncheckNotices->count() }}</span>
+                        </a>
+                    </li>
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-rocket"></i>
+                            <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
-                                <li><a href="{{ route('dashboard.index') }}">{{ trans('app.Dashboard') }}</a></li>
+                                <li><a href="{{ url('/topic/create') }}"><i class="fa fa-comments"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
+                                <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
+                                <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
                             @endif
-                            <li><a href="{{ route('uc.show', Auth::user()->id) }}">{{ trans('app.User Center') }}</a></li>
-                            <li><a href="{{ url('/auth/logout') }}">{{ trans('app.Logout') }}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> &nbsp;{{ trans('app.Dashboard') }}</a></li>
+                            @endif
+                            <li><a href="{{ route('uc.show', Auth::user()->id) }}"><i class="fa fa-bank"></i> &nbsp;{{ trans('app.User Center') }}</a></li>
+                            <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out"></i> &nbsp;{{ trans('app.Logout') }}</a></li>
                         </ul>
                     </li>
                 @endif
