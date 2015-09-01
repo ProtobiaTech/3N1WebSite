@@ -56,11 +56,22 @@ class UserCenterController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $assign['user'] = User::findOrFail($id);
         if ($id == Auth::user()->id) {
-            $assign['notices'] = Auth::user()->myNotices;
+            // Notices
+            if ($request->get('notice') === 'uncheck') {
+                $assign['notices'] = Auth::user()->uncheckNotices;
+                $assign['noticeType'] = 'uncheck';
+            } else if ($request->get('notice') === 'checked') {
+                $assign['notices'] = Auth::user()->checkedNotices;
+                $assign['noticeType'] = 'checked';
+            } else {
+                $assign['notices'] = Auth::user()->allNotices;
+                $assign['noticeType'] = 'All';
+            }
+
             return view('uc.show-me', $assign);
         } else {
             return view('uc.show-user', $assign);

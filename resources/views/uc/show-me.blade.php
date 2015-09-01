@@ -1,3 +1,6 @@
+<?php
+use App\Notice;
+?>
 @extends('layouts.app')
 
 @section('content')
@@ -11,10 +14,18 @@
                             <div class="pull-right">
                                 <div class="dropdown">
                                     <button class="btn btn-default btn-sm" data-toggle="dropdown">
-                                        {{ trans('user.All') }} <span class="caret"></span>
+                                        {{ trans('user.' . $noticeType) }} <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li class="active"><a>{{ trans('user.All') }}</a></li>
+                                        <li class="{{ Input::get('notice') === 'uncheck' ? 'active' : '' }}">
+                                            <a href="{{ route('uc.show', ['id' => $user->id, 'notice' => 'uncheck']) }}">{{ trans('user.uncheck') }}</a>
+                                        </li>
+                                        <li class="{{ Input::get('notice') === 'checked' ? 'active' : '' }}">
+                                            <a href="{{ route('uc.show', ['id' => $user->id, 'notice' => 'checked']) }}">{{ trans('user.checked') }}</a>
+                                        </li>
+                                        <li class="{{ !Input::has('notice') || Input::get('notice') === 'all' ? 'active' : '' }}">
+                                            <a href="{{ route('uc.show', ['id' => $user->id, 'notice' => 'all']) }}">{{ trans('user.All') }}</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -26,12 +37,13 @@
                         <div class="body items-notice" style="height:300px">
                             @if ($notices->count())
                                 @foreach ($notices as $notice)
-                                    <div class="item-notice">
-                                        <a>{{ $notice->offerUser->name }}</a>
-                                        在
-                                        <a>{{ $notice->notice->title }}</a>
-                                        回复了你
-                                    </div>
+                                    @if ($notice->type_id === Notice::TYPE_COMMENT_TOPIC)
+                                        @include('uc.notice.snippet-notice-topic')
+                                    @elseif ($notice->type_id === Notice::TYPE_COMMENT_BLOG)
+                                        @include('uc.notice.snippet-notice-blog')
+                                    @elseif ($notice->type_id === Notice::TYPE_COMMENT_ARTICLE)
+                                        @include('uc.notice.snippet-notice-article')
+                                    @endif
                                 @endforeach
                             @else
                                 <div class="item-notice">{{ trans('app.No data') }}</div>

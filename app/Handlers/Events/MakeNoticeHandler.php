@@ -31,7 +31,7 @@ class MakeNoticeHandler
         $Notice = new Notice;
         $Notice->user_id        =       $event->Entity->user_id;
         $Notice->offer_user_id  =       $event->Comment->user_id;
-        $Notice->type_id        =       $event->Comment->user_id;
+        $Notice->type_id        =       $event->Comment->type_id;
         $Notice->entity_id      =       $event->Comment->entity_id;
         $Notice->save();
 

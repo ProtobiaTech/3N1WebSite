@@ -22,8 +22,6 @@ return [
 
     // User Center
     'Edit profile'  =>  '编辑资料',
-    'All'           =>  '全部',
-    'Notice'               =>  '通知',
     'My profile'               =>  '我的资料',
     'Update Avatar'               =>  '更新头像',
     'Update'               =>  '更新',
@@ -31,6 +29,14 @@ return [
     'avatar updated successfully' => '头像更新成功',
     'Please select an image' => '请选择图片',
 
+    // User Center Notice
+    'All'                   =>  '全部',
+    'all'                   =>  '全部',
+    'In'                    =>  '在',
+    'reply to you'          =>  '回复了你',
+    'Notice'                =>  '通知',
+    'uncheck'               =>  '未读',
+    'checked'               =>  '已读',
 
 
     //
