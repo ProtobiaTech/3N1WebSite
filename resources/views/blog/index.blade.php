@@ -15,7 +15,7 @@
             @foreach ($blogs as $key => $blog)
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p class="caption"><a href="{{ url('/blog', ['id' => $blog->id]) }}" style="font-size:18px;">{{ $blog->title }}</a></p>
+                    <p class="caption">{{ $blog->created_at->format('m-d') }} &nbsp;&nbsp;<a href="{{ url('/blog', ['id' => $blog->id]) }}" style="font-size:18px;">{{ $blog->title }}</a></p>
                     <p>{!! mb_strcut($blog->body, 0, 400, 'utf-8') !!}</p>
                 </div>
             </div>

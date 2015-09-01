@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="section-items-article">
                 <div class="panel-heading">
                     {{ trans('article.Hot Article') }}
                 </div>
@@ -24,11 +24,13 @@
                         } ?>
                         <li>
                             <span class="pull-right" style="color:#777">
-                                <i class="fa fa-thumbs-o-up"></i> {{ $article->vote_up_count }}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-eye"></i> {{ $article->view_count }}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                {{ getYMD4datetime($article->created_at) }}
+                                <span class="hidden-xs">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    <span style="display:inline-block;width:2em">{{ $article->vote_up_count }}</span>
+                                    <i class="fa fa-eye"></i>
+                                    <span style="display:inline-block; width:2em">{{ $article->view_count }}</span>
+                                </span>
+                                {{ $article->created_at->format('m-d') }}
                             </span>
                             <a href="{{ url('/article', ['id' => $article->id]) }}">{{ $article->title }}</a>
                         </li>
@@ -48,7 +50,7 @@
                 break;
             } ?>
             <div class="col-sm-6">
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="section-items-article">
                     <div class="panel-heading">
                         {{ $category->name }}
                     </div>
@@ -64,7 +66,7 @@
                                 } ?>
                                 <li>
                                     <span class="pull-right" style="color:#777">
-                                        {{ getYMD4datetime($article->created_at) }}
+                                        {{ $article->created_at->format('m-d') }}
                                     </span>
                                     <a href="{{ url('/article', ['id' => $article->id]) }}">{{ $article->title }}</a>
                                 </li>

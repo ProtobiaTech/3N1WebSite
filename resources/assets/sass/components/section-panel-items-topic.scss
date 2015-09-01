@@ -86,6 +86,12 @@
                 border-bottom-color: transparent;
             }
 
+            @media (max-width: 767px) {
+                &:nth-last-child(2) {
+                    border-bottom: 1px solid #ddd !important;
+                }
+            }
+
             &.col-sm-12:nth-last-child(2) {
                 border-bottom: 1px solid #ddd;
             }

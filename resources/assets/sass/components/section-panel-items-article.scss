@@ -1,0 +1,22 @@
+/**
+ * less style
+ *
+ * 页面
+ */
+
+//
+// 
+// ------------------------------
+#section-items-article {
+    .panel-body {
+        ul {
+            li {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                a {
+                }
+            }
+        }
+    }
+}

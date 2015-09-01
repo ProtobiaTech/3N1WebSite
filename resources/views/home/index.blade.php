@@ -5,7 +5,7 @@
     <div class="row">
         <!-- Article -->
         <div class="col-sm-6">
-            <div class="panel panel-default" id="section-items-topic">
+            <div class="panel panel-default" id="section-items-article">
                 <div class="panel-heading">
                     {{ trans('article.Hot Article') }}
                     <div class="pull-right shortcut">
@@ -18,7 +18,10 @@
                             <li>{{ trans('app.No data') }}</li>
                         @endif
                         @foreach ($articles as $article)
-                            <li><a href="{{ route('article.show', ['id' => $article->id]) }}">{{ $article->title }}</a></li>
+                            <li>
+                                <span class="pull-right">{{ $article->created_at->format('m-d') }}</span>
+                                <a href="{{ route('article.show', ['id' => $article->id]) }}">{{ $article->title }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -27,7 +30,7 @@
 
         <!-- Blog -->
         <div class="col-sm-6">
-            <div class="panel panel-default" id="section-items-topic">
+            <div class="panel panel-default" id="section-items-article">
                 <div class="panel-heading">
                     {{ trans('blog.Hot Blog') }}
                     <div class="pull-right shortcut">
@@ -40,7 +43,10 @@
                             <li>{{ trans('app.No data') }}</li>
                         @endif
                         @foreach ($blogs as $blog)
-                            <li><a href="{{ route('blog.show', ['id' => $blog->id]) }}">{{ $blog->title }}</a></li>
+                            <li>
+                                <span class="pull-right">{{ $article->created_at->format('m-d') }}</span>
+                                <a href="{{ route('blog.show', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
