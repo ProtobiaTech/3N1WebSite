@@ -26,16 +26,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->first('node_id') ? 'has-error' : '' }}">
+                        <div class="form-group {{ $errors->first('category_id') ? 'has-error' : '' }}">
                             <label class="col-sm-2 control-label text-right">{{ trans('topic.Node') }}</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="node_id">
+                                <select class="form-control" name="category_id">
                                     <option disabled selected>{{ trans('app.please select') }}</option>
                                     @foreach ($nodeCategorys as $nodeCategory)
                                         <optgroup label="{{ $nodeCategory->name }}">
                                             @if ($nodeCategory->childCategorys->count())
                                                 @foreach ($nodeCategory->childCategorys as $node)
-                                                    <option {{ old('node_id') == $node->id ? 'selected' : '' }} value="{{ $node->id }}">{{ $node->name }}</option>
+                                                    <option {{ old('category_id') == $node->id ? 'selected' : '' }} value="{{ $node->id }}">{{ $node->name }}</option>
                                                 @endforeach
                                             @else
                                                 <option disabled>{{ trans('topic.Non Nodes') }}</option>
@@ -43,7 +43,7 @@
                                         </optgroup>
                                     @endforeach
                                 </select>
-                                <p class="help-block help-block-error">{{ $errors->first('node_id') }}</p>
+                                <p class="help-block help-block-error">{{ $errors->first('category_id') }}</p>
                             </div>
                         </div>
 

@@ -58,13 +58,18 @@ class TopicController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'title'         =>  'required|max:255|min:4|unique:' . $this->Topic->getTable(),
+            'body'          =>  'required|min:6',
+            'category_id'   =>  'required|integer',
+        ]);
         $this->Topic->title     =   Input::get('title');
         $this->Topic->body      =   Input::get('body');
         $this->Topic->type_id   =   Topic::TYPE_TOPIC;
         $this->Topic->user_id   =   Auth::user()->id;
-        $this->Topic->category_id   =   Input::get('node_id');
+        $this->Topic->category_id   =   Input::get('category_id');
         $this->Topic->last_comment_user_id  =    Auth::user()->id;
 
         if ($this->Topic->save()) {
