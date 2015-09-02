@@ -37,11 +37,11 @@ use App\Notice;
                         <div class="body items-notice" style="height:300px">
                             @if ($notices->count())
                                 @foreach ($notices as $notice)
-                                    @if ($notice->type_id === Notice::TYPE_COMMENT_TOPIC)
+                                    @if ($notice->type_id == Notice::TYPE_COMMENT_TOPIC)
                                         @include('uc.notice.snippet-notice', ['entityName' => 'Topic'])
-                                    @elseif ($notice->type_id === Notice::TYPE_COMMENT_BLOG)
+                                    @elseif ($notice->type_id == Notice::TYPE_COMMENT_BLOG)
                                         @include('uc.notice.snippet-notice', ['entityName' => 'Blog'])
-                                    @elseif ($notice->type_id === Notice::TYPE_COMMENT_ARTICLE)
+                                    @elseif ($notice->type_id == Notice::TYPE_COMMENT_ARTICLE)
                                         @include('uc.notice.snippet-notice', ['entityName' => 'Article'])
                                     @endif
                                 @endforeach
