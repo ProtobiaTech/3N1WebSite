@@ -52,9 +52,14 @@ class Category extends D4lModel
      *
      * @return
      */
-    public function getTopic4TopCategorys()
+    public function getTopic4TopCategorys($limit = null)
     {
-        return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_TOPIC)->get();
+        $builder = $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_TOPIC);
+        $builder = $builder->orderBy('weight', 'desc');
+        if (!empty($limit)) {
+            $builder = $builder->limit($limit);
+        }
+        return $builder->get();
     }
 
     /**
@@ -62,9 +67,14 @@ class Category extends D4lModel
      *
      * @return
      */
-    public function getBlog4TopCategorys()
+    public function getBlog4TopCategorys($limit = null)
     {
-        return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_BLOG)->get();
+        $builder = $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_BLOG);
+        $builder = $builder->orderBy('weight', 'desc');
+        if (!empty($limit)) {
+            $builder =  $builder->limit($limit);
+        }
+        return $builder->get();
     }
 
     /**
@@ -72,9 +82,14 @@ class Category extends D4lModel
      *
      * @return
      */
-    public function getArticle4TopCategorys()
+    public function getArticle4TopCategorys($limit = null)
     {
-        return $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_ARTICLE)->get();
+        $builder = $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_ARTICLE);
+        $builder = $builder->orderBy('weight', 'desc');
+        if (!empty($limit)) {
+            $builder = $builder->limit($limit);
+        }
+        return $builder->get();
     }
 
     /**
@@ -82,7 +97,7 @@ class Category extends D4lModel
      */
     public function getHotContents($limit = 10)
     {
-        return Content::where('category_id', '=', $this->id)->limit($limit)
-            ->orderBy('comment_count', 'desc')->orderBy('view_count', 'desc')->get();
+        $where['category_id'] = $this->id;
+        return (new Content)->getHotContents($limit, $where);
     }
 }

@@ -10,14 +10,10 @@ use App\Category;
 class Blog extends Content
 {
     /**
-     * Get hot content
-     *
-     * @param int $Limit Per page limit
-     *
-     * @return null | array
+     * Query
      */
-    public function getHotContents($limit = 10)
+    public function scopeSelectContents($query)
     {
-        return $this->blogs()->orderBy('id')->limit($limit)->get();
+        return $query->where('type_id', '=', Category::TYPE_BLOG);
     }
 }

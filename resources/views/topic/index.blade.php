@@ -46,6 +46,9 @@
                 <div class="panel-body">
                     @include('snippets.items-topic', ['topics' => $topics, 'colType' => 'col-sm-12'])
                 </div>
+                <div class="text-right" style="margin-right:15px;">
+                    {!! $topics->render() !!}
+                </div>
             </div>
          </div>
 

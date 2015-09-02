@@ -38,8 +38,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $assign['articles'] = $this->Article->articles()->get();
-        $assign['categorys'] = (new Category)->getArticle4TopCategorys();
+        $assign['articles'] = $this->Article->getHotContents(8);
+        $assign['categorys'] = (new Category)->getArticle4TopCategorys(4);
         return view('article.index', $assign);
     }
 

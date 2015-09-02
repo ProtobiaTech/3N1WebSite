@@ -10,15 +10,10 @@ use App\Category;
 class Article extends Content
 {
     /**
-     * Get hot content
-     *
-     * @param int $Limit Per page limit
-     *
-     * @return null | array
+     * Query
      */
-    public function getHotContents($limit = 10)
+    public function scopeSelectContents($query)
     {
-        return $this->articles()->limit($limit)
-            ->orderBy('comment_count', 'desc')->orderBy('view_count', 'desc')->get();
+        return $query->where('type_id', '=', Category::TYPE_ARTICLE);
     }
 }

@@ -47,9 +47,10 @@ class BlogController extends Controller
     public function index()
     {
         if (Input::has('category_id')) {
-            $assign['blogs'] = $this->Blog->blogs()->where('category_id', '=', Input::get('category_id'))->paginate(6);
+            $where['category_id'] = Input::get('category_id');
+            $assign['blogs'] = (new Blog)->getData(6, $where);
         } else {
-            $assign['blogs'] = $this->Blog->blogs()->paginate(6);
+            $assign['blogs'] = (new Blog)->getData(6);
         }
         return view('blog.index', $assign);
     }

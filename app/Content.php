@@ -68,6 +68,14 @@ class Content extends D4lModel
     }
 
     /**
+     * Query
+     */
+    public function scopeSelectContents($query)
+    {
+        return $query;
+    }
+
+    /**
      * The related User model
      *
      * @return \App\User
@@ -100,9 +108,30 @@ class Content extends D4lModel
     /**
      * Get hot content
      */
-    public function getHotContents()
+    public function getHotContents($paginate = 10, $where = null)
     {
-        //
+        $builder = $this->selectContents()
+            ->orderBy('comment_count', 'desc')->orderBy('view_count', 'desc')
+            ->orderBy('id', 'desc');
+
+        if (!empty($where)) {
+            $builder = $builder->where($where);
+        }
+        return $builder->paginate($paginate);
+    }
+
+    /**
+     * Get content
+     */
+    public function getData($paginate = 10, $where = null)
+    {
+        $builder = $this->selectContents()
+            ->orderBy('id', 'desc');
+
+        if (!empty($where)) {
+            $builder = $builder->where($where);
+        }
+        return $builder->paginate($paginate);
     }
 
     /**
@@ -112,6 +141,6 @@ class Content extends D4lModel
      */
     public function getLastCommentUser()
     {
-        return Comment::where('entity_id', '=', $this->id)->orderBy('created_at', 'desc')->first();
+        return Comment::where('entity_id', '=', $this->id)->orderBy('id', 'desc')->first();
     }
 }

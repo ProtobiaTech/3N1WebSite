@@ -19,9 +19,6 @@
                             <li>{{ trans('app.No data') }}</li>
                         @endif
                         @foreach ($articles as $key => $article)
-                        <?php if ($key == 8) {
-                            break;
-                        } ?>
                         <li>
                             <span class="pull-right" style="color:#777">
                                 <span class="hidden-xs">
@@ -46,9 +43,6 @@
 
     <div class="row">
         @foreach ($categorys as $key => $category)
-            <?php if ($key == 4) {
-                break;
-            } ?>
             <div class="col-sm-6">
                 <div class="panel panel-default" id="section-items-article">
                     <div class="panel-heading">
