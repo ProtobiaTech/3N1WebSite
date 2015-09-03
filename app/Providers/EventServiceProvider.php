@@ -29,5 +29,20 @@ class EventServiceProvider extends ServiceProvider
         parent::boot($events);
 
         //
+        \App\Blog::creating(function($content) {
+            $content->province_id = 1364;
+            $content->city_id = 1413;
+            $content->county_id = 1415;
+        });
+        \App\Article::creating(function($content) {
+            $content->province_id = 1364;
+            $content->city_id = 1413;
+            $content->county_id = 1415;
+        });
+        \App\Topic::creating(function($content) {
+            $content->province_id = 1364;
+            $content->city_id = 1413;
+            $content->county_id = 1415;
+        });
     }
 }
