@@ -31,6 +31,10 @@ class AddCityColumnContentTable extends Migration
     public function down()
     {
         Schema::table('contents', function (Blueprint $table) {
+            $table->dropForeign(['province_id']);
+            $table->dropForeign(['city_id']);
+            $table->dropForeign(['county_id']);
+
             $table->dropColumn([
                 'province_id',
                 'city_id',
