@@ -42,12 +42,33 @@
 
                     <hr>
                     <div class="" style="margin-top:-10px">
-                        <a><i class="fa fa-thumbs-o-up"></i></a>&nbsp;
-                        <a><i class="fa fa-thumbs-o-down"></i></a>&nbsp;
-                        <a><i class="fa fa-bookmark"></i></a>
+                        <?php $myVote = Auth::guest() ? null : $topic->myVote(); ?>
+                        @if ($myVote && $myVote->value == \App\ContentVote::VALUE_UP)
+                            <a class="text-muted" href="{{ route('content.vote', ['content_id' => $topic->id, 'voteType' => 'vote_up_cancel', 'route' => 'topic.show']) }}">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                {{ $topic->vote_up_count }}
+                            </a>&nbsp;
+                        @else
+                            <a href="{{ route('content.vote', ['content_id' => $topic->id, 'voteType' => 'vote_up', 'route' => 'topic.show']) }}">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                {{ $topic->vote_up_count }}
+                            </a>&nbsp;
+                        @endif
+                        @if ($myVote && $myVote->value == \App\ContentVote::VALUE_DOWN)
+                            <a class="text-muted" href="{{ route('content.vote', ['content_id' => $topic->id, 'voteType' => 'vote_down_cancel', 'route' => 'topic.show']) }}">
+                                <i class="fa fa-thumbs-o-down"></i>
+                                {{ $topic->vote_down_count }}
+                            </a>&nbsp;
+                        @else
+                            <a href="{{ route('content.vote', ['content_id' => $topic->id, 'voteType' => 'vote_down', 'route' => 'topic.show']) }}">
+                                <i class="fa fa-thumbs-o-down"></i>
+                                {{ $topic->vote_down_count }}
+                            </a>&nbsp;
+                        @endif
+                        &nbsp;<i class="fa fa-bookmark"></i>
 
                         <div class="pull-right">
-                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('topic.Reply') }}</a>
+                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('app.Reply') }}</a>
                         </div>
                     </div>
                 </div>

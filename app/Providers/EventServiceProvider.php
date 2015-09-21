@@ -16,6 +16,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\ContentWasCommented' => [
             'App\Handlers\Events\MakeNoticeHandler',
         ],
+        'App\Events\ContentWasVote' => [
+            'App\Handlers\Events\ChangeContentVoteHandler',
+        ],
+        'App\Events\ContentWasVoteCancel' => [
+            'App\Handlers\Events\ChangeContentVoteHandler',
+        ],
     ];
 
     /**

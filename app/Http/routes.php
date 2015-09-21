@@ -40,6 +40,9 @@ Route::resource('topic', 'TopicController');
 Route::resource('article', 'ArticleController');
 Route::resource('blog', 'BlogController');
 Route::resource('comment', 'CommentController');
+Route::controller('content', 'ContentController', [
+     'getVote' => 'content.vote',
+]);
 
 
 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 use App\Comment, App\Category;
 
 class Content extends D4lModel
@@ -71,6 +72,22 @@ class Content extends D4lModel
     public function comments()
     {
         return $this->hasMany('App\Comment', 'entity_id');
+    }
+
+    /**
+     *
+     */
+    public function votes()
+    {
+        return $this->hasMany('App\ContentVote', 'entity_id');
+    }
+
+    /**
+     *
+     */
+    public function myVote()
+    {
+        return ContentVote::where(['entity_id' => $this->id, 'user_id' => Auth::user()->id])->first();
     }
 
     /**
