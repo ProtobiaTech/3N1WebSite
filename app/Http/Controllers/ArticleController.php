@@ -25,8 +25,8 @@ class ArticleController extends Controller
      */
     public function __construct(Article $Article)
     {
-        $this->middleware('admin', ['except' => ['index', 'show']]);
-        $this->middleware('admin', ['only' => ['edit', 'update', 'destroy']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('admin', ['only' => ['create', 'edit', 'update', 'destroy']]);
 
         $this->Article = $Article;
     }

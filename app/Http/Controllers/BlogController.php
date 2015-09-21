@@ -32,8 +32,8 @@ class BlogController extends Controller
      */
     public function __construct(Blog $Blog)
     {
-        $this->middleware('admin', ['except' => ['index', 'show']]);
-        $this->middleware('admin', ['only' => ['edit', 'update', 'destroy']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('admin', ['only' => ['create', 'edit', 'update', 'destroy']]);
 
         $this->Blog = $Blog;
         $this->Blogs = $Blog->blogs();
