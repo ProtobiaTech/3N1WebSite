@@ -44,6 +44,36 @@ class Content extends D4lModel
     }
 
     /**
+     * The related User model
+     *
+     * @return \App\User
+     */
+    public function author()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    /**
+     * The related Category model
+     *
+     * @return \App\Category
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category', 'category_id');
+    }
+
+    /**
+     * The related Comment model
+     *
+     * @return array|null
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'entity_id');
+    }
+
+    /**
      * Query Topics
      */
     public function scopeTopics($query)
@@ -73,36 +103,6 @@ class Content extends D4lModel
     public function scopeSelectContents($query)
     {
         return $query;
-    }
-
-    /**
-     * The related User model
-     *
-     * @return \App\User
-     */
-    public function author()
-    {
-        return $this->belongsTo('App\User', 'user_id');
-    }
-
-    /**
-     * The related Category model
-     *
-     * @return \App\Category
-     */
-    public function category()
-    {
-        return $this->belongsTo('App\Category', 'category_id');
-    }
-
-    /**
-     * The related Comment model
-     *
-     * @return array|null
-     */
-    public function comments()
-    {
-        return $this->hasMany('App\Comment', 'entity_id');
     }
 
     /**
