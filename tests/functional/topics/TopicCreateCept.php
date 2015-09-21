@@ -16,7 +16,7 @@ $I->amOnRoute('topic.create');
 $I->see('Create Topic');
 
 $I->fillField('form input[name=title]', 'New Topic by FunctionalTester');
-$I->selectOption('form select[name=node_id]', '4');
+$I->selectOption('form select[name=category_id]', '4');
 $I->fillField('form textarea[name=body]', 'bodybodybody \n by FunctionalTester');
 $I->click('form [type=submit]');
 

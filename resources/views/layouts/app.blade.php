@@ -87,8 +87,10 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/topic/create') }}"><i class="fa fa-comments"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
-                            <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
-                            <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                                <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
+                                <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -113,8 +115,10 @@
         <div class="collapse navbar-collapse" id="launchNav">
             <ul class="nav navbar-nav visible-xs">
                 <li><a href="{{ url('/topic/create') }}"><i class="fa fa-comments"></i> &nbsp;{{ trans('app.Create Topic') }}</a></li>
-                <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
-                <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                @if (Auth::check() && Auth::user()->hasRole('admin'))
+                    <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
+                    <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                @endif
             </ul>
         </div>
 
@@ -167,7 +171,7 @@
     </div>
 </footer>
 <div class="hidden">
-{{ $systemDatas->site_analytic }}
+{!! $systemDatas->site_analytic !!}
 </div>
 
 <!-- Scripts -->
