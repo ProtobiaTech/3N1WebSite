@@ -50,7 +50,7 @@
                                 {{ $blog->vote_down_count }}
                             </a>&nbsp;
                         @endif
-                        &nbsp;<i class="fa fa-bookmark"></i>
+                        &nbsp;<i class="fa fa-bookmark hidden"></i>
 
                         <div class="pull-right">
                             <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('app.Reply') }}</a>
