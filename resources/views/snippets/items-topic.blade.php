@@ -19,10 +19,11 @@
                         <span class="nodeName">
                             <a href="{{ route('topic.index', ['category_id' => $topic->category_id]) }}">{{ $topic->category->name }}</a>
                         </span>
-                        <a>{{ $topic->author->name }}</a>
+                        <a href="{{ route('uc.show', $topic->author->id) }}">{{ $topic->author->name }}</a>
                         <span class="separator">|</span>
                         @if ($topic->comment_count)
-                            <a>{{ $topic->getLastCommentUser()->author->name }}</a>
+                            <a href="{{ route('uc.show', $topic->getLastCommentUser()->author->id) }}">{{ $topic->getLastCommentUser()->author->name }}</a>
+                            <span class="separator">|</span>
                             {{ timeAgo($topic->updated_at) }}{{ trans('topic.reply') }}
                         @else
                             {{ trans('topic.No reply') }}
