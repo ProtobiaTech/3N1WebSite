@@ -19,8 +19,8 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\ContentWasVote' => [
             'App\Handlers\Events\ChangeContentVoteHandler',
         ],
-        'App\Events\ContentWasVoteCancel' => [
-            'App\Handlers\Events\ChangeContentVoteHandler',
+        'App\Events\ContentWasShow' => [
+            'App\Handlers\Events\ContentViewCountHandler',
         ],
     ];
 

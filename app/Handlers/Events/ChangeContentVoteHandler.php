@@ -31,6 +31,7 @@ class ChangeContentVoteHandler
         $columnVoteUp = 'vote_up_count';
         $columnVoteDown = 'vote_down_count';
         $Content = $event->Content;
+        $Content->timestamps = false;
 
         switch ($event->voteType) {
             case 'vote_up':

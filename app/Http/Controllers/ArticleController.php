@@ -85,10 +85,8 @@ class ArticleController extends Controller
     public function show($id)
     {
         $assign['article'] = $this->Article->findOrFail($id);
-        // view_count +1
-        $assign['article']->timestamps = false;
-        $assign['article']->view_count = $assign['article']->view_count + 1;
-        $assign['article']->save();
+        // event view_count +1
+        event(new \App\Events\ContentWasShow($assign['article']));
 
         return view('article.show', $assign);
     }
