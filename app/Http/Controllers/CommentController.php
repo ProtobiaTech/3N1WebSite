@@ -50,6 +50,12 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        // validate
+        $this->validate($request, [
+            'entity_id' =>  ['required', 'integer'],
+            'body'      =>  ['required', 'min:25'],
+        ]);
+
         $Entity = Content::findOrFail($request->id);
 
         $this->Comment->body        =   $request->input('body');

@@ -18,6 +18,7 @@
     <link href="{{ asset('/bowerAssets/fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/style/style.min.css') }}" rel="stylesheet">
     <script src="{{ asset('bowerAssets/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bowerAssets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -160,12 +161,12 @@
 <footer id="footer">
     <div class="container">
         <div class="pull-right hidden-xs">
-            &copy;2015
+            <i class="fa fa-plug"></i> Powered by
             <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="https://github.com/dev4living/3N1WebSite" target="_blank">3N1WebSite</a>
         </div>
         <i class="fa fa-lightbulb-o"></i> {{ $systemDatas->site_slogan }}
         <div class="visible-xs">
-            &copy;2015
+            <i class="fa fa-plug"></i> Powered by
             <a href="http://dev4living.com" target="_blank">dev4living</a><a>/</a><a href="https://github.com/dev4living/3N1WebSite" target="_blank">3N1WebSite</a>
         </div>
     </div>
@@ -176,6 +177,5 @@
 
 <!-- Scripts -->
 <script src="{{ asset('bowerAssets/jquery-pjax/jquery.pjax.js') }}"></script>
-<script src="{{ asset('bowerAssets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

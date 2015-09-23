@@ -52,7 +52,8 @@ return [
     'More'              =>  '更多',
     'comments'          =>  '回复列表',
     'Comment'           =>  '回复',
-    'Reply'             =>  '回复',
+    'Reply'             =>  '评论',
+    'Simple reply'      =>  '简单评论',
     'My comment'        =>  '我的回复',
 
     'Day'               =>  '天',

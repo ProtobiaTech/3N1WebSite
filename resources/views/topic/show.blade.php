@@ -68,8 +68,13 @@
                         &nbsp;<i class="fa fa-bookmark hidden"></i>
 
                         <div class="pull-right">
-                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('app.Reply') }}</a>
+                            <a href="#panel-comments" onclick="$('#panel-comments textarea').focus()"><i class="fa fa-comments"></i> {{ trans('app.Comment') }}</a>
+                            &nbsp;&nbsp;
+                            <a href="#section-content-replys" onclick="$('#section-content-replys').fadeToggle()">{{ trans('app.Reply') }}({{ $topic->replys->count() }})</a>
                         </div>
+
+                        <!-- Reply -->
+                        @include('snippets.section-replys', ['entity' => $topic])
                     </div>
                 </div>
             </div>

@@ -75,6 +75,18 @@ class Content extends D4lModel
     }
 
     /**
+     * The related reply model
+     *
+     * @return array|null
+     */
+    public function replys()
+    {
+        return $this->hasMany('App\Reply', 'entity_id')
+            ->where('type_id', Reply::TYPE_CONTENT)
+            ->orderBy('id', 'desc');
+    }
+
+    /**
      *
      */
     public function votes()
@@ -159,5 +171,34 @@ class Content extends D4lModel
     public function getLastCommentUser()
     {
         return Comment::where('entity_id', '=', $this->id)->orderBy('id', 'desc')->first();
+    }
+
+    /**
+     *
+     */
+    public function getType($id)
+    {
+        $Content = $this->findOrFail($id);
+        switch ($Content->type_id) {
+            case Content::TYPE_TOPIC:
+                $ret = 'topic';
+                break;
+            case Content::TYPE_ARTICLE:
+                $ret = 'article';
+                break;
+            case Content::TYPE_BLOG:
+                $ret = 'blog';
+                break;
+        }
+        return $ret;
+    }
+
+    /**
+     * Get route
+     */
+    public function getAppointRoute($route, $id)
+    {
+        $ret = $this->getType($id);
+        return $ret . '.' . $route;
     }
 }

@@ -22,16 +22,6 @@ class Comment extends D4lModel
     }
 
     /**
-     * the Model rules
-     */
-    public $rules = [
-        'user_id'   =>  ['required', 'integer'],
-        'type_id'   =>  ['required', 'integer'],
-        'entity_id' =>  ['required', 'integer'],
-        'body'      =>  ['required', 'min:6'],
-    ];
-
-    /**
      * The related User model
      *
      * @return \App\User
@@ -48,6 +38,18 @@ class Comment extends D4lModel
     public function entity()
     {
          return $this->belongsTo('App\Content', 'entity_id');
+    }
+
+    /**
+     * The related reply model
+     *
+     * @return array|null
+     */
+    public function replys()
+    {
+        return $this->hasMany('App\Reply', 'entity_id')
+            ->where('type_id', Reply::TYPE_COMMENT)
+            ->orderBy('id', 'desc');
     }
 
 }
