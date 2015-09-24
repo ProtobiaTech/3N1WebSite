@@ -55,7 +55,7 @@
                         <div class="pull-right">
                             <a href="#panel-comments" onclick="$('#panel-comments textarea').focus()"><i class="fa fa-comments"></i> {{ trans('app.Comment') }}</a>
                             &nbsp;&nbsp;
-                            <a href="#section-content-replys" onclick="$('#section-content-replys').fadeToggle()">{{ trans('app.Reply') }}({{ $blog->replys->count() }})</a>
+                            <a class="cursor-pointer" onclick="$('#section-content-replys').fadeToggle()">{{ trans('app.Reply') }}({{ $blog->replys->count() }})</a>
                         </div>
 
                         <!-- Reply -->

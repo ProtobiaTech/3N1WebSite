@@ -27,7 +27,7 @@
                     $inputName = 'body-reply-comment' . $entity->id;
                 }
             ?>
-            <div class="form-group {{ $errors->first($inputName) ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->first($inputName) ? 'has-error' : '' }}" style="margin-bottom:0;">
                 <div class="col-sm-12">
                     <div class="input-group">
                         <input name="{{ $inputName }}" type="text" class="form-control" placeholder="{{ trans('app.Simple reply') }}" value="{{ old($inputName) }}">
@@ -42,7 +42,7 @@
     @endif
 
 
-    <div style="margin-top:-20px">
+    <div style="">
         @foreach ($entity->replys as $index => $reply)
             <?php if ($index == 10) { break; } ?>
             <div class="item" style="padding-bottom:5px; word-wrap:break-word; word-break:normal;">

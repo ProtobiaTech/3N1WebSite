@@ -78,6 +78,11 @@ class ReplyController extends Controller
         }
 
         if ($Reply->save()) {
+            if ($request->get('entity_type') === 'content') {
+                event(new \App\Events\ContentWasReplied($Reply));
+            } else if ($request->get('entity_type') === 'comment') {
+                event(new \App\Events\CommentWasReplied($Reply));
+            }
             Flash::success(trans('app.Successful operation'));
             $route = (new Content)->getAppointRoute('show', $request->get('content_id'));
             return redirect()->route($route, ['id' => $request->get('content_id')]);

@@ -37,13 +37,7 @@ use App\Notice;
                         <div class="body items-notice" style="height:300px">
                             @if ($notices->count())
                                 @foreach ($notices as $notice)
-                                    @if ($notice->type_id == Notice::TYPE_COMMENT_TOPIC)
-                                        @include('uc.notice.snippet-notice', ['entityName' => 'Topic'])
-                                    @elseif ($notice->type_id == Notice::TYPE_COMMENT_BLOG)
-                                        @include('uc.notice.snippet-notice', ['entityName' => 'Blog'])
-                                    @elseif ($notice->type_id == Notice::TYPE_COMMENT_ARTICLE)
-                                        @include('uc.notice.snippet-notice', ['entityName' => 'Article'])
-                                    @endif
+                                    @include('uc.notice.snippet-notice')
                                 @endforeach
                             @else
                                 <div class="item-notice">{{ trans('app.No data') }}</div>
@@ -68,12 +62,7 @@ use App\Notice;
             var noticeId = notice.attr('data-notice-id');
 
             var url = '/notice/' + noticeId;
-            var data = {
-                '_token': '{{ csrf_token() }}',
-                '_method': 'put',
-                'is_checked': 1,
-            }
-            $.post(url, data).success(function() {
+            $.get(url).success(function() {
                 if ('all' !== '{{ Input::get("notice") }}') {
                     notice.fadeOut();
                 } else {

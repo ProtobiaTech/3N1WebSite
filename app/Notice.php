@@ -10,6 +10,9 @@ class Notice extends D4lModel
     const TYPE_COMMENT_BLOG     = 2;
     const TYPE_COMMENT_ARTICLE  = 3;
 
+    const TYPE_REPLY_CONTENT    = 4;
+    const TYPE_REPLY_COMMENT    = 5;
+
 
     protected $guarded = ['id'];
 
@@ -18,7 +21,11 @@ class Notice extends D4lModel
      */
     public function entity()
     {
-        return $this->belongsTo('App\Content', 'entity_id');
+        if ($this->type_id == Notice::TYPE_REPLY_CONTENT || $this->type_id == Notice::TYPE_REPLY_COMMENT) {
+            return $this->belongsTo('App\Reply', 'entity_id');
+        } else {
+            return $this->belongsTo('App\Comment', 'entity_id');
+        }
     }
 
     /**

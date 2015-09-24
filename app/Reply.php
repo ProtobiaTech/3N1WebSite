@@ -30,4 +30,16 @@ class Reply extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    /**
+     * The related Content or Comment model
+     */
+    public function entity()
+    {
+        if ($this->type_id == Reply::TYPE_CONTENT) {
+            return $this->belongsTo('App\Content', 'entity_id');
+        } else if ($this->type_id == Reply::TYPE_COMMENT) {
+            return $this->belongsTo('App\Comment', 'entity_id');
+        }
+    }
+
 }
