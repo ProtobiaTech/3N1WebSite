@@ -16,9 +16,12 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', 'HomeController@index');
 
 // images
-Route::get('images/{dirName?}/{fileName?}', function($dirName, $fileName)
+Route::get('images/avatars/{fileName?}', function($fileName)
 {
-    $path = storage_path() . '/app/images/' . $dirName . '/' . $fileName;
+    $path = storage_path() . '/app/images/avatars/' . '/' . $fileName;
+    if (!File::exists($path)) {
+        $path = storage_path() . '/app/images/avatars/default.jpg';
+    }
     return Image::make($path)->response();
 });
 
