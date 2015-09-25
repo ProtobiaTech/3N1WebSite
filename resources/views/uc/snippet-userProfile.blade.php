@@ -11,7 +11,7 @@
 
         <p class="text-center">
             <b>{{ trans('user.Name') }}:</b>
-            {{ Auth::user()->name }}
+            {{ $user->name }}
         </p>
     </div>
 </div>

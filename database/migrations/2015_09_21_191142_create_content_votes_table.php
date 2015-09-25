@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoticesTable extends Migration
+class CreateContentVotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,19 +12,16 @@ class CreateNoticesTable extends Migration
      */
     public function up()
     {
-        Schema::create('notices', function (Blueprint $table) {
+        Schema::create('content_votes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->index()->unsigned();
-            $table->integer('offer_user_id')->unsigned();
-            $table->integer('type_id')->unsigned();
             $table->integer('entity_id')->unsigned();
-            $table->integer('is_checked')->default(0)->unsigned();
+            $table->integer('value');
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('entity_id')->references('id')->on('contents');
-            $table->foreign('offer_user_id')->references('id')->on('users');
         });
     }
 
@@ -35,6 +32,6 @@ class CreateNoticesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notices');
+        Schema::drop('content_votes');
     }
 }

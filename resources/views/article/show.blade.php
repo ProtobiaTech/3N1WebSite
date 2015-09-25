@@ -27,14 +27,40 @@
 
                     <hr>
                     <div class="" style="margin-top:-10px">
-                        <a><i class="fa fa-thumbs-o-up"></i></a>&nbsp;
-                        <a><i class="fa fa-thumbs-o-down"></i></a>&nbsp;
-                        <a><i class="fa fa-bookmark"></i></a>
+                        <?php $myVote = Auth::guest() ? null : $article->myVote(); ?>
+                        @if ($myVote && $myVote->value == \App\ContentVote::VALUE_UP)
+                            <a class="text-muted" href="{{ route('content.vote', ['content_id' => $article->id, 'voteType' => 'vote_up_cancel', 'route' => 'article.show']) }}">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                {{ $article->vote_up_count }}
+                            </a>&nbsp;
+                        @else
+                            <a href="{{ route('content.vote', ['content_id' => $article->id, 'voteType' => 'vote_up', 'route' => 'article.show']) }}">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                {{ $article->vote_up_count }}
+                            </a>&nbsp;
+                        @endif
+                        @if ($myVote && $myVote->value == \App\ContentVote::VALUE_DOWN)
+                            <a class="text-muted" href="{{ route('content.vote', ['content_id' => $article->id, 'voteType' => 'vote_down_cancel', 'route' => 'article.show']) }}">
+                                <i class="fa fa-thumbs-o-down"></i>
+                                {{ $article->vote_down_count }}
+                            </a>&nbsp;
+                        @else
+                            <a href="{{ route('content.vote', ['content_id' => $article->id, 'voteType' => 'vote_down', 'route' => 'article.show']) }}">
+                                <i class="fa fa-thumbs-o-down"></i>
+                                {{ $article->vote_down_count }}
+                            </a>&nbsp;
+                        @endif
+                        &nbsp;<i class="fa fa-bookmark hidden"></i>
 
                         <div class="pull-right">
-                            <a href="#anchor-reply"><i class="fa fa-reply"></i> {{ trans('topic.Reply') }}</a>
+                            <a href="#panel-comments" onclick="$('#panel-comments ').focus()"><i class="fa fa-comments"></i> {{ trans('app.Comment') }}</a>
+                            &nbsp;&nbsp;
+                            <a class="cursor-pointer" onclick="$('#section-content-replys').fadeToggle()">{{ trans('app.Reply') }}({{ $article->replys->count() }})</a>
                         </div>
                     </div>
+
+                    <!-- Reply -->
+                    @include('snippets.section-replys', ['entity' => $article])
                 </div>
             </div>
 

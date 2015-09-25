@@ -55,7 +55,7 @@ class Category extends D4lModel
     public function getTopic4TopCategorys($limit = null)
     {
         $builder = $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_TOPIC);
-        $builder = $builder->orderBy('weight', 'desc');
+        $builder = $builder->orderBy('weight', 'asc');
         if (!empty($limit)) {
             $builder = $builder->limit($limit);
         }
@@ -70,7 +70,7 @@ class Category extends D4lModel
     public function getBlog4TopCategorys($limit = null)
     {
         $builder = $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_BLOG);
-        $builder = $builder->orderBy('weight', 'desc');
+        $builder = $builder->orderBy('weight', 'asc');
         if (!empty($limit)) {
             $builder =  $builder->limit($limit);
         }
@@ -85,7 +85,7 @@ class Category extends D4lModel
     public function getArticle4TopCategorys($limit = null)
     {
         $builder = $this->whereRaw('parent_id = 0 and type_id = ' . Category::TYPE_ARTICLE);
-        $builder = $builder->orderBy('weight', 'desc');
+        $builder = $builder->orderBy('weight', 'asc');
         if (!empty($limit)) {
             $builder = $builder->limit($limit);
         }

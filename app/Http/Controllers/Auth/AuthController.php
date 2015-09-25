@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Session;
 use Dev4living\LeanCloudSMS\LeanCloudSMS;
 
 class AuthController extends Controller
@@ -92,6 +93,29 @@ class AuthController extends Controller
             $messageBag = (new MessageBag)->add('verifyCode', $verifyRet['error']);
             return redirect()->back()->withInput($request->all())->withErrors($messageBag);
         }
+    }
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogin()
+    {
+        if (view()->exists('auth.authenticate')) {
+            return view('auth.authenticate');
+        }
+
+        session()->flash('redirectPath', isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : route('home'));
+        return view('auth.login');
+    }
+
+    /**
+     * Handle the login before
+     */
+    public function authenticated($request, $user)
+    {
+        return redirect()->intended(session('redirectPath'));
     }
 
     /**

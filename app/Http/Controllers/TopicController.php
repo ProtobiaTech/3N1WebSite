@@ -37,7 +37,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $assign['topics'] = (new Topic)->getData(15);
+        $assign['topics'] = (new Topic)->getTopic(15);
         $assign['categorys'] = (new Category)->getTopic4TopCategorys();
         return view('topic/index', $assign);
     }
@@ -90,10 +90,8 @@ class TopicController extends Controller
     public function show($id)
     {
         $assign['topic'] = $this->Topic->findOrFail($id);
-        // view_count +1
-        $assign['topic']->timestamps = false;
-        $assign['topic']->view_count = $assign['topic']->view_count + 1;
-        $assign['topic']->save();
+        // event view_count +1
+        event(new \App\Events\ContentWasShow($assign['topic']));
 
         return view('topic/show', $assign);
     }

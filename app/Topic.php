@@ -13,12 +13,15 @@ class Topic extends Content
      * Get Topic models Pager
      *
      * @param int $limit Per page limit
-     *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public static function getTopic($limit = 15)
     {
-        return (new Topic)->applyFilter()->selectCategory()->topics()->paginate($limit);
+        $Topic = new Topic;
+        $Topic->builder = $Topic->query();
+        $Topic->selectCategory();
+        $Topic->applyFilter();
+        return $Topic->builder->paginate($limit);
     }
 
     /**
@@ -26,7 +29,7 @@ class Topic extends Content
      */
     public function scopeSelectContents($query)
     {
-        return $query->where('type_id', '=', Category::TYPE_TOPIC);
+        return $this->builder = $query->where('type_id', '=', Category::TYPE_TOPIC);
     }
 
     /**
@@ -34,20 +37,26 @@ class Topic extends Content
      */
     public function applyFilter()
     {
-        if (!Input::has('filter')) return $this;
-        switch (Input::get('filter')) {
-            case 'recent':
-                return $this->recent();
-                break;
-            case 'excellent':
-                return $this->excellent();
-                break;
-            case 'noreply':
-                return $this->noreply();
-                break;
-            default:
-                return $this->orderBy('id');
-                break;
+        if (Input::has('filter')) {
+            switch (Input::get('filter')) {
+                case 'recent':
+                    return $this->recent();
+                    break;
+                case 'excellent':
+                    return $this->excellent();
+                    break;
+                case 'vote':
+                    return $this->vote();
+                    break;
+                case 'noreply':
+                    return $this->noreply();
+                    break;
+                default:
+                    return $this->builder = $this->builder->orderBy('updated_at', 'desc')->orderBy('id', 'desc');
+                    break;
+            }
+        } else {
+            return $this->builder = $this->builder->orderBy('updated_at', 'desc')->orderBy('id', 'desc');
         }
     }
 
@@ -58,9 +67,9 @@ class Topic extends Content
     {
         if (Input::has('category_id')) {
             $categoryId = Category::findOrFail(Input::get('category_id'))->childCategorys->modelKeys();
-            return $this->where('category_id', '=', Input::get('category_id'))->orWhereIn('category_id', $categoryId);
+            return $this->builder = $this->builder->where('category_id', '=', Input::get('category_id'))->orWhereIn('category_id', $categoryId);
         } else {
-            return $this;
+            return $this->builder;
         }
     }
 
@@ -69,7 +78,7 @@ class Topic extends Content
      */
     public function scopeRecent($filter)
     {
-        return $this->orderBy('created_at', 'DESC');
+        return $this->builder = $this->builder->orderBy('created_at', 'desc')->orderBy('id', 'desc');
     }
 
     /**
@@ -77,7 +86,20 @@ class Topic extends Content
      */
     public function scopeExcellent($filter)
     {
-        return $this->where('is_excellent', '=', true)->orderBy('reply_count', 'DESC')->recent();
+        return $this->builder = $this->builder->where('is_excellent', '=', true)
+            ->orderBy('comment_count', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc');
+    }
+
+    /**
+     *
+     */
+    public function scopeVote($filter)
+    {
+        return $this->builder = $this->builder->orderBy('vote_up_count', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc');
     }
 
     /**
@@ -85,7 +107,9 @@ class Topic extends Content
      */
     public function scopeNoReply($filter)
     {
-        return $this->orderBy('reply_count', 'ASC')->recent();
+        return $this->builder = $this->builder->orderBy('comment_count', 'asc')
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc');
     }
 
 }

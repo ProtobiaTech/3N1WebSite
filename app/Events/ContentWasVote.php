@@ -6,32 +6,21 @@ use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-use App\Comment;
+use App\Content, App\ContentVote;
 
-class ContentWasCommented extends Event
+class ContentWasVote extends Event
 {
     use SerializesModels;
-
-    /**
-     *
-     */
-    public $Comment;
-
-    /**
-     *
-     */
-    public $Entity;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Comment $Entity)
+    public function __construct(Content $Content, $voteType)
     {
-        $this->Entity = $Entity;
-        $this->userId = $Entity->entity->user_id;
-        $this->typeId = $Entity->entity->type_id;
+        $this->Content = $Content;
+        $this->voteType = $voteType;
     }
 
     /**

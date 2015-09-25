@@ -50,6 +50,12 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        // validate
+        $this->validate($request, [
+            'entity_id' =>  ['required', 'integer'],
+            'body'      =>  ['required', 'min:25'],
+        ]);
+
         $Entity = Content::findOrFail($request->id);
 
         $this->Comment->body        =   $request->input('body');
@@ -58,7 +64,7 @@ class CommentController extends Controller
         $this->Comment->entity_id   =   $request->input('entity_id');
 
         if ($this->Comment->save()) {
-            event(new \App\Events\ContentWasCommented($this->Comment, $Entity));
+            event(new \App\Events\ContentWasCommented($this->Comment));
             Flash::success(trans('app.Successful operation'));
             return redirect()->back();
         } else {

@@ -97,10 +97,8 @@ class BlogController extends Controller
     public function show($id)
     {
         $assign['blog'] = $this->Blog->findOrFail($id);
-        // view_count +1
-        $assign['blog']->timestamps = false;
-        $assign['blog']->view_count = $assign['blog']->view_count + 1;
-        $assign['blog']->save();
+        // event view_count +1
+        event(new \App\Events\ContentWasShow($assign['blog']));
 
         return view('blog.show', $assign);
     }

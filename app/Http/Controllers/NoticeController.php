@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Auth;
-use App\Notice;
+use App\Notice, App\Content;
 
 class NoticeController extends Controller
 {
@@ -65,7 +65,34 @@ class NoticeController extends Controller
      */
     public function show($id)
     {
-        //
+        $Notice = $this->Notice->findOrFail($id);
+        $Notice->is_checked = true;
+
+        if (request()->ajax()) {
+            if ($Notice->save()) {
+                return $Notice;
+            } else {
+                abort(500);
+            }
+        } else {
+            if ($Notice->save()) {
+                // comment
+                $route = (new Content)->getAppointRoute('show', $Notice->entity_id);
+                $redirectUrl = route($route, $Notice->entity->entity_id) . '#section-comment-' . $Notice->entity->id;
+
+                // reply
+                if ($Notice->type_id == Notice::TYPE_REPLY_COMMENT) {
+                    $route = (new Content)->getAppointRoute('show', $Notice->entity->entity->entity_id);
+                    $redirectUrl = route($route, $Notice->entity->entity->entity_id);
+                    $redirectUrl .= '#section-comment-' . $Notice->entity->entity->id;
+                } else if ($Notice->type_id == Notice::TYPE_REPLY_CONTENT) {
+                    $redirectUrl = route($route, $Notice->entity->entity_id) . '#section-content-replys';
+                }
+                return redirect()->to($redirectUrl);
+            } else {
+                return redirect()->back();
+            }
+        }
     }
 
     /**
@@ -86,15 +113,9 @@ class NoticeController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $Notice = $this->Notice->findOrFail($id);
-        $Notice->fillData($request->all());
-        if ($Notice->save()) {
-            return $Notice;
-        } else {
-            abort(500);
-        }
+        //
     }
 
     /**

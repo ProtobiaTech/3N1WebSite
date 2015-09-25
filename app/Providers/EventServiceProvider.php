@@ -15,6 +15,19 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\ContentWasCommented' => [
             'App\Handlers\Events\MakeNoticeHandler',
+            'App\Handlers\Events\ContentCommentCountIncrementHandler',
+        ],
+        'App\Events\ContentWasReplied' => [
+            'App\Handlers\Events\MakeNoticeHandler',
+        ],
+        'App\Events\CommentWasReplied' => [
+            'App\Handlers\Events\MakeNoticeHandler',
+        ],
+        'App\Events\ContentWasVote' => [
+            'App\Handlers\Events\ChangeContentVoteHandler',
+        ],
+        'App\Events\ContentWasShow' => [
+            'App\Handlers\Events\ContentViewCountHandler',
         ],
     ];
 

@@ -2,11 +2,11 @@
 <div class="panel panel-default" id="section-items-comment">
     <div class="panel-heading">{{ trans('app.comments') }}</div>
     <div class="panel-body">
-        @if (!$entity->comment_count)
+        @if (!$entity->comments->count())
             <span>{{ trans('app.No data') }}</span>
         @endif
         @foreach ($entity->comments as $comment)
-            <div class="item-comment">
+            <div id="section-comment-{{ $comment->id }}" class="item-comment">
                 <div class="avatar pull-left">
                     <img src="{{ $comment->author->avatar }}">
                 </div>
@@ -15,18 +15,24 @@
                         <a>{{ $comment->author->name }}</a>
                         <span class="separator">|</span>
                         <span>{{ $comment->created_at }}</span>
+                        <span class="pull-right">
+                            <a class="cursor-pointer" onclick="$('#section-comment-replys-{{ $comment->id }}').fadeToggle()">{{ trans('app.Reply') }}({{ $comment->replys->count() }})</a>
+                        </span>
                     </div>
-                    <div class="content">
+                    <div class="content" style="word-break:normal; word-wrap:break-word; ">
                         {!! nl2br($comment->body) !!}
                     </div>
                 </div>
+
+                <!-- Reply -->
+                @include('snippets.section-replys', ['entity' => $comment])
             </div>
         @endforeach
     </div>
 </div>
 
 <!-- New Comment -->
-<div class="panel panel-default">
+<div id="panel-comments"  class="panel panel-default">
     <div id="anchor-comment" class="panel-heading">{{ trans('app.My comment') }}</div>
     <div class="panel-body">
         @if (Auth::guest())
