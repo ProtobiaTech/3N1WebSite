@@ -26,7 +26,7 @@ class CreateContentsTable extends Migration
             $table->boolean('is_topped')->default(false)->index();
             $table->integer('comment_count')->default(0)->index();
             $table->integer('view_count')->default(0)->index();
-            $table->integer('favorite_count')->default(0)->index();
+            $table->integer('bookmark_count')->default(0)->index();
             $table->integer('vote_up_count')->default(0)->index();
             $table->integer('vote_down_count')->default(0)->index();
             $table->integer('last_comment_user_id')->index()->unsigned()->nullable();

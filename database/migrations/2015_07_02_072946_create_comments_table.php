@@ -16,13 +16,16 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->text('body');
             $table->integer('user_id')->index()->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('type_id')->index()->unsigned();
             $table->integer('entity_id')->index()->unsigned();
             $table->boolean('is_block')->index()->default(false);
-            $table->integer('vote_count')->index()->default(0);
+            $table->integer('vote_up_count')->index()->default(0);
+            $table->integer('vote_down_count')->index()->default(0);
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('entity_id')->references('id')->on('contents');
         });
     }
 
