@@ -10,7 +10,8 @@
         "laracasts/flash": "~1.3",
         "illuminate/html" : "~5.0",
         "dev4living/lean-cloud-sms-php": "dev-master",
-        "guzzlehttp/guzzle": "~5.0"
+        "guzzlehttp/guzzle": "~5.0",
+        "intervention/image": "~2.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~2.0",
