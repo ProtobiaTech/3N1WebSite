@@ -23,7 +23,6 @@
                         <span class="separator">|</span>
                         @if ($topic->comment_count)
                             <a href="{{ route('uc.show', $topic->getLastCommentUser()->author->id) }}">{{ $topic->getLastCommentUser()->author->name }}</a>
-                            <span class="separator">|</span>
                             {{ timeAgo($topic->updated_at) }}{{ trans('topic.reply') }}
                         @else
                             {{ trans('topic.No reply') }}

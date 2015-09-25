@@ -151,6 +151,7 @@ return [
         'Laracasts\Flash\FlashServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
     ],
 
     /*
@@ -203,7 +204,8 @@ return [
         'Flash'     => 'Laracasts\Flash\Flash',
         'Form'      => 'Illuminate\Html\FormFacade',
         'HTML'      => 'Illuminate\Html\HtmlFacade',
-        'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
+        'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
+        'Image'     => 'Intervention\Image\Facades\Image',
     ],
 
 ];

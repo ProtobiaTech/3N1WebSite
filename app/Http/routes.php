@@ -15,6 +15,13 @@
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', 'HomeController@index');
 
+// images
+Route::get('images/{dirName?}/{fileName?}', function($dirName, $fileName)
+{
+    $path = storage_path() . '/app/images/' . $dirName . '/' . $fileName;
+    return Image::make($path)->response();
+});
+
 
 
 // Controller
