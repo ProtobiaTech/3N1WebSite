@@ -37,6 +37,11 @@ class Content extends D4lModel
     const TYPE_ARTICLE = 3;
 
     /**
+     * Builder
+     */
+    public $builder;
+
+    /**
      * Date transform
      */
     public function getDates()
@@ -155,6 +160,7 @@ class Content extends D4lModel
     public function getData($paginate = 10, $where = null)
     {
         $builder = $this->selectContents()
+            ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc');
 
         if (!empty($where)) {

@@ -50,7 +50,7 @@
                     </div>
                     <div class="panel-body" style="height:192px;">
                         <ul class="list-unstyled">
-                            <?php $articles = $category->getHotContents(); ?>
+                            <?php $articles = $category->contents->sortByDesc('created_at')->sortByDesc('id'); ?>
                             @if (!$articles->count())
                                 <li>{{ trans('app.No data') }}</li>
                             @endif

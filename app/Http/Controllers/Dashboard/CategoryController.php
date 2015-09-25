@@ -180,9 +180,9 @@ class CategoryController extends Controller
     {
         $Category = $this->Category->findOrFail(Input::get('id'));
         if ($Category->parent_id == 0) {
-            $assign['categorys'] = $this->Category->defaultOrder()->whereRaw('parent_id = 0 and type_id = ' . $Category->type_id )->get();
+            $assign['categorys'] = $this->Category->orderBy('weight', 'asc')->whereRaw('parent_id = 0 and type_id = ' . $Category->type_id )->get();
         } else {
-            $assign['categorys'] = $this->Category->defaultOrder()->where('parent_id', '=', $Category->parent_id )->get();
+            $assign['categorys'] = $this->Category->orderBy('weight', 'asc')->where('parent_id', '=', $Category->parent_id )->get();
         }
 
         return view('dashboard.category.order', $assign);

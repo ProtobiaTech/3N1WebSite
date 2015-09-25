@@ -16,7 +16,7 @@
                         <div class="col-xs-10">
                             <!-- Node -->
                             <div class="items-node">
-                                <?php $nodes = $nodeCategory->childCategorys; ?>
+                                <?php $nodes = $nodeCategory->childCategorys->sortBy('weight'); ?>
                                 @if ($nodes->count())
                                     @foreach ($nodes as $node)
                                         <a href="{{ route('topic.index', ['category_id' => $node->id]) }}">{{ $node->name }}</a>

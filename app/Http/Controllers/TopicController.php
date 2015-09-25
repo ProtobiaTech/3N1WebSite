@@ -37,7 +37,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $assign['topics'] = (new Topic)->getData(15);
+        $assign['topics'] = (new Topic)->getTopic(15);
         $assign['categorys'] = (new Category)->getTopic4TopCategorys();
         return view('topic/index', $assign);
     }
