@@ -69,3 +69,6 @@
     </div>
 </div>
 @endsection
+
+<!-- mike survey -->
+<a href="http://form.mikecrm.com/f.php?t=GJGlq3" target="_blank" style="position:fixed;z-index:999;right:-5px;bottom: 20px;display: inline-block;width: 30px;border-radius: 5px;color:white;font-size:14px;line-height:17px;background: #2476CE;box-shadow: 0 0 5px #666;word-wrap: break-word;padding: 10px 6px;border: 2px solid white;">参与产品调查</a>

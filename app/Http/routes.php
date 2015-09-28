@@ -14,6 +14,8 @@
 // Home
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', 'HomeController@index');
+Route::get('3n1website', 'HomeController@product');
+
 
 // images
 Route::get('images/avatars/{fileName?}', function($fileName)

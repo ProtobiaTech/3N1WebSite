@@ -65,6 +65,12 @@
                         {{ trans('app.Blog') }}
                     </a>
                 </li>
+                <li class="{{ Request::is('3n1website*') ? 'active' : '' }}">
+                    <a href="{{ url('/3n1website') }}">
+                        <i class="visible-xs-inline fa fa-cubes">&nbsp;</i>
+                        3N1WebSite
+                    </a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right hidden-xs">
