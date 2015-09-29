@@ -47,10 +47,11 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255|unique:users',
-            'phone' => 'required|integer|unique:users',
-            'verifyCode' => 'required|integer',
+            // 'phone' => 'required|integer|unique:users',
+            // 'verifyCode' => 'required|integer',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
+            'password_confirmation' => 'required|min:6',
         ]);
     }
 
@@ -69,6 +70,10 @@ class AuthController extends Controller
             );
         }
 
+        Auth::login($this->create($request->all()));
+        return redirect($this->redirectPath());
+
+        /**
         $verifyRet = $this->verifyRegisterPhoneCode($request->input('phone'), $request->input('verifyCode'));
         if (!isset($verifyRet['error'])) {
             Auth::login($this->create($request->all()));
@@ -93,6 +98,7 @@ class AuthController extends Controller
             $messageBag = (new MessageBag)->add('verifyCode', $verifyRet['error']);
             return redirect()->back()->withInput($request->all())->withErrors($messageBag);
         }
+         */
     }
 
     /**

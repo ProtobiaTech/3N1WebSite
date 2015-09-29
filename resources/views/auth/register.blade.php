@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+                        <div class="hidden form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
                             <label class="col-md-4 control-label">{{ trans('user.Phone') }}</label>
                             <div class="col-md-6">
                                 <div class="input-group">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('verifyCode') ? 'has-error' : '' }}">
+                        <div class="hidden form-group {{ $errors->has('verifyCode') ? 'has-error' : '' }}">
                             <label class="col-md-4 control-label">{{ trans('user.Verification code') }}</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="verifyCode" value="{{ old('verifyCode') }}">
@@ -94,6 +94,14 @@
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
                                 <p class="help-block help-block-error {{ $errors->has('password') ? '' : 'hidden' }}">{{ $errors->first('password') }}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                            <label class="col-md-4 control-label">{{ trans('user.Confirm password') }}</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password_confirmation">
+                                <p class="help-block help-block-error {{ $errors->has('password_confirmation') ? '' : 'hidden' }}">{{ $errors->first('password_confirmation') }}</p>
                             </div>
                         </div>
 

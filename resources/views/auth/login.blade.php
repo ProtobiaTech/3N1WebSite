@@ -11,31 +11,22 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{ trans('user.Login') }}</div>
                 <div class="panel-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
                     <form class="form-horizontal" role="form" method="POST" autocomplete="on" action="{{ url('/auth/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                             <label class="col-md-4 control-label">{{ trans('user.E-Mail') }}</label>
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <p class="help-block help-block-error {{ $errors->has('email') ? '' : 'hidden' }}">{{ $errors->first('email') }}</p>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                             <label class="col-md-4 control-label">{{ trans('user.Password') }}</label>
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
+                                <p class="help-block help-block-error {{ $errors->has('password') ? '' : 'hidden' }}">{{ $errors->first('password') }}</p>
                             </div>
                         </div>
 
@@ -43,7 +34,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> {{ trans('user.Remember Me') }}
+                                        <input type="checkbox" name="remember" checked> {{ trans('user.Remember Me') }}
                                     </label>
                                 </div>
                             </div>

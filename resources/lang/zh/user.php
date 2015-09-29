@@ -8,6 +8,7 @@ return [
     'E-Mail'    =>  '邮箱',
     'Password'    =>  '密码',
     'Confirm Password'    =>  '重复密码',
+    'Confirm password'    =>  '重复密码',
     'Remember Me'    =>  '记住我',
     'Forgot Your Password?'    =>  '忘记密码？',
     'Phone'                     =>      '手机',
