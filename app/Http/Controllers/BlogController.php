@@ -73,6 +73,11 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title'         =>  'required|max:255|min:4|unique:' . $this->Blog->getTable(),
+            'body'          =>  'required|min:25',
+            'category_id'   =>  'required|integer',
+        ]);
         $this->Blog->title          =   $request->input('title');
         $this->Blog->category_id    =   $request->input('category_id');
         $this->Blog->body           =   $request->input('body');
@@ -124,6 +129,11 @@ class BlogController extends Controller
      */
     public function update($id, Request $request)
     {
+        $this->validate($request, [
+            'title'         =>  'required|max:255|min:4|unique:' . $this->Blog->getTable(),
+            'body'          =>  'required|min:25',
+            'category_id'   =>  'required|integer',
+        ]);
         $Blog = $this->Blog->findOrFail($id);
         $Blog->title        =   $request->input('title');
         $Blog->category_id  =   $request->input('category_id');

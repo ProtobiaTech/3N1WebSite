@@ -35,7 +35,7 @@
                                         <optgroup label="{{ $nodeCategory->name }}">
                                             @if ($nodeCategory->childCategorys->count())
                                                 @foreach ($nodeCategory->childCategorys as $node)
-                                                    <option {{ old('node_id') == $node->id ? 'selected' : '' }} value="{{ $node->id }}">{{ $node->name }}</option>
+                                                    <option {{ $topic->category_id == $node->id ? 'selected' : '' }} value="{{ $node->id }}">{{ $node->name }}</option>
                                                 @endforeach
                                             @else
                                                 <option disabled>{{ trans('topic.Non Nodes') }}</option>
