@@ -69,7 +69,7 @@ class Topic extends Content
             $categoryId = Category::findOrFail(Input::get('category_id'))->childCategorys->modelKeys();
             return $this->builder = $this->builder->where('category_id', '=', Input::get('category_id'))->orWhereIn('category_id', $categoryId);
         } else {
-            return $this->builder;
+            return $this->builder->where('type_id', Content::TYPE_TOPIC);
         }
     }
 
