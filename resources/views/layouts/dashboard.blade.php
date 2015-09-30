@@ -27,7 +27,7 @@
 <!-- Header -->
 <nav id="header" class="container">
     <h1>
-        <a href=""><i class="fa fa-dashboard"></i> {{ trans('app.Dashboard') }}</a>
+        <a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('app.Dashboard') }}</a>
         <small><a href="{{ route('home') }}">{{ trans('app.Frontend') }}</a></small>
     </h1>
     <ul class="nav nav-pills pull-right">

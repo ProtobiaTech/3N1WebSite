@@ -71,5 +71,11 @@ return [
 
 
     '3N1WebSite'        =>  '3N1WebSite',
-    'Quickly build a bbs/blog/cms web site'       =>          '快速搭建一个 论坛/博客/内容管理 网站'
+    'Quickly build a bbs/blog/cms web site'       =>          '快速搭建一个 论坛/博客/内容管理 网站',
+
+
+    // dashboard
+    'CallBoard'         =>          '公告牌',
+    'Effective'         =>          '运营',
+
 ];
