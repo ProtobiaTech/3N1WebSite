@@ -28,9 +28,9 @@ class CreateUsersTable extends Migration
         // 管理员用户
         App\User::create([
             'id'    =>  1,
-            'email' =>  'admin@admin.local',
+            'email' =>  'admin@3n1website.local',
             'name'  =>  'admin',
-            'password'  =>  bcrypt('admin'),
+            'password'  =>  bcrypt('3n1website'),
         ]);
     }
 
