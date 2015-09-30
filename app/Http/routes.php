@@ -18,7 +18,7 @@ Route::get('home', 'HomeController@index');
 // images
 Route::get('images/avatars/{fileName?}', function($fileName)
 {
-    $path = storage_path() . '/app/images/avatars/' . '/' . $fileName;
+    $path = storage_path() . '/app/images/avatars/' . $fileName;
     if (!File::exists($path)) {
         $path = storage_path() . '/app/images/avatars/default.jpg';
     }
