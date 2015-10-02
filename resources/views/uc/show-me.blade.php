@@ -45,6 +45,9 @@ use App\Notice;
                         </div>
                     </div>
                 </div>
+
+                <!-- -->
+                @include('uc.snippet-releases')
             </div>
 
             <div class="col-sm-3">

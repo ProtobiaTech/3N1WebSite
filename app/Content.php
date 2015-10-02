@@ -202,9 +202,13 @@ class Content extends D4lModel
     /**
      * Get route
      */
-    public function getAppointRoute($route, $id)
+    public function getAppointRoute($route, $id = null)
     {
-        $ret = $this->getType($id);
+        if ($id) {
+            $ret = $this->getType($id);
+        } else {
+            $ret = $this->getType($this->id);
+        }
         return $ret . '.' . $route;
     }
 }

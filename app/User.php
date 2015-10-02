@@ -36,6 +36,46 @@ class User extends D4lModel implements AuthenticatableContract, CanResetPassword
     protected $hidden = ['password', 'remember_token'];
 
     /**
+     * The related all Topics
+     */
+    public function topics()
+    {
+         return $this->hasMany('App\Topic', 'user_id')->where('type_id', Content::TYPE_TOPIC);
+    }
+
+    /**
+     * The related all Topics
+     */
+    public function blogs()
+    {
+         return $this->hasMany('App\Topic', 'user_id')->where('type_id', Content::TYPE_BLOS);
+    }
+
+    /**
+     * The related all Topics
+     */
+    public function articles()
+    {
+         return $this->hasMany('App\Topic', 'user_id')->where('type_id', Content::TYPE_ARTICLE);
+    }
+
+    /**
+     * The related all Comments
+     */
+    public function comments()
+    {
+         return $this->hasMany('App\Comment', 'user_id');
+    }
+
+    /**
+     * The related all Topics
+     */
+    public function replies()
+    {
+         return $this->hasMany('App\Reply', 'user_id');
+    }
+
+    /**
      * The related all Notices
      */
     public function allNotices()

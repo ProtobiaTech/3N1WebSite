@@ -100,7 +100,17 @@ class ReplyController extends Controller
      */
     public function show($id)
     {
-        //
+        $Reply = Reply::find($id);
+        if ($Reply->type_id == Reply::TYPE_CONTENT) {
+            $Content = $Reply->entity;
+            $route = route($Content->getAppointRoute('show'), $Content->id) . '#section-content-replys';
+        } else if ($Reply->type_id == Reply::TYPE_COMMENT) {
+            $Comment = $Reply->entity;
+            $Content = $Comment->entity;
+            $route = route($Content->getAppointRoute('show'), $Content->id) . '#section-comment-replys-' . $Comment->id;
+        }
+
+        return redirect()->to($route);
     }
 
     /**

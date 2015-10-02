@@ -6,7 +6,7 @@
     </div>
     <div class="panel-body">
         <div class="pic text-center">
-            <img class="img-rounded" src="{{ Auth::user()->avatar }}">
+            <img class="img-rounded" src="{{ $user->avatar }}">
         </div>
 
         <p class="text-center">
