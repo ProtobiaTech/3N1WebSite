@@ -29,6 +29,7 @@ Route::get('images/avatars/{fileName?}', function($fileName)
 
 // Controller
 Route::controllers([
+    'install' => 'InstallController',
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);

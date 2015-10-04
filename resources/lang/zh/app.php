@@ -84,4 +84,9 @@ return [
     'QQ Group'          =>          'QQ群',
     'Dev Talk'          =>          '开发交流',
     'Email'             =>          '邮箱',
+
+
+    // Install
+    'Prev step'         =>          '上一步',
+    'Next step'         =>          '下一步',
 ];
