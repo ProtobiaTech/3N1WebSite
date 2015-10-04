@@ -112,7 +112,16 @@ class AuthController extends Controller
             return view('auth.authenticate');
         }
 
-        session()->flash('redirectPath', isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : route('home'));
+        if (
+            isset($_SERVER['HTTP_REFERER'])
+            &&
+            strstr($_SERVER['HTTP_REFERER'], '//') !== '//' . $_SERVER['HTTP_HOST'] . '/auth/login'
+            &&
+            strstr($_SERVER['HTTP_REFERER'], '//') !== '//' . $_SERVER['HTTP_HOST'] . '/auth/register'
+        ) {
+            session()->put('redirectPath', $_SERVER['HTTP_REFERER']);
+        }
+
         return view('auth.login');
     }
 
