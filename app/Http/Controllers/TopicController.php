@@ -124,7 +124,7 @@ class TopicController extends Controller
         $this->validate($request, [
             'title'         =>  'required|max:255|min:4',
             'body'          =>  'required|min:25',
-            'category_id'   =>  'required|integer',
+            'node_id'       =>  'required|integer',
         ]);
 
         $Topic = $this->Topic->findOrFail($id);
