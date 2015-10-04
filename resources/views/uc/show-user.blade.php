@@ -27,11 +27,14 @@
                             </span>
                         </div>
 
-                        <div class="body items-notice" style="height:300px">
+                        <div class="body items-notice" style="">
                             <div class="item-notice">{{ trans('app.No data') }}</div>
                         </div>
                     </div>
                 </div>
+
+                <!-- -->
+                @include('uc.snippet-releases')
             </div>
 
         </div>

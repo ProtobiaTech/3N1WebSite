@@ -31,6 +31,17 @@
                     {{ $blogCount }}
                 </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    3N1WebSite
+                </div>
+                <div class="panel-body">
+                    {{ trans('app.QQ Group') }}: 242078519 <br>
+                    {{ trans('app.Dev Talk') }}: <a href="https://gitter.im/dev4living/3N1WebSite" target="_blank">Gitter</a> <br>
+                    {{ trans('app.Email') }}: supgeek.rod(AT)gmail.com <br>
+                </div>
+            </div>
         </div>
 
         <!-- Topic -->
@@ -40,6 +51,11 @@
                     {{ trans('app.Launch') }}
                 </div>
                 <div class="panel-body">
+                    {{ trans('app.System update') }}: <a>{{ trans('app.Disabled') }}</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+                    {{ trans('app.Database backup') }}: <a>{{ trans('app.Disabled') }}</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+                    {{ trans('app.Feedback') }}: <a>{{ trans('app.Disabled') }}</a>
                 </div>
             </div>
 
