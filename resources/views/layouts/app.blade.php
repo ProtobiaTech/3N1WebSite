@@ -175,7 +175,5 @@
 {!! $systemDatas->site_analytic !!}
 </div>
 
-<!-- Scripts -->
-<script src="{{ asset('bowerAssets/jquery-pjax/jquery.pjax.js') }}"></script>
 </body>
 </html>
