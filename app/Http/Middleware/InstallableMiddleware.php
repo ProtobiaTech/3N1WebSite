@@ -16,8 +16,8 @@ class InstallableMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (file_exists(base_path() . '/.env')) {
-            Flash::error(trans('install.remove .env files, and then install'));
+        if (file_exists(base_path() . '/install.lock')) {
+            Flash::error(trans('install.remove /install.lock files, and then install'));
             return redirect()->route('home');
         }
 

@@ -8,3 +8,5 @@ tests/_output/*
 
 public/assets/style/*
 public/images
+install.lock
+

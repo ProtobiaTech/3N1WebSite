@@ -15,5 +15,5 @@ return [
     'Database user'             =>              '数据库用户',
     'Database password'         =>              '数据库密码',
 
-    'remove .env files, and then install'   =>  '删除.env文件，然后再进行安装',
+    'remove /install.lock files, and then install'   =>  '删除/install.lock文件，然后再进行安装',
 ];

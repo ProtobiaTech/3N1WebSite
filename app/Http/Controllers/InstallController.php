@@ -118,6 +118,9 @@ class InstallController extends Controller
         // Initialize data
         $this->initializeData($request);
 
+        // install.lock
+        touch(base_path() . '/install.lock');
+
         return redirect()->route('home');
     }
 
