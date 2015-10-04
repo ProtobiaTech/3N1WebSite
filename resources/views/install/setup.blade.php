@@ -14,7 +14,7 @@
                 <div class="form-group {{ $errors->first('db_host') ? 'has-error' : '' }}">
                     <label class="col-sm-3 control-label">{{ trans('install.Database host') }}</label>
                     <div class="col-sm-9">
-                        <input type="text" name="db_host" class="form-control" value="{{ old('db_host') }}">
+                        <input type="text" name="db_host" class="form-control" value="{{ old('db_host') ? old('db_host') : 'localhost' }}">
                         <span class="help-block help-block-error {{ $errors->first('db_host') ? '' : 'hidden' }}">{{ $errors->first('db_host') }}</span>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="form-group {{ $errors->first('db_name') ? 'has-error' : '' }}">
                     <label class="col-sm-3 control-label">{{ trans('install.Database name') }}</label>
                     <div class="col-sm-9">
-                        <input type="text" name="db_name" class="form-control" value="{{ old('db_name') }}">
+                        <input type="text" name="db_name" class="form-control" value="{{ old('db_name') ? old('db_name') : '3n1website' }}">
                         <span class="help-block help-block-error {{ $errors->first('db_name') ? '' : 'hidden' }}">{{ $errors->first('db_name') }}</span>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                 <div class="form-group {{ $errors->first('db_user') ? 'has-error' : '' }}">
                     <label class="col-sm-3 control-label">{{ trans('install.Database user') }}</label>
                     <div class="col-sm-9">
-                        <input type="text" name="db_user" class="form-control" value="{{ old('db_user') }}">
+                        <input type="text" name="db_user" class="form-control" value="{{ old('db_user') ? old('db_user') : 'root' }}">
                         <span class="help-block help-block-error {{ $errors->first('db_user') ? '' : 'hidden' }}">{{ $errors->first('db_user') }}</span>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="form-group {{ $errors->first('site_name') ? 'has-error' : '' }}">
                     <label class="col-sm-3 control-label">{{ trans('system.Site name') }}</label>
                     <div class="col-sm-9">
-                        <input type="text" name="site_name" class="form-control" value="{{ old('site_name') }}">
+                        <input type="text" name="site_name" class="form-control" value="{{ old('site_name') ? old('site_name') : 'New 3N1WebSite' }}">
                         <span class="help-block help-block-error {{ $errors->first('site_name') ? '' : 'hidden' }}">{{ $errors->first('site_name') }}</span>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="form-group {{ $errors->first('site_slogan') ? 'has-error' : '' }}">
                     <label class="col-sm-3 control-label">{{ trans('system.Site slogan') }}</label>
                     <div class="col-sm-9">
-                        <input type="text" name="site_slogan" class="form-control" value="{{ old('site_slogan') }}">
+                        <input type="text" name="site_slogan" class="form-control" value="{{ old('site_slogan') ? old('site_slogan') : 'Use Blog/BBS/CMS to build your website' }}">
                         <span class="help-block help-block-error {{ $errors->first('site_slogan') ? '' : 'hidden' }}">{{ $errors->first('site_slogan') }}</span>
                     </div>
                 </div>
@@ -66,10 +66,37 @@
                 <div class="form-group {{ $errors->first('contact_email') ? 'has-error' : '' }}">
                     <label class="col-sm-3 control-label">{{ trans('system.Contact email') }}</label>
                     <div class="col-sm-9">
-                        <input type="text" name="contact_email" class="form-control" value="{{ old('contact_email') }}">
+                        <input type="email" name="contact_email" class="form-control" value="{{ old('contact_email') }}">
                         <span class="help-block help-block-error {{ $errors->first('contact_email') ? '' : 'hidden' }}">{{ $errors->first('contact_email') }}</span>
                     </div>
                 </div>
+
+                <hr>
+
+                <div class="form-group {{ $errors->first('admin_name') ? 'has-error' : '' }}">
+                    <label class="col-sm-3 control-label">{{ trans('system.Admin name') }}</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="admin_name" class="form-control" value="{{ old('admin_name') ? old('admin_name') : 'admin' }}">
+                        <span class="help-block help-block-error {{ $errors->first('admin_name') ? '' : 'hidden' }}">{{ $errors->first('admin_name') }}</span>
+                    </div>
+                </div>
+
+                <div class="form-group {{ $errors->first('admin_email') ? 'has-error' : '' }}">
+                    <label class="col-sm-3 control-label">{{ trans('system.Admin email') }}</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="admin_email" class="form-control" value="{{ old('admin_email') ? old('admin_email') : 'admin@3n1website.local' }}">
+                        <span class="help-block help-block-error {{ $errors->first('admin_email') ? '' : 'hidden' }}">{{ $errors->first('admin_email') }}</span>
+                    </div>
+                </div>
+
+                <div class="form-group {{ $errors->first('admin_password') ? 'has-error' : '' }}">
+                    <label class="col-sm-3 control-label">{{ trans('system.Admin password') }}</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="admin_password" class="form-control" value="{{ old('admin_password') ? old('admin_password') : '3n1website' }}">
+                        <span class="help-block help-block-error {{ $errors->first('admin_password') ? '' : 'hidden' }}">{{ $errors->first('admin_password') }}</span>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">

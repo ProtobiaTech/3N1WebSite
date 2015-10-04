@@ -25,8 +25,11 @@
                         <td><?php echo phpversion(); ?></td>
                         <td>5.5.9</td>
                         <td>
-                            <i class="fa fa-check text-success"></i>
-                            <i class="fa fa-times text-danger"></i>
+                            @if (strnatcmp(phpversion(), '5.5.9') >= 0)
+                                <i class="fa fa-check text-success"></i>
+                            @else
+                                <i class="fa fa-times text-danger"></i>
+                            @endif
                         </td>
                     </tr>
                     <tr>
@@ -35,11 +38,12 @@
                         <td>yes</td>
                         <td>
                             <i class="fa fa-check text-success"></i>
-                            <i class="fa fa-times text-danger"></i>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <br>
+            <br>
 
             <a href="{{ url('install/setup') }}" class="btn btn-primary btn-block">{{ trans('app.Next step') }}</a>
             <a href="" class="btn btn-default btn-block">{{ trans('install.Recheck') }}</a>

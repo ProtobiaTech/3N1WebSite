@@ -8,9 +8,21 @@ use App\Http\Controllers\Controller;
 
 use PDO, PDOException, Exception;
 use Flash, DB, App, Artisan;
+use App\System, App\User;
 
 class InstallController extends Controller
 {
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        // @todo
+        if (file_exists(base_path() . '/.env')) {
+            // abort(403);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +58,10 @@ class InstallController extends Controller
             'db_password'   =>      '',
             'site_name'     =>      'required',
             'site_slogan'   =>      'required',
-            'contact_email' =>      'required',
+            'contact_email' =>      'required|email',
+            'admin_name'    =>      'required',
+            'admin_email'   =>      'required|email',
+            'admin_password'=>      'required|min:6',
         ]);
 
         // Try mysql connect
@@ -70,7 +85,7 @@ class InstallController extends Controller
     }
 
     /**
-     *
+     * Install
      */
     protected function install($request)
     {
@@ -103,7 +118,30 @@ class InstallController extends Controller
             return redirect()->back()->withErrors($messageBag);
         }
 
+        // Initialize data
+        $this->initializeData($request);
+
         return redirect()->route('home');
+    }
+
+    /**
+     * Initialize data
+     */
+    protected function initializeData($request)
+    {
+        // System
+        $System = System::find(1);
+        $System->site_name = $request->get('site_name');
+        $System->site_slogan = $request->get('site_slogan');
+        $System->contact_email = $request->get('contact_email');
+        $System->save();
+
+        // User
+        $User = User::find(1);
+        $User->name = $request->get('admin_name');
+        $User->email = $request->get('admin_email');
+        $User->password = bcrypt($request->get('admin_password'));
+        $User->save();
     }
 
 }
