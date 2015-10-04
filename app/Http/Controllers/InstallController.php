@@ -17,10 +17,7 @@ class InstallController extends Controller
      */
     public function __construct()
     {
-        // @todo
-        if (file_exists(base_path() . '/.env')) {
-            // abort(403);
-        }
+        $this->middleware('installable', ['except' => []]);
     }
 
     /**
