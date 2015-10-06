@@ -17,9 +17,6 @@ class InstallController extends Controller
      */
     public function __construct()
     {
-        // set maximum execution time
-        set_time_limit(300);
-
         $this->middleware('installable', ['except' => []]);
     }
 
@@ -91,10 +88,13 @@ class InstallController extends Controller
     {
         // Modify env
         $dir = base_path();
+        $ret = true;
+        /*
         $ret = copy(
             $dir . '/.env.example',
             $dir . '/.env'
         );
+        */
 
         if ($ret) {
             modifyEnv([

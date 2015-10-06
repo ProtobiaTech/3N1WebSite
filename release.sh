@@ -54,6 +54,8 @@ find . -type f -exec chmod 0644 {} +
 chmod 0775 .
 chmod -R 0775 storage
 chmod g+w . bootstrap/cache
+cp .env.example .env
+chmod g+w .env
 zip -r 3n1website-master.zip ./
 
 
