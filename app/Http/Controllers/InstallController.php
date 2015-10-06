@@ -17,6 +17,9 @@ class InstallController extends Controller
      */
     public function __construct()
     {
+        // set maximum execution time
+        set_time_limit(300);
+
         $this->middleware('installable', ['except' => []]);
     }
 
