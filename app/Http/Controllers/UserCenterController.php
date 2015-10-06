@@ -102,6 +102,8 @@ class UserCenterController extends Controller
         if (Input::get('id') == Auth::user()->id) {
             $assign['user'] = User::findOrFail(Input::get('id'));
             return view('uc.edit-avatar', $assign);
+        } else {
+             return redirect()->route('uc.edit-avatar', ['id' => Auth::user()->id]);
         }
     }
 
