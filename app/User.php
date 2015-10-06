@@ -40,7 +40,7 @@ class User extends D4lModel implements AuthenticatableContract, CanResetPassword
      */
     public function topics()
     {
-         return $this->hasMany('App\Topic', 'user_id')->where('type_id', Content::TYPE_TOPIC);
+         return $this->hasMany('App\Content', 'user_id')->where('type_id', Content::TYPE_TOPIC);
     }
 
     /**
@@ -48,7 +48,7 @@ class User extends D4lModel implements AuthenticatableContract, CanResetPassword
      */
     public function blogs()
     {
-         return $this->hasMany('App\Topic', 'user_id')->where('type_id', Content::TYPE_BLOS);
+         return $this->hasMany('App\Content', 'user_id')->where('type_id', Content::TYPE_BLOS);
     }
 
     /**
@@ -56,7 +56,7 @@ class User extends D4lModel implements AuthenticatableContract, CanResetPassword
      */
     public function articles()
     {
-         return $this->hasMany('App\Topic', 'user_id')->where('type_id', Content::TYPE_ARTICLE);
+         return $this->hasMany('App\Content', 'user_id')->where('type_id', Content::TYPE_ARTICLE);
     }
 
     /**

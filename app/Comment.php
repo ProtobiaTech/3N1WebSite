@@ -7,6 +7,27 @@ use Validator;
 class Comment extends D4lModel
 {
     /**
+     * type_id column
+     *
+     * @var int
+     */
+    const TYPE_TOPIC = 1;
+
+    /**
+     * type_id column
+     *
+     * @var int
+     */
+    const TYPE_BLOG = 2;
+
+    /**
+     * type_id column
+     *
+     * @var int
+     */
+    const TYPE_ARTICLE = 3;
+
+    /**
      * The table name
      *
      * @var string
