@@ -1,14 +1,26 @@
-<div>
-    <span>介绍</span>
-    <ul class="list-unstyled">
-        <li><a href="/docs">简要介绍</a></li>
-    </ul>
+<div class="items-docnav" style="position:fixed">
+    <div class="item-docnav">
+        <span>介绍</span>
+        <ul class="list-unstyled">
+            <li><a href="/docs">简要介绍</a></li>
+        </ul>
+    </div>
+
+    <div class="item-docnav">
+        <span>安装</span>
+        <ul class="list-unstyled">
+            <li><a href="/docs/install">简易安装</a></li>
+            <li><a href="/docs/install-developer">开发者安装</a></li>
+        </ul>
+    </div>
 </div>
 
-<div>
-    <span>安装</span>
-    <ul class="list-unstyled">
-        <li><a href="/docs/install">简易安装</a></li>
-        <li><a href="/docs/install-developer">开发者安装</a></li>
-    </ul>
-</div>
+<style>
+.item-docnav {
+    margin-bottom: 20px;
+}
+
+.item-docnav span {
+    font-size: 16px;
+}
+</style>
