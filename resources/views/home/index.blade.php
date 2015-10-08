@@ -29,7 +29,7 @@
         </div>
 
         <!-- Blog -->
-        <div class="col-sm-6">
+        <div class="col-sm-6 hidden-sm hidden-xs">
             <div class="panel panel-default" id="section-items-article">
                 <div class="panel-heading">
                     {{ trans('blog.Hot Blog') }}
