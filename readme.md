@@ -6,6 +6,8 @@ Use Blog/BBS/CMS to build your website
 [3n1website](http://3n1website.dev4living.com)
 
 ## Install
+
+### Notices
 1. DocumentRoot /public
 2. Required PHP >= 5.5.9
 
