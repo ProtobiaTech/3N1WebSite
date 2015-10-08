@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+
+<body>
+    {% include header.html %}
+
+    <section class="container content-section" style="margin-top:70px; margin-bottom:30px;">
+        <div class="row">
+            <div class="col-sm-2">
+                {% include docs-nav.html %}
+            </div>
+
+            <div class="col-sm-10">
+                {{ content | markdownify }}
+            </div>
+        </div>
+    </section>
+
+    {% include footer.html %}
+    {% include js.html %}
+</body>
+</html>

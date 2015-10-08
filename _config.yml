@@ -16,7 +16,9 @@ description: > # "Write an awesome description for your new site here.
 # ----------------------- #
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+    extensions: ["autolink", "tables", "strikethrough"]
 permalink: pretty
 
 # ----------------------- #
