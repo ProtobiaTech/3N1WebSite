@@ -8,5 +8,6 @@ tests/_output/*
 
 public/assets/style/*
 public/images
+public/simditor-upload
 install.lock
 

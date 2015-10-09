@@ -20,7 +20,7 @@
                         </span>
                     </div>
                     <div class="content" style="word-break:normal; word-wrap:break-word; ">
-                        {!! nl2br($comment->body) !!}
+                        {!! $comment->body !!}
                     </div>
                 </div>
 

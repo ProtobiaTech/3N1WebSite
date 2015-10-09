@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
-            <div class="panel panel-default section-panel-topic">
+            <div class="panel panel-default section-panel-topic section-panel-content">
                 <div class="panel-heading topic-header">
                     @if (Auth::check() && Auth::user()->hasRole('admin'))
                     <div class="btn-group pull-right">
@@ -38,7 +38,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                    {!! nl2br($topic->body) !!}
+                    {!! $topic->body !!}
 
                     <hr>
                     <div class="" style="margin-top:-10px">
