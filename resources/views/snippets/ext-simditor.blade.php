@@ -16,16 +16,18 @@
 
 <!-- simditor -->
 <script>
-var toolbar = [
-    'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|',
-    'indent', 'outdent', 'alignment', 'ol', 'ul', 'blockquote', 'table', 'hr', '|',
-    'link', 'image', 'code', '|',
-    'emoji', 'markdown',
-];
+if (typeof simditorToolbar === 'undefined') {
+    var simditorToolbar = [
+        'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|',
+        'indent', 'outdent', 'alignment', 'ol', 'ul', 'blockquote', 'table', 'hr', '|',
+        'link', 'image', 'code', '|',
+        'emoji', 'markdown',
+    ];
+}
 
 var editor = new Simditor({
     textarea: $('#simditor'),
-    toolbar: toolbar,
+    toolbar: simditorToolbar,
     emoji: {
         imagePath: '/bowerAssets/simditor-emoji/images/emoji/'
     },

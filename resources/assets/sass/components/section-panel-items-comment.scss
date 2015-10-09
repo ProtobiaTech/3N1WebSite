@@ -45,6 +45,12 @@
 
                 .content {
                     margin-top: 5px;
+
+                    img {
+                        max-width: 100%;
+                        width: auto;
+                        height: auto;
+                    }
                 }
             }
         }
