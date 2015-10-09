@@ -6,9 +6,12 @@
   "ignore": [],
   "dependencies": {
     "bootstrap": "~ 3",
+    "cropbox": "hongkhanh/cropbox#~0.1.0",
     "fontawesome": "~ 4",
     "jquery-pjax": "latest",
     "nprogress": "~ 0.2",
-    "cropbox": "hongkhanh/cropbox#~0.1.0"
+    "simditor": "~2.3.0",
+    "simditor-emoji": "~2.1.0",
+    "simditor-markdown": "~1.1.0"
   }
 }

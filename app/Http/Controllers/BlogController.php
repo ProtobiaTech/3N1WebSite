@@ -74,7 +74,7 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'         =>  'required|max:255|min:4|unique:' . $this->Blog->getTable(),
+            'title'         =>  'required|max:60|min:4|unique:' . $this->Blog->getTable(),
             'body'          =>  'required|min:25',
             'category_id'   =>  'required|integer',
         ]);
@@ -130,7 +130,7 @@ class BlogController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-            'title'         =>  'required|max:255|min:4|unique:' . $this->Blog->getTable(),
+            'title'         =>  'required|max:60|min:4',
             'body'          =>  'required|min:25',
             'category_id'   =>  'required|integer',
         ]);

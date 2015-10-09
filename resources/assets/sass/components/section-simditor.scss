@@ -1,0 +1,25 @@
+/**
+ * less style
+ *
+ * 页面
+ */
+
+//
+// 
+// ------------------------------
+.simditor {
+    .simditor-wrapper {
+        .simditor-toolbar ul li .toolbar-item {
+            width: 32px;
+        }
+
+        .simditor-body {
+            img {
+                max-width: 100%;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+}

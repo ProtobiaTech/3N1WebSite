@@ -15,6 +15,9 @@
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', 'HomeController@index');
 
+// simditor img upload
+Route::post('/simditor-img-upload', ['as' => 'other.simditor-img-upload', 'uses' => 'OtherController@simditorImgUpload']);
+
 // images
 Route::get('images/avatars/{fileName?}', function($fileName)
 {

@@ -50,7 +50,7 @@
                         <div class="form-group {{ $errors->first('body') ? 'has-error' : '' }}">
                             <label class="col-sm-2 control-label text-right">{{ trans('topic.Body') }}</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
+                                <textarea id="simditor" class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
                                 <p class="help-block help-block-error">{{ $errors->first('body') }}</p>
                             </div>
                         </div>
@@ -72,6 +72,8 @@
     </div>
 </div>
 
+<!-- simditor -->
+@include('snippets.ext-simditor')
 
 <!-- Category  -->
 @include('snippets.panel-category')

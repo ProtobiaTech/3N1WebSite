@@ -20,7 +20,7 @@
                         </span>
                     </div>
                     <div class="content" style="word-break:normal; word-wrap:break-word; ">
-                        {!! nl2br($comment->body) !!}
+                        {!! $comment->body !!}
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
             {!! Form::open(['url' => route('comment.store', ['id' => $entity->id]), 'class' => '']) !!}
                 {!! Form::hidden('entity_id', $entity->id) !!}
                 <div class="form-group {{ $errors->has('body') ? 'has-error' : ''  }}">
-                    {!! Form::textarea('body', '', ['class' => 'form-control', 'rows' => '3']) !!}
+                    {!! Form::textarea('body', '', ['class' => 'form-control', 'rows' => '3', 'id' => 'simditor']) !!}
                     <p class="help-block help-block-error">{{ $errors->first('body') }}</p>
                 </div>
                 <div class="from-group text-right">
@@ -53,3 +53,8 @@
         @endif
     </div>
 </div>
+
+<!-- simditor -->
+@include('snippets.ext-simditor')
+<script>
+</script>
