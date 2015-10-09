@@ -23,7 +23,7 @@ class HomeController extends Controller {
      */
     public function index()
     {
-        if (!session('productDisplayed')) {
+        if (false && !session('productDisplayed')) {
             return $this->product();
         } else {
             $assign['topics'] = (new Topic)->getHotContents(10);

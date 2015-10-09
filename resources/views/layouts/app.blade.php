@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 <li class="{{ Request::is('3n1website*') ? 'active' : '' }}">
-                    <a href="{{ url('/3n1website') }}">
+                    <a href="http://3ws.dev4living.com" target="_blank">
                         <i class="visible-xs-inline fa fa-cubes">&nbsp;</i>
                         3N1WebSite
                     </a>
