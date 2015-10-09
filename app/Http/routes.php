@@ -17,10 +17,13 @@ Route::get('home', 'HomeController@index');
 Route::get('3n1website', 'HomeController@product');
 
 
+// simditor img upload
+Route::post('/simditor-img-upload', ['as' => 'other.simditor-img-upload', 'uses' => 'OtherController@simditorImgUpload']);
+
 // images
 Route::get('images/avatars/{fileName?}', function($fileName)
 {
-    $path = storage_path() . '/app/images/avatars/' . '/' . $fileName;
+    $path = storage_path() . '/app/images/avatars/' . $fileName;
     if (!File::exists($path)) {
         $path = storage_path() . '/app/images/avatars/default.jpg';
     }
@@ -31,6 +34,7 @@ Route::get('images/avatars/{fileName?}', function($fileName)
 
 // Controller
 Route::controllers([
+    'install' => 'InstallController',
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);

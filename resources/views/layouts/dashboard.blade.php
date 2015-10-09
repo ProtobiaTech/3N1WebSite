@@ -15,6 +15,7 @@
     <link href="{{ asset('/bowerAssets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/style/style-dashboard.min.css') }}" rel="stylesheet">
     <script src="{{ asset('bowerAssets/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bowerAssets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +28,7 @@
 <!-- Header -->
 <nav id="header" class="container">
     <h1>
-        <a href=""><i class="fa fa-dashboard"></i> {{ trans('app.Dashboard') }}</a>
+        <a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('app.Dashboard') }}</a>
         <small><a href="{{ route('home') }}">{{ trans('app.Frontend') }}</a></small>
     </h1>
     <ul class="nav nav-pills pull-right">
@@ -80,23 +81,6 @@
     </div>
 </footer>
 
-<!-- Scripts -->
-<script src="{{ asset('bowerAssets/jquery-pjax/jquery.pjax.js') }}"></script>
-<script src="{{ asset('bowerAssets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('bowerAssets/nprogress/nprogress.js') }}"></script>
-<link href="{{ asset('bowerAssets/nprogress/nprogress.css') }}" rel="stylesheet">
-<!-- NProgress -->
-<script>
-$(document).ready(function() {
-    $(document).pjax('a', 'body');
-
-    $(document).on('pjax:start', function() {
-        NProgress.start();
-    });
-    $(document).on('pjax:end', function() {
-        NProgress.done();
-    });
-});
 </script>
 </body>
 </html>

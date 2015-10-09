@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
-            <div class="panel panel-default">
+            <div class="panel panel-default section-panel-content">
                 <div class="panel-heading">
                     <span>{{ $blog->title }}</span>
                     @if (Auth::check() && Auth::user()->hasRole('admin'))
@@ -23,7 +23,7 @@
                     @endif
                 </div>
                 <div class="panel-body">
-                    {!! nl2br($blog->body) !!}
+                    {!! $blog->body !!}
 
                     <hr>
                     <div class="" style="margin-top:-10px">

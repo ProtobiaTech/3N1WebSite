@@ -16,7 +16,7 @@ class UserCenterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => []]);
+        $this->middleware('auth', ['except' => ['show']]);
     }
 
     /**
@@ -59,7 +59,7 @@ class UserCenterController extends Controller
     public function show($id, Request $request)
     {
         $assign['user'] = User::findOrFail($id);
-        if ($id == Auth::user()->id) {
+        if (Auth::check() && $id == Auth::user()->id) {
             // Notices
             if (!$request->has('notice') || $request->get('notice') === 'uncheck') {
                 $assign['notices'] = Auth::user()->uncheckNotices;
@@ -102,6 +102,8 @@ class UserCenterController extends Controller
         if (Input::get('id') == Auth::user()->id) {
             $assign['user'] = User::findOrFail(Input::get('id'));
             return view('uc.edit-avatar', $assign);
+        } else {
+             return redirect()->route('uc.edit-avatar', ['id' => Auth::user()->id]);
         }
     }
 

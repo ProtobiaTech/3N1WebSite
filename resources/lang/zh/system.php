@@ -11,4 +11,15 @@ return [
     'Site analytic'             =>      '网站分析代码',
     'Site IPC'                  =>      '网站IPC',
     'Contact email'             =>      '联系邮箱',
+
+
+    'System version'            =>      '系统版本',
+    'Theme'                     =>      '主题',
+    'Theme change'              =>      '更换',
+    'Fault-Hazard-Proposal'     =>      '故障-隐患-建议',
+
+
+    'Admin name'                =>      '管理员名',
+    'Admin email'               =>      '管理员邮箱',
+    'Admin password'            =>      '管理员密码',
 ];

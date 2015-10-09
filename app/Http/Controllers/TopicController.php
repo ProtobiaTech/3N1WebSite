@@ -61,8 +61,8 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'         =>  'required|max:255|min:4|unique:' . $this->Topic->getTable(),
-            'body'          =>  'required|min:6',
+            'title'         =>  'required|max:60|min:4|unique:' . $this->Topic->getTable(),
+            'body'          =>  'required|min:25',
             'category_id'   =>  'required|integer',
         ]);
         $this->Topic->title     =   Input::get('title');
@@ -105,6 +105,10 @@ class TopicController extends Controller
     public function edit($id)
     {
         $assign['topic'] = $this->Topic->findOrFail($id);
+        if (!is_null(old('title'))) $assign['topic']->title = old('title');
+        if (!is_null(old('body'))) $assign['topic']->body = old('body');
+        if (!is_null(old('category_id'))) $assign['topic']->category_id = old('category_id');
+
         $assign['nodeCategorys'] = with(new Category)->getTopic4TopCategorys();
         return view('topic.edit', $assign);
     }
@@ -117,6 +121,12 @@ class TopicController extends Controller
      */
     public function update($id, Request $request)
     {
+        $this->validate($request, [
+            'title'         =>  'required|max:60|min:4',
+            'body'          =>  'required|min:25',
+            'node_id'       =>  'required|integer',
+        ]);
+
         $Topic = $this->Topic->findOrFail($id);
         $Topic->title       =   $request->input('title');
         $Topic->category_id =   $request->input('node_id');

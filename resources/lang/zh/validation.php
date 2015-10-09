@@ -21,6 +21,7 @@ return [
     ],
 
     'required'             => ':attribute 字段必须有值',
+    'confirmed'            => ':attribute 字段需要正确重复键入',
 
 ];
 

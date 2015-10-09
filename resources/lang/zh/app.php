@@ -68,8 +68,25 @@ return [
     'Authority to operate'      =>      '没有操作权限',
     'Successful operation'      =>      '操作成功',
     'Operation failed'          =>      '操作失败',
+    'Disabled'                  =>      '不可用',
 
 
     '3N1WebSite'        =>  '3N1WebSite',
-    'Quickly build a bbs/blog/cms web site'       =>          '快速搭建一个 论坛/博客/内容管理 网站'
+    'Quickly build a bbs/blog/cms web site'       =>          '快速搭建一个 论坛/博客/内容管理 网站',
+
+
+    // dashboard
+    'CallBoard'         =>          '公告牌',
+    'Effective'         =>          '运营',
+    'Database backup'   =>          '数据库备份',
+    'System update'     =>          '系统更新',
+    'Feedback'          =>          '反馈',
+    'QQ Group'          =>          'QQ群',
+    'Dev Talk'          =>          '开发交流',
+    'Email'             =>          '邮箱',
+
+
+    // Install
+    'Prev step'         =>          '上一步',
+    'Next step'         =>          '下一步',
 ];

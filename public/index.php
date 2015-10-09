@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Install
+ */
+if (!file_exists(__DIR__ . '/../install.lock') && substr($_SERVER['REQUEST_URI'], 0, 8) !== '/install') {
+    $header = 'Location: http://' . $_SERVER['HTTP_HOST'] . '/install';
+    header($header);
+    exit;
+}
+
+/**
  * Laravel - A PHP Framework For Web Artisans
  *
  * @package  Laravel

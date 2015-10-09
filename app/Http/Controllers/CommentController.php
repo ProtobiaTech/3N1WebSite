@@ -82,7 +82,11 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        $Comment = Comment::findOrFail($id);
+        $Content = $Comment->entity;
+        $route = route($Content->getAppointRoute('show'), $Content->id) . '#section-comment-' . $Comment->id;
+
+        return redirect()->to($route);
     }
 
     /**
