@@ -61,7 +61,7 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'         =>  'required|max:255|min:4|unique:' . $this->Topic->getTable(),
+            'title'         =>  'required|max:60|min:4|unique:' . $this->Topic->getTable(),
             'body'          =>  'required|min:25',
             'category_id'   =>  'required|integer',
         ]);
@@ -122,7 +122,7 @@ class TopicController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-            'title'         =>  'required|max:255|min:4',
+            'title'         =>  'required|max:60|min:4',
             'body'          =>  'required|min:25',
             'node_id'       =>  'required|integer',
         ]);
