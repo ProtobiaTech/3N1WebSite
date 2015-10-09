@@ -88,10 +88,13 @@ class InstallController extends Controller
     {
         // Modify env
         $dir = base_path();
+        $ret = true;
+        /*
         $ret = copy(
             $dir . '/.env.example',
             $dir . '/.env'
         );
+        */
 
         if ($ret) {
             modifyEnv([
