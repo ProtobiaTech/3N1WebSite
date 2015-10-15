@@ -63,7 +63,10 @@ class ArticleController extends Controller
     {
         $assign['articles'] = $this->Article->getHotContents(8);
         $assign['categorys'] = (new Category)->getArticle4TopCategorys(4);
-        $assign['targetType'] = Article::TYPE_TARGET;
+        $assign['targetType'] = [
+            'iframe'    =>      Article::TYPE_TARGET_IFRAME,
+            'origin'    =>      Article::TYPE_TARGET_ORIGIN,
+        ];
         return view('article.create-target', $assign);
     }
 
@@ -159,9 +162,9 @@ class ArticleController extends Controller
             $href = 'http://' . $href;
         }
 
-        if ($article->target_type == Article::TYPE_TARGET['origin']) {
+        if ($article->target_type == Article::TYPE_TARGET_ORIGIN) {
             return redirect()->to($href);
-        } else if ($article->target_type == Article::TYPE_TARGET['iframe']) {
+        } else if ($article->target_type == Article::TYPE_TARGET_IFRAME) {
             $article->href = $href;
             $siteName = \App\System::getSystemDatas()->site_name;
             return view('layouts.frame', ['content' => $article, 'siteName' => $siteName]);
