@@ -12,4 +12,7 @@ return [
     'Title'             =>      '标题',
     'Category'          =>      '分类',
     'Body'              =>      '内容',
+
+    'Target type'       =>      '链接类型',
+    'Href'              =>      '链接目标',
 ];

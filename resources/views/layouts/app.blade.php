@@ -97,6 +97,7 @@
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
                                 <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
                                 <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                                <li><a href="{{ url('/article/create-target') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Outside Article') }}</a></li>
                             @endif
                         </ul>
                     </li>
@@ -125,6 +126,7 @@
                 @if (Auth::check() && Auth::user()->hasRole('admin'))
                     <li><a href="{{ url('/blog/create') }}"><i class="fa fa-leaf"></i> &nbsp;{{ trans('app.Create Blog') }}</a></li>
                     <li><a href="{{ url('/article/create') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Article') }}</a></li>
+                    <li><a href="{{ url('/article/create-target') }}"><i class="fa fa-file-text"></i> &nbsp;{{ trans('app.Create Outside Article') }}</a></li>
                 @endif
             </ul>
         </div>

@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ trans('article.Edit Article') }} - @parent
+    {{ trans('article.Create Article') }} - @parent
 @endsection
 
 @section('content')
-<!-- Article -->
+<!-- article -->
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('article.Edit Article') }}
+                    {{ trans('app.Create Outside Article') }}
                     <div class="pull-right shortcut">
-                        <a href="{{ route('article.show', ['id' => $article->id]) }}">{{ trans('app.Back') }}</a>
+                        <a href="{{ route('article.index') }}">{{ trans('app.Back') }}</a>
                     </div>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['url' => route('article.update', ['id' => $article->id]), 'class' => 'form-horizontal', 'method' => 'put']) !!}
+                    {!! Form::open(['url' => route('article.store-target'), 'class' => 'form-horizontal']) !!}
                         <div class="form-group {{ $errors->first('title') ? 'has-error' : '' }}">
                             <label class="col-sm-2 control-label text-right">{{ trans('article.Title') }}</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title" value="{{ $article->title }}">
+                                <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                                 <p class="help-block help-block-error">{{ $errors->first('title') }}</p>
                             </div>
                         </div>
@@ -32,24 +32,36 @@
                                 <select class="form-control" name="category_id">
                                     <option disabled selected>{{ trans('app.please select') }}</option>
                                     @foreach ($categorys as $category)
-                                        <option {{ $article->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option {{ old('category_id') == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <p class="help-block help-block-error">{{ $errors->first('category_id') }}</p>
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->first('body') ? 'has-error' : '' }}">
-                            <label class="col-sm-2 control-label text-right">{{ trans('article.Body') }}</label>
+                        <div class="form-group {{ $errors->first('target_type') ? 'has-error' : '' }}">
+                            <label class="col-sm-2 control-label text-right">{{ trans('article.Target type') }}</label>
                             <div class="col-sm-9">
-                                <textarea id="simditor"  class="form-control" name="body" rows="15">{{ $article->body }}</textarea>
-                                <p class="help-block help-block-error">{{ $errors->first('body') }}</p>
+                                <select class="form-control" name="target_type">
+                                    @foreach ($targetType as $name => $value)
+                                        <option {{ old('target_type') == $value ? 'selected' : '' }} value="{{ $value }}">{{ $name }}</option>
+                                    @endforeach
+                                </select>
+                                <p class="help-block help-block-error">{{ $errors->first('target_type') }}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->first('href') ? 'has-error' : '' }}">
+                            <label class="col-sm-2 control-label text-right">{{ trans('article.Href') }}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="href" value="{{ old('href') }}">
+                                <p class="help-block help-block-error">{{ $errors->first('href') }}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-9">
-                                {!! Form::submit(trans('article.Update Article'), ['class' => 'btn btn-default btn-block']) !!}
+                                {!! Form::submit(trans('article.Create Article'), ['class' => 'btn btn-default btn-block']) !!}
                             </div>
                         </div>
                     {!! Form::close() !!}

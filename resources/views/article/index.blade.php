@@ -29,7 +29,7 @@
                                 </span>
                                 {{ $article->created_at->format('m-d') }}
                             </span>
-                            <a href="{{ url('/article', ['id' => $article->id]) }}">{{ $article->title }}</a>
+                            <a href="{{ url('/article', ['id' => $article->id]) }}" target="{{ $article->target_type ? '_blank' : '_self' }}">{{ $article->title }}</a>
                         </li>
                         @endforeach
                     </ul>
@@ -62,7 +62,7 @@
                                     <span class="pull-right" style="color:#777">
                                         {{ $article->created_at->format('m-d') }}
                                     </span>
-                                    <a href="{{ url('/article', ['id' => $article->id]) }}">{{ $article->title }}</a>
+                                    <a href="{{ url('/article', ['id' => $article->id]) }}" target="{{ $article->target_type ? '_blank' : '_self' }}">{{ $article->title }}</a>
                                 </li>
                             @endforeach
                         </ul>

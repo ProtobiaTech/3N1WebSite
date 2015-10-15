@@ -20,7 +20,7 @@
                         @foreach ($articles as $article)
                             <li>
                                 <span class="pull-right">{{ $article->created_at->format('m-d') }}</span>
-                                <a href="{{ route('article.show', ['id' => $article->id]) }}">{{ $article->title }}</a>
+                                <a href="{{ route('article.show', ['id' => $article->id]) }}" target="{{ $article->target_type ? '_blank' : '_self' }}">{{ $article->title }}</a>
                             </li>
                         @endforeach
                     </ul>
