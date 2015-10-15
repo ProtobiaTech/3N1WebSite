@@ -153,6 +153,7 @@ return [
         'Illuminate\Html\HtmlServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        Mews\Purifier\PurifierServiceProvider::class,
     ],
 
     /*
@@ -207,6 +208,7 @@ return [
         'HTML'      => 'Illuminate\Html\HtmlFacade',
         'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
         'Image'     => 'Intervention\Image\Facades\Image',
+        'Purifier'  => Mews\Purifier\Facades\Purifier::class,
     ],
 
 ];

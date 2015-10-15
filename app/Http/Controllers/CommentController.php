@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, Auth, Flash;
+use Illuminate\Http\Request;
+use Auth, Flash, Purifier;
 use App\User, App\Category, App\Content, App\Topic, App\Comment;
 
 class CommentController extends Controller
@@ -50,6 +51,9 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         // validate
         $this->validate($request, [
             'entity_id' =>  ['required', 'integer'],

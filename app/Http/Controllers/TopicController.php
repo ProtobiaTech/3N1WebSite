@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Auth, Input, Redirect, Flash;
+
+use Auth, Input, Redirect, Flash, Purifier;
 use App\User, App\Topic, App\Category;
 
 class TopicController extends Controller
@@ -60,6 +61,9 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         $this->validate($request, [
             'title'         =>  'required|max:60|min:4|unique:' . $this->Topic->getTable(),
             'body'          =>  'required|min:25',
@@ -121,6 +125,9 @@ class TopicController extends Controller
      */
     public function update($id, Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         $this->validate($request, [
             'title'         =>  'required|max:60|min:4',
             'body'          =>  'required|min:25',

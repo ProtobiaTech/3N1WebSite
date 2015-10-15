@@ -11,7 +11,8 @@
         "illuminate/html" : "~5.0",
         "dev4living/lean-cloud-sms-php": "dev-master",
         "guzzlehttp/guzzle": "~5.0",
-        "intervention/image": "~2.3"
+        "intervention/image": "~2.3",
+        "mews/purifier": "~2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~2.0",

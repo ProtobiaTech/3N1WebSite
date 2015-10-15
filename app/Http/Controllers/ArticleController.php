@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Flash, Auth;
+use Flash, Auth, Purifier;
 use App\Article, App\Category, App\User;
 
 class ArticleController extends Controller
@@ -74,6 +74,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         $this->validate($request, [
             'title'         =>  'required|max:60|min:4|unique:' . $this->Article->getTable(),
             'body'          =>  'required|min:25',
@@ -186,6 +189,9 @@ class ArticleController extends Controller
      */
     public function update($id, Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         $this->validate($request, [
             'title'         =>  'required|max:60|min:4',
             'body'          =>  'required|min:25',

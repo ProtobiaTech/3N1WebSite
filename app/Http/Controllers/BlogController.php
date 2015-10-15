@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Auth, Flash, Input;
 
+use Auth, Flash, Input, Purifier;
 use App\Blog, App\Category;
 
 class BlogController extends Controller
@@ -73,6 +73,9 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         $this->validate($request, [
             'title'         =>  'required|max:60|min:4|unique:' . $this->Blog->getTable(),
             'body'          =>  'required|min:25',
@@ -129,6 +132,9 @@ class BlogController extends Controller
      */
     public function update($id, Request $request)
     {
+        $request->merge([
+            'body'  =>  Purifier::clean($request->input('body'), 'ugc'),
+        ]);
         $this->validate($request, [
             'title'         =>  'required|max:60|min:4',
             'body'          =>  'required|min:25',
