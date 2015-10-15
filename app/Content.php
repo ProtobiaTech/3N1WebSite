@@ -36,6 +36,11 @@ class Content extends D4lModel
      */
     const TYPE_ARTICLE = 3;
 
+    const TYPE_TARGET = [
+        'iframe' =>  1,
+        'origin' =>  2,
+    ];
+
     /**
      * Builder
      */

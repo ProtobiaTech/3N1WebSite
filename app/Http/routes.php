@@ -18,6 +18,13 @@ Route::get('home', 'HomeController@index');
 // simditor img upload
 Route::post('/simditor-img-upload', ['as' => 'other.simditor-img-upload', 'uses' => 'OtherController@simditorImgUpload']);
 
+// frame-header
+Route::get('/frame-header', function  () {
+    $systemDatas = \App\System::getSystemDatas();
+    $siteName = $systemDatas->site_name;
+    return view('layouts.frame-header', ['siteName' => $siteName]);
+});
+
 // images
 Route::get('images/avatars/{fileName?}', function($fileName)
 {
@@ -48,6 +55,9 @@ Route::group(['prefix' => 'uc',], function() {
 
 
 // Resource
+Route::get('article/create-target', ['as' => 'article.create-target', 'uses' => 'ArticleController@createTarget']);
+Route::post('article/store-target', ['as' => 'article.store-target', 'uses' => 'ArticleController@storeTarget']);
+
 Route::resource('uc', 'UserCenterController');
 Route::resource('notice', 'NoticeController');
 Route::resource('topic', 'TopicController');

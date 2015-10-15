@@ -19,6 +19,7 @@ return [
     'Create Topic'                  =>      '发布话题',
     'Create Blog'                   =>      '发布博文',
     'Create Article'                =>      '发布文章',
+    'Create Outside Article'        =>      '发布外链文章',
     'User Center'                   =>      '用户中心',
     'Dashboard'                     =>      '仪表盘',
     'Frontend'                      =>      '前台',
