@@ -37,5 +37,18 @@ var editor = new Simditor({
         params: {'_token': '{{ csrf_token() }}'},
         fileKey: 'img',
     },
+    breaks: true,
+});
+
+// markdown setting
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: true,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false
 });
 </script>
