@@ -5,6 +5,7 @@ Homestead.yaml
 .env
 
 tests/_output/*
+tests/_support/_generated/
 
 public/assets/style/*
 public/images
