@@ -143,7 +143,7 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'phone' => $data['phone'],
+            // 'phone' => $data['phone'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
