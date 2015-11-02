@@ -1,3 +1,6 @@
+Development has been suspended   
+开发工作暂停   
+
 Use Blog/BBS/CMS to build your website   
 构建一个 `博客` / `论坛` / `内容管理` 网站
 
