@@ -1,11 +1,10 @@
-Development has been suspended   
-开发工作暂停   
+Development has been suspended, Please pay attention to new projects [https://github.com/dev4living/hey-community](https://github.com/dev4living/hey-community)   
+开发工作暂停，请关注新项目 [https://github.com/dev4living/hey-community](https://github.com/dev4living/hey-community)   
 
 Use Blog/BBS/CMS to build your website   
 构建一个 `博客` / `论坛` / `内容管理` 网站
 
 ## Demo
-[dev4living](http://dev4living.com)   
 [3n1website](http://3n1website.dev4living.com)
 
 ## Install
@@ -13,10 +12,6 @@ Use Blog/BBS/CMS to build your website
 ### Notices
 1. DocumentRoot /public
 2. Required PHP >= 5.5.9
-
-### Simple
-
-Read [http://dev4living.com/article/13](http://dev4living.com/article/13)
 
 ### Advanced
 
